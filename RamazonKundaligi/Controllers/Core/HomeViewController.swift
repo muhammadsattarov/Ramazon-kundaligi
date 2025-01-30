@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
+    print("New branch")
   }
 }
 
