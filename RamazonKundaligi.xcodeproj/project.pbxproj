@@ -9,21 +9,59 @@
 /* Begin PBXBuildFile section */
 		CE72DEDC2D4378720080AFA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDB2D4378720080AFA2 /* AppDelegate.swift */; };
 		CE72DEDE2D4378720080AFA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDD2D4378720080AFA2 /* SceneDelegate.swift */; };
-		CE72DEE02D4378720080AFA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDF2D4378720080AFA2 /* ViewController.swift */; };
-		CE72DEE32D4378720080AFA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72DEE12D4378720080AFA2 /* Main.storyboard */; };
+		CE72DEE02D4378720080AFA2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDF2D4378720080AFA2 /* MainTabBarController.swift */; };
 		CE72DEE52D4378740080AFA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72DEE42D4378740080AFA2 /* Assets.xcassets */; };
 		CE72DEE82D4378740080AFA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72DEE62D4378740080AFA2 /* LaunchScreen.storyboard */; };
+		CE72DEF92D43798B0080AFA2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEF82D43798B0080AFA2 /* UIColor+Extension.swift */; };
+		CE72DEFC2D437BB60080AFA2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEFB2D437BB60080AFA2 /* HomeViewController.swift */; };
+		CE72DEFE2D437BF90080AFA2 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEFD2D437BF90080AFA2 /* CalendarViewController.swift */; };
+		CE72DF002D437C1C0080AFA2 /* SuraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEFF2D437C1C0080AFA2 /* SuraViewController.swift */; };
+		CE72DF022D437C260080AFA2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DF012D437C260080AFA2 /* SettingsViewController.swift */; };
+		CE72DF052D437D190080AFA2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DF042D437D190080AFA2 /* HomeView.swift */; };
+		CE72DF082D437DE30080AFA2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DF072D437DE30080AFA2 /* HomeTableViewCell.swift */; };
+		CE72DF0A2D4388DB0080AFA2 /* UIlabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DF092D4388DB0080AFA2 /* UIlabel+Extension.swift */; };
+		CE72DF0C2D438E8D0080AFA2 /* HomeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DF0B2D438E8D0080AFA2 /* HomeTableHeaderView.swift */; };
+		CE72DF0E2D438EC00080AFA2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DF0D2D438EC00080AFA2 /* Constants.swift */; };
+		CE72DF112D4398D80080AFA2 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DF102D4398D80080AFA2 /* OnboardingViewController.swift */; };
+		CE72DF132D440AC10080AFA2 /* NextPrayerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DF122D440AC10080AFA2 /* NextPrayerTimeView.swift */; };
+		CE72DF152D440D250080AFA2 /* TodayDateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DF142D440D250080AFA2 /* TodayDateHeaderView.swift */; };
+		CEC5B7702D4A235D00E4402F /* SuraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B76F2D4A235D00E4402F /* SuraView.swift */; };
+		CEC5B7732D4A23C300E4402F /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B7722D4A23C300E4402F /* CalendarView.swift */; };
+		CEC5B7762D4A23E400E4402F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B7752D4A23E400E4402F /* SettingsView.swift */; };
+		CEC5B7792D4A247700E4402F /* SuraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B7782D4A247600E4402F /* SuraCollectionViewCell.swift */; };
+		CEC5B77C2D4A27E800E4402F /* SuraHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B77B2D4A27E800E4402F /* SuraHeaderView.swift */; };
+		CEC5B77E2D4A285700E4402F /* SuraHeaderTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B77D2D4A285700E4402F /* SuraHeaderTitleView.swift */; };
+		CEC5B7802D4A363200E4402F /* SuraCollectionTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B77F2D4A363100E4402F /* SuraCollectionTitles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE72DED82D4378720080AFA2 /* RamazonKundaligi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RamazonKundaligi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72DEDB2D4378720080AFA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72DEDD2D4378720080AFA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE72DEDF2D4378720080AFA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE72DEE22D4378720080AFA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE72DEDF2D4378720080AFA2 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CE72DEE42D4378740080AFA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE72DEE72D4378740080AFA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE72DEE92D4378740080AFA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE72DEF82D43798B0080AFA2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		CE72DEFB2D437BB60080AFA2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CE72DEFD2D437BF90080AFA2 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		CE72DEFF2D437C1C0080AFA2 /* SuraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraViewController.swift; sourceTree = "<group>"; };
+		CE72DF012D437C260080AFA2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CE72DF042D437D190080AFA2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CE72DF072D437DE30080AFA2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		CE72DF092D4388DB0080AFA2 /* UIlabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIlabel+Extension.swift"; sourceTree = "<group>"; };
+		CE72DF0B2D438E8D0080AFA2 /* HomeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableHeaderView.swift; sourceTree = "<group>"; };
+		CE72DF0D2D438EC00080AFA2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CE72DF102D4398D80080AFA2 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		CE72DF122D440AC10080AFA2 /* NextPrayerTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextPrayerTimeView.swift; sourceTree = "<group>"; };
+		CE72DF142D440D250080AFA2 /* TodayDateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDateHeaderView.swift; sourceTree = "<group>"; };
+		CEC5B76F2D4A235D00E4402F /* SuraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraView.swift; sourceTree = "<group>"; };
+		CEC5B7722D4A23C300E4402F /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		CEC5B7752D4A23E400E4402F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CEC5B7782D4A247600E4402F /* SuraCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEC5B77B2D4A27E800E4402F /* SuraHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraHeaderView.swift; sourceTree = "<group>"; };
+		CEC5B77D2D4A285700E4402F /* SuraHeaderTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraHeaderTitleView.swift; sourceTree = "<group>"; };
+		CEC5B77F2D4A363100E4402F /* SuraCollectionTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraCollectionTitles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +94,170 @@
 		CE72DEDA2D4378720080AFA2 /* RamazonKundaligi */ = {
 			isa = PBXGroup;
 			children = (
-				CE72DEDB2D4378720080AFA2 /* AppDelegate.swift */,
-				CE72DEDD2D4378720080AFA2 /* SceneDelegate.swift */,
-				CE72DEDF2D4378720080AFA2 /* ViewController.swift */,
-				CE72DEE12D4378720080AFA2 /* Main.storyboard */,
-				CE72DEE42D4378740080AFA2 /* Assets.xcassets */,
-				CE72DEE62D4378740080AFA2 /* LaunchScreen.storyboard */,
+				CE72DEF42D43794C0080AFA2 /* Resources */,
+				CE72DEF32D4379450080AFA2 /* Models */,
+				CE72DEF22D43793E0080AFA2 /* ViewModels */,
+				CE72DEF12D4379180080AFA2 /* Views */,
+				CE72DEF02D43790C0080AFA2 /* Controllers */,
+				CE72DEEF2D4378FF0080AFA2 /* Application */,
 				CE72DEE92D4378740080AFA2 /* Info.plist */,
 			);
 			path = RamazonKundaligi;
+			sourceTree = "<group>";
+		};
+		CE72DEEF2D4378FF0080AFA2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CE72DEDB2D4378720080AFA2 /* AppDelegate.swift */,
+				CE72DEDD2D4378720080AFA2 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		CE72DEF02D43790C0080AFA2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE72DF0F2D4398CB0080AFA2 /* Onboarding */,
+				CE72DEF72D4379780080AFA2 /* General */,
+				CE72DEF62D4379730080AFA2 /* Core */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CE72DEF12D4379180080AFA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE72DF032D437D0F0080AFA2 /* Home */,
+				CEC5B7712D4A23B600E4402F /* Calendar */,
+				CEC5B76E2D4A234A00E4402F /* Sura */,
+				CEC5B7742D4A23D700E4402F /* Settings */,
+				CE72DEFA2D437B9D0080AFA2 /* LaunchScreen */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE72DEF22D43793E0080AFA2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CE72DEF32D4379450080AFA2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CEC5B77F2D4A363100E4402F /* SuraCollectionTitles.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE72DEF42D43794C0080AFA2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE72DEE42D4378740080AFA2 /* Assets.xcassets */,
+				CE72DEF52D43795F0080AFA2 /* Extensions */,
+				CE72DF0D2D438EC00080AFA2 /* Constants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CE72DEF52D43795F0080AFA2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE72DEF82D43798B0080AFA2 /* UIColor+Extension.swift */,
+				CE72DF092D4388DB0080AFA2 /* UIlabel+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE72DEF62D4379730080AFA2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CE72DEDF2D4378720080AFA2 /* MainTabBarController.swift */,
+				CE72DEFB2D437BB60080AFA2 /* HomeViewController.swift */,
+				CE72DEFD2D437BF90080AFA2 /* CalendarViewController.swift */,
+				CE72DEFF2D437C1C0080AFA2 /* SuraViewController.swift */,
+				CE72DF012D437C260080AFA2 /* SettingsViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		CE72DEF72D4379780080AFA2 /* General */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		CE72DEFA2D437B9D0080AFA2 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CE72DEE62D4378740080AFA2 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		CE72DF032D437D0F0080AFA2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CE72DF062D437DD70080AFA2 /* Cell */,
+				CE72DF0B2D438E8D0080AFA2 /* HomeTableHeaderView.swift */,
+				CE72DF122D440AC10080AFA2 /* NextPrayerTimeView.swift */,
+				CE72DF142D440D250080AFA2 /* TodayDateHeaderView.swift */,
+				CE72DF042D437D190080AFA2 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CE72DF062D437DD70080AFA2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE72DF072D437DE30080AFA2 /* HomeTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CE72DF0F2D4398CB0080AFA2 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CE72DF102D4398D80080AFA2 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		CEC5B76E2D4A234A00E4402F /* Sura */ = {
+			isa = PBXGroup;
+			children = (
+				CEC5B7772D4A246700E4402F /* Cell */,
+				CEC5B76F2D4A235D00E4402F /* SuraView.swift */,
+				CEC5B77B2D4A27E800E4402F /* SuraHeaderView.swift */,
+				CEC5B77D2D4A285700E4402F /* SuraHeaderTitleView.swift */,
+			);
+			path = Sura;
+			sourceTree = "<group>";
+		};
+		CEC5B7712D4A23B600E4402F /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CEC5B7722D4A23C300E4402F /* CalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		CEC5B7742D4A23D700E4402F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CEC5B7752D4A23E400E4402F /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		CEC5B7772D4A246700E4402F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CEC5B7782D4A247600E4402F /* SuraCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +320,6 @@
 			files = (
 				CE72DEE82D4378740080AFA2 /* LaunchScreen.storyboard in Resources */,
 				CE72DEE52D4378740080AFA2 /* Assets.xcassets in Resources */,
-				CE72DEE32D4378720080AFA2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +330,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE72DEE02D4378720080AFA2 /* ViewController.swift in Sources */,
+				CE72DF052D437D190080AFA2 /* HomeView.swift in Sources */,
+				CE72DEFE2D437BF90080AFA2 /* CalendarViewController.swift in Sources */,
+				CE72DEFC2D437BB60080AFA2 /* HomeViewController.swift in Sources */,
+				CE72DEE02D4378720080AFA2 /* MainTabBarController.swift in Sources */,
+				CEC5B7702D4A235D00E4402F /* SuraView.swift in Sources */,
 				CE72DEDC2D4378720080AFA2 /* AppDelegate.swift in Sources */,
+				CE72DF0C2D438E8D0080AFA2 /* HomeTableHeaderView.swift in Sources */,
 				CE72DEDE2D4378720080AFA2 /* SceneDelegate.swift in Sources */,
+				CE72DF152D440D250080AFA2 /* TodayDateHeaderView.swift in Sources */,
+				CEC5B7792D4A247700E4402F /* SuraCollectionViewCell.swift in Sources */,
+				CE72DF0E2D438EC00080AFA2 /* Constants.swift in Sources */,
+				CEC5B77E2D4A285700E4402F /* SuraHeaderTitleView.swift in Sources */,
+				CE72DF0A2D4388DB0080AFA2 /* UIlabel+Extension.swift in Sources */,
+				CEC5B77C2D4A27E800E4402F /* SuraHeaderView.swift in Sources */,
+				CE72DF082D437DE30080AFA2 /* HomeTableViewCell.swift in Sources */,
+				CEC5B7802D4A363200E4402F /* SuraCollectionTitles.swift in Sources */,
+				CE72DF002D437C1C0080AFA2 /* SuraViewController.swift in Sources */,
+				CE72DF112D4398D80080AFA2 /* OnboardingViewController.swift in Sources */,
+				CEC5B7732D4A23C300E4402F /* CalendarView.swift in Sources */,
+				CE72DEF92D43798B0080AFA2 /* UIColor+Extension.swift in Sources */,
+				CE72DF132D440AC10080AFA2 /* NextPrayerTimeView.swift in Sources */,
+				CE72DF022D437C260080AFA2 /* SettingsViewController.swift in Sources */,
+				CEC5B7762D4A23E400E4402F /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE72DEE12D4378720080AFA2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE72DEE22D4378720080AFA2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE72DEE62D4378740080AFA2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,7 +501,6 @@
 				INFOPLIST_FILE = RamazonKundaligi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,7 +528,6 @@
 				INFOPLIST_FILE = RamazonKundaligi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
