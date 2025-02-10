@@ -2,7 +2,7 @@
 
 import UIKit
 
-class CalendarView: UIView {
+class CalendarHeaderView: UIView {
 
 
   // MARK: - Init
@@ -19,7 +19,7 @@ class CalendarView: UIView {
 }
 
 // MARK: - Init
-private extension CalendarView {
+private extension CalendarHeaderView {
   func setup() {
 
   }
