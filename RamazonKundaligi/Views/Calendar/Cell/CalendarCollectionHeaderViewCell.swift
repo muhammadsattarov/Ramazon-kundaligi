@@ -12,27 +12,24 @@ class CalendarCollectionHeaderViewCell: UICollectionViewCell {
     return $0
   }(UIImageView())
 
-  private lazy var titleLabel = UILabel(
-    text: "Namoz Vaqtlari",
-    font: .systemFont(ofSize: 14, weight: .regular),
-    textColor: .goldColor,
-    textAlignment: .center
-  )
-
-  private lazy var baseStack: UIStackView = {
+  private lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.axis = .vertical
-    $0.spacing = 3
+    $0.font = .systemFont(ofSize: 14, weight: .regular)
+    $0.textColor = .goldColor
+    $0.textAlignment = .center
     return $0
-  }(UIStackView(arrangedSubviews: [iconImage, titleLabel]))
+  }(UILabel())
 
   // MARK: - Init
-  init(image: String, title: String) {
-    super.init(frame: .zero)
-    iconImage.image = UIImage(systemName: image)
-    titleLabel.text = title
-//    setup()
-//    setConstraints()
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    setup()
+    setConstraints()
+  }
+
+  func configure(with model: CalendarHeaderModel) {
+    titleLabel.text = model.title
+    iconImage.image = UIImage(systemName: model.image)
   }
 
   required init?(coder: NSCoder) {
@@ -43,20 +40,22 @@ class CalendarCollectionHeaderViewCell: UICollectionViewCell {
 
 // MARK: - Setup UI and Constraints
 private extension CalendarCollectionHeaderViewCell {
-//  func setup() {
-//    self.backgroundColor = .clear
-//    self.addSubview(baseStack)
-//  }
-//
-//  func setConstraints() {
-//    NSLayoutConstraint.activate([
-//      iconImage.widthAnchor.constraint(lessThanOrEqualToConstant: 22),
-//      iconImage.heightAnchor.constraint(lessThanOrEqualToConstant: 22),
-//      
-//      baseStack.topAnchor.constraint(equalTo: self.topAnchor),
-//      baseStack.leftAnchor.constraint(equalTo: self.leftAnchor),
-//      baseStack.rightAnchor.constraint(equalTo: self.rightAnchor),
-//      baseStack.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-//    ])
-//  }
+  func setup() {
+    self.backgroundColor = .clear
+    
+    contentView.addSubview(iconImage)
+    contentView.addSubview(titleLabel)
+  }
+
+  func setConstraints() {
+    NSLayoutConstraint.activate([
+      iconImage.widthAnchor.constraint(lessThanOrEqualToConstant: 32),
+      iconImage.heightAnchor.constraint(lessThanOrEqualToConstant: 20),
+      iconImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+      iconImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -5),
+
+      titleLabel.topAnchor.constraint(equalTo: iconImage.bottomAnchor, constant: 5),
+      titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+    ])
+  }
 }

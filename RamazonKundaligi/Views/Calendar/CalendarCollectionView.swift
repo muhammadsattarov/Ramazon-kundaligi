@@ -1,6 +1,5 @@
 
 
-
 import UIKit
 
 class CalendarHeaderCollectionView: UIView {
@@ -9,6 +8,7 @@ class CalendarHeaderCollectionView: UIView {
     let layout = UICollectionViewFlowLayout()
     layout.minimumLineSpacing = 0
     layout.minimumInteritemSpacing = 0
+    layout.sectionInset = .init(top: 0, left: 10, bottom: 0, right: 10)
     let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
     collection.register(CalendarCollectionHeaderViewCell.self,
                         forCellWithReuseIdentifier: CalendarCollectionHeaderViewCell.reuseId)
@@ -67,56 +67,9 @@ extension CalendarHeaderCollectionView: UICollectionViewDelegate, UICollectionVi
 
 extension CalendarHeaderCollectionView: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-      let headerItemWidth: CGFloat = (collectionView.frame.width) / 4
+      let headerItemWidth: CGFloat = (collectionView.frame.width-20) / 4
       return CGSize(width: headerItemWidth,
                     height: 80)
   }
 }
 
-
-
-
-
-
-enum CalendarCollectionType: Int {
-  case header
-  case footer
-}
-
-struct CalendarModel {
-  let daynumber: Int
-  let dayName: String
-  let saharTime: String
-  let iftarTime: String
-
-  static func mockData() -> [CalendarModel] {
-    return [
-      .init(daynumber: 1, dayName: "2-mart", saharTime: "06:12", iftarTime: "18:21"),
-      .init(daynumber: 2, dayName: "3-mart", saharTime: "06:15", iftarTime: "18:24"),
-      .init(daynumber: 3, dayName: "4-mart", saharTime: "06:17", iftarTime: "18:26"),
-      .init(daynumber: 4, dayName: "5-mart", saharTime: "06:18", iftarTime: "18:28"),
-      .init(daynumber: 5, dayName: "6-mart", saharTime: "06:20", iftarTime: "18:29"),
-      .init(daynumber: 6, dayName: "7-mart", saharTime: "06:22", iftarTime: "18:31"),
-      .init(daynumber: 7, dayName: "8-mart", saharTime: "06:23", iftarTime: "18:35"),
-      .init(daynumber: 8, dayName: "9-mart", saharTime: "06:25", iftarTime: "18:36"),
-      .init(daynumber: 9, dayName: "10-mart", saharTime: "06:27", iftarTime: "18:38"),
-      .init(daynumber: 10, dayName: "11-mart", saharTime: "06:29", iftarTime: "18:39"),
-      .init(daynumber: 11, dayName: "12-mart", saharTime: "06:31", iftarTime: "18:41"),
-      .init(daynumber: 12, dayName: "13-mart", saharTime: "06:34", iftarTime: "18:42"),
-    ]
-  }
-}
-
-struct CalendarHeaderModel {
-  let title: String
-  let image: String
-
-  static func mockData() -> [CalendarHeaderModel] {
-    return [
-      .init(title: "Ramazon", image: "moon"),
-      .init(title: "Sana", image: "calendar"),
-      .init(title: "Saharlik", image: "moon.haze"),
-      .init(title: "Iftorlik", image: "sunset")
-    ]
-  }
-}
