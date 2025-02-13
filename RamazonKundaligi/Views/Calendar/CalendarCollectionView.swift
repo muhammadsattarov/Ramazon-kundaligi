@@ -68,8 +68,19 @@ extension CalendarHeaderCollectionView: UICollectionViewDelegate, UICollectionVi
 extension CalendarHeaderCollectionView: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       let headerItemWidth: CGFloat = (collectionView.frame.width-20) / 4
+    let itemHeight: CGFloat
+
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      itemHeight = 74
+    case .medium:
+      itemHeight = 80
+    case .large:
+      itemHeight = 80
+    }
       return CGSize(width: headerItemWidth,
-                    height: 80)
+                    height: itemHeight)
   }
 }
 

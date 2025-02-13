@@ -12,12 +12,13 @@ class CalendarHeaderView: UIView {
     return $0
   }(UIImageView())
 
-  private lazy var titleLabel = UILabel(
-    text: "Namoz Vaqtlari",
-    font: .systemFont(ofSize: 25, weight: .semibold),
-    textColor: .goldColor,
-    textAlignment: .center
-  )
+  private lazy var titleLabel: UILabel = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.text = "Namoz Vaqtlari"
+    $0.textColor = .goldColor
+    $0.textAlignment = .center
+  return $0
+  }(UILabel())
 
   private lazy var locatonImage: UIImageView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -99,25 +100,48 @@ private extension CalendarHeaderView {
   }
 
   func setConstraints() {
+
+    let labelFont: UIFont
+    let space: CGFloat = 20
+    let topImageSize: CGFloat
+    let iftorlikSaharlikStackFont: CGFloat
+
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      labelFont = .systemFont(ofSize: 25, weight: .semibold)
+      topImageSize = 170
+      iftorlikSaharlikStackFont = 65
+    case .medium:
+      labelFont = .systemFont(ofSize: 28, weight: .semibold)
+      topImageSize = 200
+      iftorlikSaharlikStackFont = 70
+    case .large:
+      labelFont = .systemFont(ofSize: 28, weight: .semibold)
+      topImageSize = 200
+      iftorlikSaharlikStackFont = 70
+    }
+    titleLabel.font = labelFont
+
     NSLayoutConstraint.activate([
       topImage.topAnchor.constraint(equalTo: self.topAnchor),
-      topImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
-      topImage.widthAnchor.constraint(equalToConstant: 95),
-      topImage.heightAnchor.constraint(equalToConstant: 200),
+      topImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -space),
+      topImage.widthAnchor.constraint(equalToConstant: topImageSize/2),
+      topImage.heightAnchor.constraint(equalToConstant: topImageSize),
 
       titleLabel.topAnchor.constraint(equalTo: topImage.centerYAnchor),
-      titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+      titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: space),
 
       locationStack.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
       locationStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
 
-      todayDateStack.topAnchor.constraint(equalTo: topImage.bottomAnchor, constant: 20),
+      todayDateStack.topAnchor.constraint(equalTo: topImage.bottomAnchor, constant: space),
       todayDateStack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
 
       iftorlikSaharlikStack.topAnchor.constraint(equalTo: todayDateStack.bottomAnchor, constant: 10),
-      iftorlikSaharlikStack.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
-      iftorlikSaharlikStack.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
-      iftorlikSaharlikStack.heightAnchor.constraint(equalToConstant: 70),
+      iftorlikSaharlikStack.leftAnchor.constraint(equalTo: self.leftAnchor, constant: space),
+      iftorlikSaharlikStack.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -space),
+      iftorlikSaharlikStack.heightAnchor.constraint(equalToConstant: iftorlikSaharlikStackFont),
       iftorlikSaharlikStack.bottomAnchor.constraint(equalTo: self.bottomAnchor)
     ])
   }

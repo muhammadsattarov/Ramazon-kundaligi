@@ -2,8 +2,24 @@
 
 import UIKit
 
-class SettingsView: UIView {
+class SettingsHeaderView: UIView {
 
+  private lazy var headerImage: UIImageView = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.image = UIImage(named: "settings_header")
+    $0.contentMode = .scaleToFill
+    return $0
+  }(UIImageView())
+
+  private lazy var titleLabel: UILabel = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.text = "Sozlamalar"
+    $0.textColor = .goldColor
+    $0.textAlignment = .center
+  return $0
+  }(UILabel())
+
+  private let versionView = SettingsHeaderVersionView()
 
   // MARK: - Init
   override init(frame: CGRect) {
@@ -19,12 +35,42 @@ class SettingsView: UIView {
 }
 
 // MARK: - Init
-private extension SettingsView {
+private extension SettingsHeaderView {
   func setup() {
-
+    self.backgroundColor = .clear
+    self.addSubview(headerImage)
+    self.addSubview(titleLabel)
+    self.addSubview(versionView)
+    versionView.translatesAutoresizingMaskIntoConstraints = false
   }
 
   func setConstraints() {
 
+    let titleFont: UIFont
+
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      titleFont = .systemFont(ofSize: 32, weight: .semibold)
+    case .medium:
+      titleFont = .systemFont(ofSize: 34, weight: .semibold)
+    case .large:
+      titleFont = .systemFont(ofSize: 35, weight: .semibold)
+    }
+    titleLabel.font = titleFont
+
+    NSLayoutConstraint.activate([
+      headerImage.topAnchor.constraint(equalTo: self.topAnchor),
+      headerImage.leftAnchor.constraint(equalTo: self.leftAnchor),
+      headerImage.rightAnchor.constraint(equalTo: self.rightAnchor),
+      headerImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+
+      versionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+      versionView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+      versionView.widthAnchor.constraint(equalToConstant: windowWidth/2),
+
+      titleLabel.bottomAnchor.constraint(equalTo: versionView.topAnchor, constant: -30),
+      titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+    ])
   }
 }

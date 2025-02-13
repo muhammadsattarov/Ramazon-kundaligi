@@ -4,21 +4,29 @@ import UIKit
 
 class NextPrayerTimeView: UIView {
 
-  private lazy var titleLabel = UILabel(
-    text: "Keyingi namoz",
-    font: .systemFont(ofSize: 15, weight: .medium),
-    textAlignment: .center
-  )
-  private lazy var timeLabel = UILabel(
-    text: "06:11",
-    font: .systemFont(ofSize: 22, weight: .medium),
-    textAlignment: .center
-  )
-  private lazy var prayerTimeNameLabel = UILabel(
-    text: "Bomdod",
-    font: .systemFont(ofSize: 15, weight: .medium),
-    textAlignment: .center
-  )
+  private lazy var titleLabel: UILabel = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.text = "Keyingi namoz"
+    $0.textAlignment = .center
+    $0.textColor = .white
+    return $0
+  }(UILabel())
+
+  private lazy var timeLabel: UILabel = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.text = "06:11"
+    $0.textAlignment = .center
+    $0.textColor = .white
+    return $0
+  }(UILabel())
+
+  private lazy var prayerTimeNameLabel: UILabel = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.text = "Bomdod"
+    $0.textAlignment = .center
+    $0.textColor = .white
+    return $0
+  }(UILabel())
 
   private lazy var vStack: UIStackView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -31,6 +39,7 @@ class NextPrayerTimeView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     setup()
+    setupLabelFonts() 
     setConstraints()
   }
 
@@ -46,6 +55,28 @@ private extension NextPrayerTimeView {
     self.layer.masksToBounds = true
     self.backgroundColor = .cellBackgrountColor
     self.addSubview(vStack)
+  }
+
+  func setupLabelFonts() {
+
+    let titleLabelFont: UIFont
+    let timeLabelFont: UIFont
+
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      titleLabelFont = .systemFont(ofSize: 14, weight: .medium)
+      timeLabelFont = .systemFont(ofSize: 20, weight: .medium)
+    case .medium:
+      titleLabelFont = .systemFont(ofSize: 15, weight: .medium)
+      timeLabelFont = .systemFont(ofSize: 22, weight: .medium)
+    case .large:
+      titleLabelFont = .systemFont(ofSize: 15, weight: .medium)
+      timeLabelFont = .systemFont(ofSize: 22, weight: .medium)
+    }
+    titleLabel.font = titleLabelFont
+    timeLabel.font = timeLabelFont
+    prayerTimeNameLabel.font = titleLabelFont
   }
 
   func setConstraints() {

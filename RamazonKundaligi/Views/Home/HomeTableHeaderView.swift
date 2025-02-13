@@ -7,7 +7,7 @@ class HomeTableHeaderView: UIView {
   private lazy var headerImage: UIImageView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.image = UIImage(named: "home_header")
-    $0.contentMode = .scaleToFill
+    $0.contentMode = .scaleAspectFit
     $0.clipsToBounds = true
     return $0
   }(UIImageView())
@@ -20,12 +20,13 @@ class HomeTableHeaderView: UIView {
     return $0
   }(UIImageView())
 
-  private lazy var titleLabel = UILabel(
-    text: "Namoz Vaqtlari",
-    font: .systemFont(ofSize: 30, weight: .bold),
-    textColor: .goldColor,
-    textAlignment: .center
-  )
+  private lazy var titleLabel: UILabel = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.text = "Namoz Vaqtlari"
+    $0.textColor = .goldColor
+    $0.textAlignment = .center
+    return $0
+  }(UILabel())
 
   private lazy var locatonImage: UIImageView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -71,6 +72,19 @@ private extension HomeTableHeaderView {
   }
 
   func setConstraints() {
+    let titleLabelFont: UIFont
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      titleLabelFont = .systemFont(ofSize: 26, weight: .semibold)
+    case .medium:
+      titleLabelFont = .systemFont(ofSize: 30, weight: .semibold)
+    case .large:
+      titleLabelFont = .systemFont(ofSize: 30, weight: .semibold)
+    }
+
+    titleLabel.font = titleLabelFont
+
     let space: CGFloat = 20
     let topSpace: CGFloat = windowHeight/7.8
     NSLayoutConstraint.activate([

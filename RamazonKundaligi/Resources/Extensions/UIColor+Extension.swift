@@ -1,9 +1,6 @@
-//
-//  UIColor+Extension.swift
-//  RamazonKundaligi
-//
-//  Created by user on 24/01/25.
-//
+
+
+
 
 import UIKit
 

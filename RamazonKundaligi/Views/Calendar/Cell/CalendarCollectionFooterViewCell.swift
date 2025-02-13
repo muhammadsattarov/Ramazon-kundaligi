@@ -8,31 +8,42 @@
    static let reuseId = "CalendarTableViewCell"
 
    // MARK: - Prperties
-   private lazy var numberLabel = UILabel(
-     text: "No",
-     font: .systemFont(ofSize: 15, weight: .medium),
-     textAlignment: .center
-   )
-   private lazy var dateNameLabel = UILabel(
-     text: "Day",
-     font: .systemFont(ofSize: 15, weight: .medium),
-     textAlignment: .center
-   )
-   private lazy var saharlikTimeimeLabel = UILabel(
-     text: "-/-",
-     font: .systemFont(ofSize: 15, weight: .medium),
-     textAlignment: .center
-   )
-   private lazy var iftorlikTimeimeLabel = UILabel(
-     text: "-/-",
-     font: .systemFont(ofSize: 15, weight: .medium),
-     textAlignment: .center
-   )
+   private lazy var numberLabel: UILabel = {
+     $0.translatesAutoresizingMaskIntoConstraints = false
+     $0.text = "No"
+     $0.textAlignment = .center
+     $0.textColor = .white
+   return $0
+   }(UILabel())
+
+   private lazy var dateNameLabel: UILabel = {
+     $0.translatesAutoresizingMaskIntoConstraints = false
+     $0.text = "Day"
+     $0.textAlignment = .center
+     $0.textColor = .white
+   return $0
+   }(UILabel())
+
+   private lazy var saharlikTimeimeLabel: UILabel = {
+     $0.translatesAutoresizingMaskIntoConstraints = false
+     $0.text = "-/-"
+     $0.textAlignment = .center
+     $0.textColor = .white
+   return $0
+   }(UILabel())
+
+   private lazy var iftorlikTimeimeLabel: UILabel = {
+     $0.translatesAutoresizingMaskIntoConstraints = false
+     $0.text = "-/-"
+     $0.textAlignment = .center
+     $0.textColor = .white
+   return $0
+   }(UILabel())
 
    private lazy var baseStack: UIStackView = {
      $0.translatesAutoresizingMaskIntoConstraints = false
      $0.axis = .horizontal
-     $0.spacing = 10
+     $0.spacing = 2
      $0.alignment = .center
      $0.distribution = .equalSpacing
      return $0
@@ -48,6 +59,7 @@
    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
      super.init(style: style, reuseIdentifier: reuseIdentifier)
      setup()
+     setupLabelFonts()
      setConstraints()
    }
 
@@ -72,8 +84,29 @@
      containerView.addSubview(baseStack)
    }
 
+   func setupLabelFonts() {
+
+     let labelFont: UIFont
+
+     let screenType = UIView.ScreenSizeType.current()
+     switch screenType {
+     case .small:
+       labelFont = .systemFont(ofSize: 15, weight: .medium)
+     case .medium:
+       labelFont = .systemFont(ofSize: 16, weight: .medium)
+     case .large:
+       labelFont = .systemFont(ofSize: 16, weight: .medium)
+     }
+     numberLabel.font = labelFont
+     dateNameLabel.font = labelFont
+     saharlikTimeimeLabel.font = labelFont
+     iftorlikTimeimeLabel.font = labelFont
+   }
+
    func setConstraints() {
-     let itemWidth: CGFloat = 70
+     
+     let itemWidth: CGFloat = 65
+
      NSLayoutConstraint.activate([
        containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
        containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor),

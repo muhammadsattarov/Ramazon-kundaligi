@@ -5,13 +5,13 @@ import UIKit
 class SuraCollectionViewCell: UICollectionViewCell {
   static let reuseId = "SuraCollectionViewCell"
   
-  private lazy var titleLabel = UILabel(
-    text: "Suralar",
-    font: .systemFont(ofSize: 22, weight: .medium),
-    textColor: .goldColor,
-    textAlignment: .center,
-    numberOfLines: 2
-  )
+  private lazy var titleLabel: UILabel = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.textColor = .goldColor
+    $0.textAlignment = .center
+    $0.numberOfLines = 2
+    return $0
+  }(UILabel())
 
   private lazy var imageOfView: UIImageView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -53,15 +53,37 @@ private extension SuraCollectionViewCell {
   }
 
   func setConstraints() {
-    let space: CGFloat = 20
+
+    let space: CGFloat
+    let titleFont: UIFont
+    let imageSize: CGFloat
+
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      space = 15
+      titleFont = .systemFont(ofSize: 20, weight: .medium)
+      imageSize = 23
+    case .medium:
+      space = 18
+      titleFont = .systemFont(ofSize: 21, weight: .medium)
+      imageSize = 25
+    case .large:
+      space = 20
+      titleFont = .systemFont(ofSize: 22, weight: .medium)
+      imageSize = 25
+    }
+
+    titleLabel.font = titleFont
+
     NSLayoutConstraint.activate([
       titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
       titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
 
       imageOfView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -space),
       imageOfView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -space),
-      imageOfView.widthAnchor.constraint(equalToConstant: 25),
-      imageOfView.heightAnchor.constraint(equalToConstant: 25)
+      imageOfView.widthAnchor.constraint(equalToConstant: imageSize),
+      imageOfView.heightAnchor.constraint(equalToConstant: imageSize)
     ])
   }
 }

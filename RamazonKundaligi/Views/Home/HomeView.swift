@@ -69,6 +69,15 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 50
+
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      return 44
+    case .medium:
+      return 48
+    case .large:
+      return 50
+    }
   }
 }

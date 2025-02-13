@@ -47,18 +47,33 @@ private extension HomeViewController {
 // MARK: - Constraints
 private extension HomeViewController {
   func setConstraints() {
+    let headerSpace: CGFloat
+    let tableSpace: CGFloat
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      headerSpace = 15
+      tableSpace = -18
+    case .medium:
+      headerSpace = 18
+      tableSpace = -15
+    case .large:
+      headerSpace = 20
+      tableSpace = -12
+    }
+
     NSLayoutConstraint.activate([
       headerView.topAnchor.constraint(equalTo: view.topAnchor),
       headerView.leftAnchor.constraint(equalTo: view.leftAnchor),
       headerView.rightAnchor.constraint(equalTo: view.rightAnchor),
       headerView.heightAnchor.constraint(equalToConstant: windowHeight/2.80),
 
-      homeHeaderStack.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
+      homeHeaderStack.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: headerSpace),
       homeHeaderStack.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
       homeHeaderStack.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
       homeHeaderStack.heightAnchor.constraint(equalToConstant: windowHeight/9.5),
 
-      homeView.topAnchor.constraint(equalTo: homeHeaderStack.bottomAnchor, constant: -12),
+      homeView.topAnchor.constraint(equalTo: homeHeaderStack.bottomAnchor, constant: tableSpace),
       homeView.leftAnchor.constraint(equalTo: view.leftAnchor),
       homeView.rightAnchor.constraint(equalTo: view.rightAnchor),
       homeView.bottomAnchor.constraint(equalTo: view.bottomAnchor),

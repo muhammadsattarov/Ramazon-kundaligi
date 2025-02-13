@@ -7,7 +7,6 @@ class SuraHeaderTitleView: UIView {
   private lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.text = "Suralar va Duolar"
-    $0.font = .systemFont(ofSize: 30, weight: .semibold)
     $0.textColor = .goldColor
     $0.textAlignment = .center
     return $0
@@ -17,6 +16,7 @@ class SuraHeaderTitleView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     setup()
+    setupLabelFonts() 
     setConstraints()
   }
 
@@ -37,6 +37,21 @@ class SuraHeaderTitleView: UIView {
 private extension SuraHeaderTitleView {
   func setup() {
     self.addSubview(titleLabel)
+  }
+
+  func setupLabelFonts() {
+    let titleFont: UIFont
+
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      titleFont = .systemFont(ofSize: 27, weight: .semibold)
+    case .medium:
+      titleFont = .systemFont(ofSize: 29, weight: .semibold)
+    case .large:
+      titleFont = .systemFont(ofSize: 30, weight: .semibold)
+    }
+  titleLabel.font = titleFont
   }
 
   func setConstraints() {

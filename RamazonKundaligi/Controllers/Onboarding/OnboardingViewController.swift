@@ -1,9 +1,5 @@
-//
-//  OnboardingViewController.swift
-//  RamazonKundaligi
-//
-//  Created by user on 24/01/25.
-//
+
+
 
 import UIKit
 
@@ -16,13 +12,14 @@ class OnboardingViewController: UIViewController {
     return $0
   }(UIImageView())
 
-  private lazy var titleLabel = UILabel(
-    text: "Ramazon \nMuborak!!!",
-    font: .systemFont(ofSize: 40, weight: .bold),
-    textColor: .goldColor,
-    textAlignment: .center,
-    numberOfLines: 2
-  )
+  private lazy var titleLabel: UILabel = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.text = "Ramazon \nMuborak!!!"
+    $0.textColor = .goldColor
+    $0.textAlignment = .center
+    $0.numberOfLines = 2
+    return $0
+  }(UILabel())
 
   private lazy var nextButton: UIButton = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -30,8 +27,8 @@ class OnboardingViewController: UIViewController {
     $0.setTitle("Davom etish", for: .normal)
     $0.setTitleColor(.fonGreenColor, for: .normal)
     $0.backgroundColor = .goldColor
-    $0.layer.cornerRadius = 25
-    $0.clipsToBounds = true
+    $0.layer.cornerRadius = 22.5
+    $0.layer.masksToBounds = true
     return $0
   }(UIButton(type: .system))
 
@@ -78,19 +75,43 @@ private extension OnboardingViewController {
 
 private extension OnboardingViewController {
   func setConstraints() {
+
+    let imageSize: CGFloat
+    let space: CGFloat
+    let labelFont: UIFont
+
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      imageSize = windowWidth
+      space = 35
+      labelFont = .systemFont(ofSize: 35, weight: .bold)
+    case .medium:
+      imageSize = windowWidth
+      space = 45
+      labelFont = .systemFont(ofSize: 38, weight: .bold)
+    case .large:
+      imageSize = windowWidth
+      space = 50
+      labelFont = .systemFont(ofSize: 40, weight: .bold)
+    }
+    titleLabel.font = labelFont
+
+
     NSLayoutConstraint.activate([
       imageOfView.topAnchor.constraint(equalTo: view.topAnchor),
       imageOfView.leftAnchor.constraint(equalTo: view.leftAnchor),
-      imageOfView.rightAnchor.constraint(equalTo: view.rightAnchor),
-      imageOfView.heightAnchor.constraint(equalToConstant: windowWidth),
+      imageOfView.widthAnchor.constraint(equalToConstant: imageSize),
+      imageOfView.heightAnchor.constraint(equalToConstant: imageSize),
 
-      titleLabel.topAnchor.constraint(equalTo: imageOfView.bottomAnchor, constant: 50),
+      titleLabel.topAnchor.constraint(equalTo: imageOfView.bottomAnchor, constant: space),
       titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
-      nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -windowHeight/4.5),
+      nextButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: space),
       nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      nextButton.heightAnchor.constraint(equalToConstant: 50),
+      nextButton.heightAnchor.constraint(equalToConstant: 45),
       nextButton.widthAnchor.constraint(equalToConstant: windowWidth/1.3)
     ])
   }
 }
+

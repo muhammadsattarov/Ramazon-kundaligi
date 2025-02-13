@@ -1,9 +1,5 @@
-//
-//  SuraHeaderView.swift
-//  RamazonKundaligi
-//
-//  Created by user on 29/01/25.
-//
+
+
 
 import UIKit
 
@@ -42,8 +38,24 @@ private extension SuraHeaderView {
   }
 
   func setConstraints() {
-    let topSpace: CGFloat = windowHeight/8.5
+
+    let topSpace: CGFloat
     let imageHeight: CGFloat = windowHeight/6.5
+    let headerViewSize: CGFloat
+
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      headerViewSize = 55
+      topSpace = windowHeight/9.5
+    case .medium:
+      headerViewSize = 58
+      topSpace = windowHeight/8.8
+    case .large:
+      headerViewSize = 60
+      topSpace = windowHeight/8.6
+    }
+
     NSLayoutConstraint.activate([
       imageOfView.leftAnchor.constraint(equalTo: self.leftAnchor),
       imageOfView.rightAnchor.constraint(equalTo: self.rightAnchor),
@@ -53,7 +65,7 @@ private extension SuraHeaderView {
       titleView.topAnchor.constraint(equalTo: self.topAnchor, constant: topSpace),
       titleView.leftAnchor.constraint(equalTo: self.leftAnchor),
       titleView.rightAnchor.constraint(equalTo: self.rightAnchor),
-      titleView.heightAnchor.constraint(equalToConstant: 60),
+      titleView.heightAnchor.constraint(equalToConstant: headerViewSize),
     ])
   }
 }

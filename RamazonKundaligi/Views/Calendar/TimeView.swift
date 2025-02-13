@@ -38,6 +38,7 @@ class TimeView: UIView {
     self.layer.cornerRadius = 15
     self.layer.masksToBounds = true
     setup()
+    setupLabelFonts()
     setConstraints()
   }
 
@@ -51,6 +52,27 @@ class TimeView: UIView {
 private extension TimeView {
   func setup() {
     self.addSubview(dateStack)
+  }
+
+  func setupLabelFonts() {
+
+    let titleLabelFont: UIFont
+    let timeLabelFont: UIFont
+
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      titleLabelFont = .systemFont(ofSize: 19, weight: .semibold)
+      timeLabelFont = .systemFont(ofSize: 20, weight: .semibold)
+    case .medium:
+      titleLabelFont = .systemFont(ofSize: 21, weight: .semibold)
+      timeLabelFont = .systemFont(ofSize: 22, weight: .semibold)
+    case .large:
+      titleLabelFont = .systemFont(ofSize: 22, weight: .semibold)
+      timeLabelFont = .systemFont(ofSize: 23, weight: .semibold)
+    }
+    titleLabel.font = titleLabelFont
+    timeLabel.font = timeLabelFont
   }
 
   func setConstraints() {

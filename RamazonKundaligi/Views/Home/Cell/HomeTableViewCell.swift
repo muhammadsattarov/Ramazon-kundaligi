@@ -19,6 +19,7 @@ class HomeTableViewCell: UITableViewCell {
   private lazy var imageOfView: UIImageView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.image = UIImage(systemName: "sun.max")
+    $0.contentMode = .scaleAspectFit
     $0.tintColor = .white
     return $0
   }(UIImageView())
@@ -51,11 +52,10 @@ private extension HomeTableViewCell {
   }
 
   func setConstraints() {
-    let imageSize: CGFloat = 25
     let space: CGFloat = 20
     NSLayoutConstraint.activate([
-      imageOfView.widthAnchor.constraint(equalToConstant: imageSize),
-      imageOfView.heightAnchor.constraint(equalToConstant: imageSize),
+      imageOfView.widthAnchor.constraint(equalToConstant: 25),
+      imageOfView.heightAnchor.constraint(equalToConstant: 22),
       imageOfView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -space),
       imageOfView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
 

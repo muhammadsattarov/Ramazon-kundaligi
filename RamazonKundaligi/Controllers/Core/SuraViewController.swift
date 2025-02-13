@@ -1,9 +1,5 @@
-//
-//  SurasViewController.swift
-//  RamazonKundaligi
-//
-//  Created by user on 24/01/25.
-//
+
+
 
 import UIKit
 
@@ -42,8 +38,21 @@ private extension SuraViewController {
 // MARK: - Constraints
 private extension SuraViewController {
   func setConstraints() {
-    let space: CGFloat = 30
+
     let headerViewHeight: CGFloat = windowHeight/2.8
+    let space: CGFloat
+    
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+
+    case .small:
+      space = 24
+    case .medium:
+      space = 28
+    case .large:
+      space = 30
+    }
+
     NSLayoutConstraint.activate([
       suraHeaderView.topAnchor.constraint(equalTo: view.topAnchor),
       suraHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: space),
