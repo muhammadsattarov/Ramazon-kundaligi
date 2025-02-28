@@ -84,8 +84,11 @@ private extension CalendarViewController {
     guard let region = ramadanSchedule else { return }
     print("\(region.region), \(region.district)")
     calendarHeaderView.locationNameLabel.text = "\(region.region), \(region.district)"
-    calendarHeaderView.saharlikView.configure(with: "saharlik", time: currentDay.saharlik)
-    calendarHeaderView.iftorlikView.configure(with: "iftorlik", time: currentDay.iftorlik)
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else { return }
+      self.calendarHeaderView.saharlikView.configure(with: "saharlik", time: currentDay.saharlik)
+      self.calendarHeaderView.iftorlikView.configure(with: "iftorlik", time: currentDay.iftorlik)
+    }
   }
 
   func getCurrentPrayerTimes() -> (saharlik: String, iftorlik: String)? {
@@ -93,8 +96,7 @@ private extension CalendarViewController {
     formatter.dateFormat = "d-MMMM"
     formatter.locale = Locale(identifier: "uz_UZ")
 
-   // let currentDate = formatter.string(from: Date())
-    let currentDate = "1-Mart"
+    let currentDate = formatter.string(from: Date())
     print(currentDate)
     if let prayerTime = ramadanSchedule?.times.first(where: { $0.date_time.lowercased() == currentDate.lowercased() }) {
       return (prayerTime.saharlik, prayerTime.iftorlik)

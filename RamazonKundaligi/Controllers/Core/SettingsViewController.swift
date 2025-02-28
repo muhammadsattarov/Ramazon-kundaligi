@@ -34,6 +34,7 @@ private let settingsTableView = SettingsTableView()
 // MARK: - Setup Views
 private extension SettingsViewController {
   func setupViews() {
+    navigationItem.backButtonTitle = ""
     view.backgroundColor = .fonGreenColor
     addSubviews()
     setConstraints()
@@ -105,7 +106,9 @@ extension SettingsViewController: SettingsTableViewDelegate {
   }
 
   func didTapShareApp() {
-    print(#function)
+    let appStoreURL = URL(string: "https://apps.apple.com/app/idYOUR_APP_ID")!
+    let activityViewController = UIActivityViewController(activityItems: [appStoreURL], applicationActivities: nil)
+    present(activityViewController, animated: true)
   }
   
   func didTapAppEvalution() {
@@ -118,6 +121,7 @@ extension SettingsViewController: SettingsTableViewDelegate {
   
   func didTapAboutApp() {
     let vc = AboutAppViewController()
+    vc.hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(vc, animated: true)
   }
 }

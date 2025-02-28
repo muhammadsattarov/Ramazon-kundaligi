@@ -19,9 +19,13 @@
 		CE688E732D6E3F20002E3E8C /* Dua.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E722D6E3F20002E3E8C /* Dua.swift */; };
 		CE688E772D6EDF4E002E3E8C /* RamazonTaqvim.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E762D6EDF4E002E3E8C /* RamazonTaqvim.swift */; };
 		CE688E792D6EE504002E3E8C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E782D6EE504002E3E8C /* NetworkService.swift */; };
-		CE688EF52D704175002E3E8C /* SurasRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688EF42D704175002E3E8C /* SurasRowTableViewCell.swift */; };
+		CE688EF52D704175002E3E8C /* DuasRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688EF42D704175002E3E8C /* DuasRowTableViewCell.swift */; };
 		CE688EF72D706BA8002E3E8C /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688EF62D706BA8002E3E8C /* AboutAppViewController.swift */; };
 		CE688EF92D706CCA002E3E8C /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688EF82D706CCA002E3E8C /* CustomAlert.swift */; };
+		CE688F002D72112C002E3E8C /* AboutAppTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688EFF2D72112B002E3E8C /* AboutAppTextView.swift */; };
+		CE688F022D721537002E3E8C /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688F012D721537002E3E8C /* SupportView.swift */; };
+		CE688F042D72183D002E3E8C /* MessengersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688F032D72183D002E3E8C /* MessengersView.swift */; };
+		CE688F062D724863002E3E8C /* DuaTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688F052D724863002E3E8C /* DuaTitleView.swift */; };
 		CE72DEDC2D4378720080AFA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDB2D4378720080AFA2 /* AppDelegate.swift */; };
 		CE72DEDE2D4378720080AFA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDD2D4378720080AFA2 /* SceneDelegate.swift */; };
 		CE72DEE02D4378720080AFA2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDF2D4378720080AFA2 /* MainTabBarController.swift */; };
@@ -29,7 +33,7 @@
 		CE72DEF92D43798B0080AFA2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEF82D43798B0080AFA2 /* UIColor+Extension.swift */; };
 		CE72DEFC2D437BB60080AFA2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEFB2D437BB60080AFA2 /* HomeViewController.swift */; };
 		CE72DEFE2D437BF90080AFA2 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEFD2D437BF90080AFA2 /* CalendarViewController.swift */; };
-		CE72DF002D437C1C0080AFA2 /* SuraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEFF2D437C1C0080AFA2 /* SuraViewController.swift */; };
+		CE72DF002D437C1C0080AFA2 /* DuaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEFF2D437C1C0080AFA2 /* DuaViewController.swift */; };
 		CE72DF022D437C260080AFA2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DF012D437C260080AFA2 /* SettingsViewController.swift */; };
 		CE72DF052D437D190080AFA2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DF042D437D190080AFA2 /* HomeView.swift */; };
 		CE72DF082D437DE30080AFA2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DF072D437DE30080AFA2 /* HomeTableViewCell.swift */; };
@@ -56,11 +60,8 @@
 		CE8B74E92D632F0200AB783A /* PrayerTimesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B74E82D632F0200AB783A /* PrayerTimesModel.swift */; };
 		CE8B74EB2D632F3B00AB783A /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B74EA2D632F3B00AB783A /* Prayer.swift */; };
 		CE8B74ED2D63340000AB783A /* PrayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B74EC2D63340000AB783A /* PrayerService.swift */; };
-		CEC5B7702D4A235D00E4402F /* SuraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B76F2D4A235D00E4402F /* SuraView.swift */; };
 		CEC5B7732D4A23C300E4402F /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B7722D4A23C300E4402F /* CalendarHeaderView.swift */; };
 		CEC5B7762D4A23E400E4402F /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B7752D4A23E400E4402F /* SettingsHeaderView.swift */; };
-		CEC5B7792D4A247700E4402F /* SuraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B7782D4A247600E4402F /* SuraCollectionViewCell.swift */; };
-		CEC5B77C2D4A27E800E4402F /* SuraHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B77B2D4A27E800E4402F /* SuraHeaderView.swift */; };
 		CEC5B77E2D4A285700E4402F /* SuraHeaderTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B77D2D4A285700E4402F /* SuraHeaderTitleView.swift */; };
 		CEC5B7802D4A363200E4402F /* SuraCollectionTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B77F2D4A363100E4402F /* SuraCollectionTitles.swift */; };
 		CEF7C9A32D65D31800A7662E /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C9A22D65D31800A7662E /* LaunchScreenViewController.swift */; };
@@ -83,9 +84,13 @@
 		CE688E722D6E3F20002E3E8C /* Dua.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dua.swift; sourceTree = "<group>"; };
 		CE688E762D6EDF4E002E3E8C /* RamazonTaqvim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamazonTaqvim.swift; sourceTree = "<group>"; };
 		CE688E782D6EE504002E3E8C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		CE688EF42D704175002E3E8C /* SurasRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurasRowTableViewCell.swift; sourceTree = "<group>"; };
+		CE688EF42D704175002E3E8C /* DuasRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuasRowTableViewCell.swift; sourceTree = "<group>"; };
 		CE688EF62D706BA8002E3E8C /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		CE688EF82D706CCA002E3E8C /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		CE688EFF2D72112B002E3E8C /* AboutAppTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppTextView.swift; sourceTree = "<group>"; };
+		CE688F012D721537002E3E8C /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
+		CE688F032D72183D002E3E8C /* MessengersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengersView.swift; sourceTree = "<group>"; };
+		CE688F052D724863002E3E8C /* DuaTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaTitleView.swift; sourceTree = "<group>"; };
 		CE72DED82D4378720080AFA2 /* RamazonKundaligi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RamazonKundaligi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72DEDB2D4378720080AFA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72DEDD2D4378720080AFA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +100,7 @@
 		CE72DEF82D43798B0080AFA2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		CE72DEFB2D437BB60080AFA2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE72DEFD2D437BF90080AFA2 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		CE72DEFF2D437C1C0080AFA2 /* SuraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraViewController.swift; sourceTree = "<group>"; };
+		CE72DEFF2D437C1C0080AFA2 /* DuaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaViewController.swift; sourceTree = "<group>"; };
 		CE72DF012D437C260080AFA2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CE72DF042D437D190080AFA2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CE72DF072D437DE30080AFA2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -121,11 +126,8 @@
 		CE8B74E82D632F0200AB783A /* PrayerTimesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesModel.swift; sourceTree = "<group>"; };
 		CE8B74EA2D632F3B00AB783A /* Prayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
 		CE8B74EC2D63340000AB783A /* PrayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerService.swift; sourceTree = "<group>"; };
-		CEC5B76F2D4A235D00E4402F /* SuraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraView.swift; sourceTree = "<group>"; };
 		CEC5B7722D4A23C300E4402F /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		CEC5B7752D4A23E400E4402F /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
-		CEC5B7782D4A247600E4402F /* SuraCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraCollectionViewCell.swift; sourceTree = "<group>"; };
-		CEC5B77B2D4A27E800E4402F /* SuraHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraHeaderView.swift; sourceTree = "<group>"; };
 		CEC5B77D2D4A285700E4402F /* SuraHeaderTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraHeaderTitleView.swift; sourceTree = "<group>"; };
 		CEC5B77F2D4A363100E4402F /* SuraCollectionTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraCollectionTitles.swift; sourceTree = "<group>"; };
 		CEF7C9A22D65D31800A7662E /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,16 @@
 				CE688E782D6EE504002E3E8C /* NetworkService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		CE688EFE2D721111002E3E8C /* AboutApp */ = {
+			isa = PBXGroup;
+			children = (
+				CE688EFF2D72112B002E3E8C /* AboutAppTextView.swift */,
+				CE688F012D721537002E3E8C /* SupportView.swift */,
+				CE688F032D72183D002E3E8C /* MessengersView.swift */,
+			);
+			path = AboutApp;
 			sourceTree = "<group>";
 		};
 		CE72DECF2D4378720080AFA2 = {
@@ -235,6 +247,7 @@
 		CE72DEF12D4379180080AFA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE688EFE2D721111002E3E8C /* AboutApp */,
 				CE72DF032D437D0F0080AFA2 /* Home */,
 				CEC5B7712D4A23B600E4402F /* Calendar */,
 				CEC5B76E2D4A234A00E4402F /* Sura */,
@@ -300,7 +313,7 @@
 				CE72DEDF2D4378720080AFA2 /* MainTabBarController.swift */,
 				CE72DEFB2D437BB60080AFA2 /* HomeViewController.swift */,
 				CE72DEFD2D437BF90080AFA2 /* CalendarViewController.swift */,
-				CE72DEFF2D437C1C0080AFA2 /* SuraViewController.swift */,
+				CE72DEFF2D437C1C0080AFA2 /* DuaViewController.swift */,
 				CE72DF012D437C260080AFA2 /* SettingsViewController.swift */,
 			);
 			path = Core;
@@ -376,9 +389,8 @@
 			isa = PBXGroup;
 			children = (
 				CEC5B7772D4A246700E4402F /* Cell */,
-				CEC5B76F2D4A235D00E4402F /* SuraView.swift */,
-				CEC5B77B2D4A27E800E4402F /* SuraHeaderView.swift */,
 				CEC5B77D2D4A285700E4402F /* SuraHeaderTitleView.swift */,
+				CE688F052D724863002E3E8C /* DuaTitleView.swift */,
 			);
 			path = Sura;
 			sourceTree = "<group>";
@@ -409,8 +421,7 @@
 		CEC5B7772D4A246700E4402F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				CEC5B7782D4A247600E4402F /* SuraCollectionViewCell.swift */,
-				CE688EF42D704175002E3E8C /* SurasRowTableViewCell.swift */,
+				CE688EF42D704175002E3E8C /* DuasRowTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -500,12 +511,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE688F022D721537002E3E8C /* SupportView.swift in Sources */,
 				CE688E772D6EDF4E002E3E8C /* RamazonTaqvim.swift in Sources */,
 				CE7A63E42D5A233D00209CB1 /* CalendarHeaderModel.swift in Sources */,
+				CE688F042D72183D002E3E8C /* MessengersView.swift in Sources */,
 				CE688EF72D706BA8002E3E8C /* AboutAppViewController.swift in Sources */,
 				CE688E672D6C5E0A002E3E8C /* Bundle+Extension.swift in Sources */,
 				CE72DF052D437D190080AFA2 /* HomeView.swift in Sources */,
 				CE72DEFE2D437BF90080AFA2 /* CalendarViewController.swift in Sources */,
+				CE688F062D724863002E3E8C /* DuaTitleView.swift in Sources */,
 				CE7A63D92D59EB1900209CB1 /* TimeView.swift in Sources */,
 				CE72DEFC2D437BB60080AFA2 /* HomeViewController.swift in Sources */,
 				CE72DEE02D4378720080AFA2 /* MainTabBarController.swift in Sources */,
@@ -514,24 +528,21 @@
 				CE7A63DC2D59F27D00209CB1 /* CalendarCollectionFooterViewCell.swift in Sources */,
 				CE7A63EB2D5D1CC800209CB1 /* SettingsHeaderVersionView.swift in Sources */,
 				CE7A63EF2D5D2CB500209CB1 /* SettingsItems.swift in Sources */,
-				CEC5B7702D4A235D00E4402F /* SuraView.swift in Sources */,
 				CE72DEDC2D4378720080AFA2 /* AppDelegate.swift in Sources */,
 				CE72DF0C2D438E8D0080AFA2 /* HomeTableHeaderView.swift in Sources */,
 				CEF7C9AC2D67137200A7662E /* SettingsTableViewCell.swift in Sources */,
 				CE72DEDE2D4378720080AFA2 /* SceneDelegate.swift in Sources */,
 				CE72DF152D440D250080AFA2 /* TodayDateHeaderView.swift in Sources */,
-				CEC5B7792D4A247700E4402F /* SuraCollectionViewCell.swift in Sources */,
 				CE72DF0E2D438EC00080AFA2 /* Constants.swift in Sources */,
 				CEF7C9A72D67063500A7662E /* RamadanService.swift in Sources */,
 				CE688E792D6EE504002E3E8C /* NetworkService.swift in Sources */,
-				CE688EF52D704175002E3E8C /* SurasRowTableViewCell.swift in Sources */,
+				CE688EF52D704175002E3E8C /* DuasRowTableViewCell.swift in Sources */,
 				CEC5B77E2D4A285700E4402F /* SuraHeaderTitleView.swift in Sources */,
 				CE688E6E2D6DC0F1002E3E8C /* PrayerTimes.swift in Sources */,
 				CE7A63E02D59FB5E00209CB1 /* CalendarCollectionHeaderViewCell.swift in Sources */,
 				CE72DF0A2D4388DB0080AFA2 /* UIlabel+Extension.swift in Sources */,
 				CEF7C9A92D670C2200A7662E /* RegionPickerViewController.swift in Sources */,
 				CE688E6C2D6C6FC1002E3E8C /* SettingsTableViewDelegate.swift in Sources */,
-				CEC5B77C2D4A27E800E4402F /* SuraHeaderView.swift in Sources */,
 				CE72DF082D437DE30080AFA2 /* HomeTableViewCell.swift in Sources */,
 				CE8B74ED2D63340000AB783A /* PrayerService.swift in Sources */,
 				CE688E712D6DC428002E3E8C /* NotificationManager.swift in Sources */,
@@ -544,7 +555,7 @@
 				CE688E692D6C614C002E3E8C /* UIViewContorller+Extension.swift in Sources */,
 				CE7A63E22D5A232200209CB1 /* CalendarModel.swift in Sources */,
 				CE7A63F42D5DD4A300209CB1 /* UIView+Extension.swift in Sources */,
-				CE72DF002D437C1C0080AFA2 /* SuraViewController.swift in Sources */,
+				CE72DF002D437C1C0080AFA2 /* DuaViewController.swift in Sources */,
 				CE72DF112D4398D80080AFA2 /* OnboardingViewController.swift in Sources */,
 				CE8B74E52D631E9000AB783A /* LocationService.swift in Sources */,
 				CE8B74E72D631F4B00AB783A /* HomeViewControllerViewModel.swift in Sources */,
@@ -553,6 +564,7 @@
 				CE688E602D6B0DFA002E3E8C /* District.swift in Sources */,
 				CE72DEF92D43798B0080AFA2 /* UIColor+Extension.swift in Sources */,
 				CE7A63DE2D59FA8E00209CB1 /* CalendarCollectionView.swift in Sources */,
+				CE688F002D72112C002E3E8C /* AboutAppTextView.swift in Sources */,
 				CE72DF132D440AC10080AFA2 /* NextPrayerTimeView.swift in Sources */,
 				CE72DF022D437C260080AFA2 /* SettingsViewController.swift in Sources */,
 				CEC5B7762D4A23E400E4402F /* SettingsHeaderView.swift in Sources */,

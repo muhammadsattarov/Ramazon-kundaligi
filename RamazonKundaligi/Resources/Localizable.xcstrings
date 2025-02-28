@@ -231,6 +231,75 @@
         }
       }
     },
+    "Iftorlik duosi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iftorlik (og‘iz ochish) duosi"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ифторлик (оғиз очиш) дуоси"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iftorlik (og‘iz ochish) duosi"
+          }
+        }
+      }
+    },
+    "iftorlik_arab_matni" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allohumma laka sumtu va bika aamantu va ‘alayka tavakkaltu va ‘alaa rizqika aftartu, fa’g‘fir liy maa qoddamtu va maa axxortu birohmatika yaa arhamar roohimiyn."
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аллоҳумма лака сумту ва бика ааманту ва аълайка таваккалту ва аълаа ризқика афтарту, фағфирлий ма қоддамту ва маа аххорту бироҳматика йаа арҳамар рооҳимийн."
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allohumma laka sumtu va bika aamantu va ‘alayka tavakkaltu va ‘alaa rizqika aftartu, fa’g‘fir liy maa qoddamtu va maa axxortu birohmatika yaa arhamar roohimiyn."
+          }
+        }
+      }
+    },
+    "iftorlik_duosi_manosi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ma’nosi: Ey Alloh, ushbu ro‘zamni Sen uchun tutdim va Senga iymon keltirdim va Senga tavakkal qildim va bergan rizqing bilan iftor qildim. Ey mehribonlarning eng mehriboni, mening avvalgi va keyingi gunohlarimni mag‘firat qilgil."
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Маъноси: Эй Аллоҳ, ушбу Рўзамни Сен учун тутдим ва Сенга иймон келтирдим ва Сенга таваккал қилдим ва берган ризқинг билан ифтор қилдим. Эй меҳрибонларнинг энг меҳрибони, менинг аввалги ва кейинги гуноҳларимни мағфират қилгил."
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ma’nosi: Ey Alloh, ushbu ro‘zamni Sen uchun tutdim va Senga iymon keltirdim va Senga tavakkal qildim va bergan rizqing bilan iftor qildim. Ey mehribonlarning eng mehriboni, mening avvalgi va keyingi gunohlarimni mag‘firat qilgil."
+          }
+        }
+      }
+    },
     "interpretation_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -242,13 +311,13 @@
         },
         "uz-Cyrl-UZ" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Талқин"
           }
         },
         "uz-UZ" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Talqin"
           }
         }
@@ -480,6 +549,75 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Saharlik"
+          }
+        }
+      }
+    },
+    "Saharlik duosi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saharlik (og‘iz yopish) duosi"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cаҳарлик (оғиз ёпиш) дуоси"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saharlik (og‘iz yopish) duosi"
+          }
+        }
+      }
+    },
+    "saharlik_arab_matni" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nawaytu an asuma savma shahri ramazona minal fajri ilal mag‘ribi, xolisan lillahi ta‘aalaa Allohu akbar."
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Навайту ан асувма совма шаҳри рамазона минал фажри илал мағриби, холисан лиллаҳи таъаалаа Аллоҳу акбар."
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nawaytu an asuma savma shahri ramazona minal fajri ilal mag‘ribi, xolisan lillahi ta‘aalaa Allohu akbar."
+          }
+        }
+      }
+    },
+    "saharlik_duosi_manosi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ma’nosi: Ramazon oyining ro‘zasini subhdan to kun botguncha tutmoqni niyat qildim. Xolis Alloh uchun, Alloh buyukdir."
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Маъноси: Рамазон ойининг рўзасини субҳдан то кун ботгунча тутмоқни ният қилдим. Холис Аллоҳ учун Аллоҳ буюкдир."
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ma’nosi: Ramazon oyining ro‘zasini subhdan to kun botguncha tutmoqni niyat qildim. Xolis Alloh uchun, Alloh buyukdir."
           }
         }
       }

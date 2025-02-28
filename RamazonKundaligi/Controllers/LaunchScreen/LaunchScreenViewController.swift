@@ -17,13 +17,27 @@ class LaunchScreenViewController: UIViewController {
   }(UIImageView())
   
   private lazy var titleLabel: UILabel = {
-    $0.translatesAutoresizingMaskIntoConstraints = false
     $0.font = .systemFont(ofSize: 30, weight: .black)
-    $0.text = "Ramazon Taqvimi"
+    $0.text = "Ramazon Taqvimi \n2025"
     $0.textColor = .goldColor
     $0.textAlignment = .center
     return $0
   }(UILabel())
+
+  private lazy var yearTitleLabel: UILabel = {
+    $0.font = .systemFont(ofSize: 30, weight: .black)
+    $0.text = "2025"
+    $0.textColor = .white
+    $0.textAlignment = .center
+    return $0
+  }(UILabel())
+
+  private lazy var vStack: UIStackView = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.axis = .vertical
+    $0.spacing = 10
+    return $0
+  }(UIStackView(arrangedSubviews: [titleLabel, yearTitleLabel]))
 
 
   // MARK: - Override Methods
@@ -57,7 +71,7 @@ private extension LaunchScreenViewController {
 private extension LaunchScreenViewController {
  func addSubviews() {
    view.addSubview(imageOfView)
-   view.addSubview(titleLabel)
+   view.addSubview(vStack)
  }
 }
 
@@ -86,13 +100,15 @@ private extension LaunchScreenViewController {
 private extension LaunchScreenViewController {
  func setContraints() {
    NSLayoutConstraint.activate([
-    titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-    titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+    vStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+    vStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
-    imageOfView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -30),
+    imageOfView.bottomAnchor.constraint(equalTo: vStack.topAnchor, constant: -30),
     imageOfView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
     imageOfView.widthAnchor.constraint(equalToConstant: 80),
     imageOfView.heightAnchor.constraint(equalToConstant: 80),
+
+
    ])
  }
 }

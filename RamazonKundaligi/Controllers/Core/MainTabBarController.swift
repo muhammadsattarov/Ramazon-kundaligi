@@ -11,7 +11,7 @@ class MainTabBarController: UITabBarController {
 
   private let homeVC = UINavigationController(rootViewController: HomeViewController())
   private let calendarVC = UINavigationController(rootViewController: CalendarViewController())
-  private let surasVC = UINavigationController(rootViewController: SuraViewController())
+  private let surasVC = UINavigationController(rootViewController: DuaViewController())
   private let settingsVC = UINavigationController(rootViewController: SettingsViewController())
 
   // MARK: - Override Methods

@@ -3,27 +3,22 @@
 import UIKit
 
 class DuasRowTableViewCell: UITableViewCell {
-static let reuseId = "SurasRowTableViewCell"
+static let reuseId = "DuasRowTableViewCell"
 
-  private let titleLabel: UILabel = {
-    $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.font = .systemFont(ofSize: 20, weight: .semibold)
-    $0.textColor = .goldColor
-    $0.numberOfLines = 0
-    return $0
-  }(UILabel())
+  private let duaTitleView = DuaTitleView()
 
   private let arabicLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.font = .systemFont(ofSize: 18, weight: .regular)
-    $0.textColor = .systemBlue
+    $0.font = .systemFont(ofSize: 16, weight: .medium)
+    $0.textColor = .white
     $0.numberOfLines = 0
+    $0.textAlignment = .right
     return $0
   }(UILabel())
 
   private let crilicLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.font = .systemFont(ofSize: 18, weight: .regular)
+    $0.font = .systemFont(ofSize: 16, weight: .medium)
     $0.textColor = .goldColor
     $0.numberOfLines = 0
     return $0
@@ -31,7 +26,7 @@ static let reuseId = "SurasRowTableViewCell"
 
   private let meanLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.font = .systemFont(ofSize: 18, weight: .regular)
+    $0.font = .systemFont(ofSize: 16, weight: .medium)
     $0.textColor = .white
     $0.numberOfLines = 0
     return $0
@@ -40,9 +35,17 @@ static let reuseId = "SurasRowTableViewCell"
   private lazy var vStack: UIStackView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.axis = .vertical
-    $0.spacing = 10
+    $0.spacing = 15
     return $0
-  }(UIStackView(arrangedSubviews: [titleLabel, arabicLabel, crilicLabel, meanLabel]))
+  }(UIStackView(arrangedSubviews: [arabicLabel, crilicLabel, meanLabel]))
+
+  private let containerView: UIView = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.backgroundColor = .cellBackgrountColor
+    $0.layer.cornerRadius = 10
+    $0.clipsToBounds = true
+    return $0
+  }(UIView())
 
   // MARK: - Init
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -52,7 +55,7 @@ static let reuseId = "SurasRowTableViewCell"
 
   func configure(with model: Dua) {
     let titlelabel = Bundle.localizedString(forKey: model.title)
-    titleLabel.setBulletText(titlelabel, bulletColor: .goldColor)
+    duaTitleView.titleLabel.text = titlelabel
     arabicLabel.text = model.arabicText
     crilicLabel.text = Bundle.localizedString(forKey: model.transliteration)
     meanLabel.text = Bundle.localizedString(forKey: model.meaning)
@@ -68,37 +71,31 @@ private extension DuasRowTableViewCell {
   func setupUI() {
     self.selectionStyle = .none
     self.backgroundColor = .clear
-    contentView.addSubview(vStack)
-
+    contentView.addSubview(duaTitleView)
+    duaTitleView.translatesAutoresizingMaskIntoConstraints = false
+    contentView.addSubview(containerView)
+    containerView.addSubview(vStack)
     setConstraints()
   }
 
   func setConstraints() {
-    let space: CGFloat = 20
+    let space: CGFloat = 12
+    let horizontalSpace: CGFloat = 20
     NSLayoutConstraint.activate([
-      vStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: space),
-      vStack.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: space),
-      vStack.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -space),
-      vStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -space)
+      duaTitleView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+      duaTitleView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: horizontalSpace),
+      duaTitleView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -horizontalSpace),
+      duaTitleView.heightAnchor.constraint(equalToConstant: 50),
+
+      containerView.topAnchor.constraint(equalTo: duaTitleView.bottomAnchor, constant: space),
+      containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: horizontalSpace),
+      containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -horizontalSpace),
+      containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+
+      vStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: space),
+      vStack.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: space),
+      vStack.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -space),
+      vStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -space)
     ])
   }
-}
-
-
-extension UILabel {
-    func setBulletText(_ text: String, bulletColor: UIColor = .goldColor, textColor: UIColor = .goldColor, fontSize: CGFloat = 20) {
-        let bullet = "•"  // Dumaloq nuqta
-        let fullText = "\(bullet) \(text)"
-
-        let attributedString = NSMutableAttributedString(string: fullText)
-
-        // Nuqtaning rangi
-        attributedString.addAttribute(.foregroundColor, value: bulletColor, range: NSRange(location: 0, length: 1))
-
-        // Barcha matn uchun shrift va rang
-        attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: fontSize), range: NSRange(location: 0, length: fullText.count))
-        attributedString.addAttribute(.foregroundColor, value: textColor, range: NSRange(location: 2, length: text.count))
-
-        self.attributedText = attributedString
-    }
 }

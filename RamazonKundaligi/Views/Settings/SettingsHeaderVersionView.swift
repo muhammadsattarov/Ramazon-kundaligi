@@ -10,7 +10,6 @@ class SettingsHeaderVersionView: UIView {
     $0.image = UIImage(named: "logo")
     $0.contentMode = .scaleToFill
     $0.backgroundColor = .fonWhiteColor
-    $0.layer.cornerRadius = 10
     $0.layer.masksToBounds = true
     return $0
   }(UIImageView())
@@ -33,16 +32,33 @@ class SettingsHeaderVersionView: UIView {
   private lazy var vStack: UIStackView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.axis = .vertical
-    $0.spacing = 5
-    $0.distribution = .fillEqually
     return $0
   }(UIStackView(arrangedSubviews: [titleLabel, versionLabel]))
 
   // MARK: - Init
-  override init(frame: CGRect) {
-    super.init(frame: frame)
+  init(isLarge: Bool) {
+    super.init(frame: .zero)
     setup()
     setConstraints()
+
+    let imageSize: CGFloat
+    
+    if isLarge {
+      imageSize = windowWidth/4
+      iconImage.layer.cornerRadius = 20
+      vStack.spacing = 10
+      titleLabel.font = .systemFont(ofSize: 20, weight: .medium)
+      versionLabel.font = .systemFont(ofSize: 17, weight: .medium)
+    } else {
+      imageSize = 55
+      iconImage.layer.cornerRadius = 10
+      vStack.spacing = 5
+      titleLabel.font = .systemFont(ofSize: 18, weight: .medium)
+      versionLabel.font = .systemFont(ofSize: 15, weight: .medium)
+    }
+
+    iconImage.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
+    iconImage.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
   }
 
   required init?(coder: NSCoder) {
@@ -60,24 +76,7 @@ private extension SettingsHeaderVersionView {
   }
 
   func setConstraints() {
-
-    let imageSize: CGFloat
-
-    let screenType = UIView.ScreenSizeType.current()
-    switch screenType {
-    case .small:
-      imageSize = 52
-    case .mini:
-      imageSize = 55
-    case .pro:
-      imageSize = 55
-    case .proMax:
-      imageSize = 55
-    }
-
     NSLayoutConstraint.activate([
-      iconImage.widthAnchor.constraint(equalToConstant: imageSize),
-      iconImage.heightAnchor.constraint(equalToConstant: imageSize),
       iconImage.topAnchor.constraint(equalTo: self.topAnchor),
       iconImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
 

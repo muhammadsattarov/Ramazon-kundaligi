@@ -5,14 +5,7 @@ import UIKit
 
 class DuaViewController: UIViewController {
 
-  private let suraHeaderView = SuraHeaderView()
   let titleView = SuraHeaderTitleView()
-
-  private let fonView: UIView = {
-    $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.backgroundColor = .midnightGreenColor
-    return $0
-  }(UIView())
 
   private let tableView: UITableView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -48,6 +41,7 @@ private extension DuaViewController {
   func setupViews() {
     view.backgroundColor = .fonGreenColor
     addSubviews()
+    setupTableView()
     setConstraints()
   }
 }
@@ -57,68 +51,39 @@ private extension DuaViewController {
   func addSubviews() {
     navigationItem.backButtonTitle = ""
     navigationItem.backBarButtonItem?.tintColor = .white
-    view.addSubview(suraHeaderView)
-    view.addSubview(titleView)
-    view.addSubview(fonView)
-    view.addSubview(tableView)
 
     titleView.translatesAutoresizingMaskIntoConstraints = false
-    suraHeaderView.translatesAutoresizingMaskIntoConstraints = false
 
     tableView.delegate = self
     tableView.dataSource = self
+  }
+
+  func setupTableView() {
+    view.addSubview(titleView)
+    view.addSubview(tableView)
+
+    tableView.tableFooterView = UIView(frame: CGRect(
+      x: 0,
+      y: 0,
+      width: windowWidth,
+      height: 20)
+    )
   }
 }
 
 // MARK: - Constraints
 private extension DuaViewController {
   func setConstraints() {
-
-    let headerViewHeight: CGFloat = windowHeight/2.8
-    let space: CGFloat
-    let topSpace: CGFloat
-    let headerViewSize: CGFloat
-
-    let screenType = UIView.ScreenSizeType.current()
-    switch screenType {
-    case .small:
-      space = 15
-      headerViewSize = 40
-      topSpace = windowHeight/11
-    case .mini:
-      space = 20
-      headerViewSize = 45
-      topSpace = windowHeight/11
-    case .pro:
-      space = 20
-      headerViewSize = 45
-      topSpace = windowHeight/11
-    case .proMax:
-      space = 20
-      headerViewSize = 45
-      topSpace = windowHeight/11
-    }
-
     NSLayoutConstraint.activate([
-      suraHeaderView.topAnchor.constraint(equalTo: view.topAnchor),
-      suraHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: space),
-      suraHeaderView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -space),
-      suraHeaderView.heightAnchor.constraint(equalToConstant: headerViewHeight),
+      titleView.topAnchor.constraint(equalTo: view.topAnchor),
+      titleView.leftAnchor.constraint(equalTo: view.leftAnchor),
+      titleView.rightAnchor.constraint(equalTo: view.rightAnchor),
+      titleView.heightAnchor.constraint(equalToConstant: windowHeight/9),
 
-      titleView.topAnchor.constraint(equalTo: view.topAnchor, constant: topSpace),
-      titleView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      titleView.widthAnchor.constraint(equalToConstant: windowWidth/2.5),
-      titleView.heightAnchor.constraint(equalToConstant: headerViewSize),
-      
-      fonView.topAnchor.constraint(equalTo: suraHeaderView.bottomAnchor, constant: -20),
-      fonView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: space),
-      fonView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -space),
-      fonView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-      tableView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 30),
-      tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: space),
-      tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -space),
-      tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+      tableView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
+      tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+      tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+      tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
     ])
   }
 }

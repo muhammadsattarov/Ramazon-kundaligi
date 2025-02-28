@@ -21,9 +21,7 @@ class SuraHeaderTitleView: UIView {
 
   override func layoutSubviews() {
     super.layoutSubviews()
-    self.layer.cornerRadius = 15
-    self.layer.masksToBounds = true
-    self.backgroundColor = .fonWhiteColor
+    self.backgroundColor = .fonGreenColor
   }
 
   required init?(coder: NSCoder) {
@@ -44,21 +42,21 @@ private extension SuraHeaderTitleView {
     let screenType = UIView.ScreenSizeType.current()
     switch screenType {
     case .small:
-      titleFont = .systemFont(ofSize: 27, weight: .semibold)
+      titleFont = .systemFont(ofSize: 24, weight: .semibold)
     case .mini:
-      titleFont = .systemFont(ofSize: 29, weight: .semibold)
+      titleFont = .systemFont(ofSize: 26, weight: .semibold)
     case .pro:
-      titleFont = .systemFont(ofSize: 30, weight: .semibold)
+      titleFont = .systemFont(ofSize: 26, weight: .semibold)
     case .proMax:
-      titleFont = .systemFont(ofSize: 30, weight: .semibold)
+      titleFont = .systemFont(ofSize: 26, weight: .semibold)
     }
   titleLabel.font = titleFont
   }
 
   func setConstraints() {
     NSLayoutConstraint.activate([
-      titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-      titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+      titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
+      titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
     ])
   }
 }

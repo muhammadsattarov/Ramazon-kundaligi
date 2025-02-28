@@ -18,7 +18,7 @@ class SettingsHeaderView: UIView {
   return $0
   }(UILabel())
 
-  let versionView = SettingsHeaderVersionView()
+  let versionView = SettingsHeaderVersionView(isLarge: false)
 
   // MARK: - Init
   override init(frame: CGRect) {
