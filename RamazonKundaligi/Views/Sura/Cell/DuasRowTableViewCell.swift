@@ -2,7 +2,7 @@
 
 import UIKit
 
-class SurasRowTableViewCell: UITableViewCell {
+class DuasRowTableViewCell: UITableViewCell {
 static let reuseId = "SurasRowTableViewCell"
 
   private let titleLabel: UILabel = {
@@ -24,7 +24,7 @@ static let reuseId = "SurasRowTableViewCell"
   private let crilicLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.font = .systemFont(ofSize: 18, weight: .regular)
-    $0.textColor = .white
+    $0.textColor = .goldColor
     $0.numberOfLines = 0
     return $0
   }(UILabel())
@@ -32,7 +32,7 @@ static let reuseId = "SurasRowTableViewCell"
   private let meanLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.font = .systemFont(ofSize: 18, weight: .regular)
-    $0.textColor = .orange
+    $0.textColor = .white
     $0.numberOfLines = 0
     return $0
   }(UILabel())
@@ -44,14 +44,6 @@ static let reuseId = "SurasRowTableViewCell"
     return $0
   }(UIStackView(arrangedSubviews: [titleLabel, arabicLabel, crilicLabel, meanLabel]))
 
-  private let containerView: UIView = {
-    $0.translatesAutoresizingMaskIntoConstraints = false
-//    $0.backgroundColor = .cellBackgrountColor
-//    $0.layer.cornerRadius = 20
-//    $0.clipsToBounds = true
-    return $0
-  }(UIView())
-
   // MARK: - Init
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -59,10 +51,11 @@ static let reuseId = "SurasRowTableViewCell"
   }
 
   func configure(with model: Dua) {
-    titleLabel.text = model.title
+    let titlelabel = Bundle.localizedString(forKey: model.title)
+    titleLabel.setBulletText(titlelabel, bulletColor: .goldColor)
     arabicLabel.text = model.arabicText
-    crilicLabel.text = model.transliteration
-    meanLabel.text = model.meaning
+    crilicLabel.text = Bundle.localizedString(forKey: model.transliteration)
+    meanLabel.text = Bundle.localizedString(forKey: model.meaning)
   }
 
   required init?(coder: NSCoder) {
@@ -71,29 +64,41 @@ static let reuseId = "SurasRowTableViewCell"
 }
 
 // MARK: - Setup UI and Constraints
-private extension SurasRowTableViewCell {
+private extension DuasRowTableViewCell {
   func setupUI() {
     self.selectionStyle = .none
     self.backgroundColor = .clear
-    contentView.addSubview(containerView)
-    containerView.addSubview(vStack)
+    contentView.addSubview(vStack)
 
     setConstraints()
   }
 
   func setConstraints() {
-    let verticalSpace: CGFloat = 10
-    let horizontalSpace: CGFloat = 20
+    let space: CGFloat = 20
     NSLayoutConstraint.activate([
-      containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: verticalSpace),
-      containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: horizontalSpace),
-      containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -horizontalSpace),
-      containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -verticalSpace),
-
-      vStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: verticalSpace),
-      vStack.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: horizontalSpace),
-      vStack.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -horizontalSpace),
-      vStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -verticalSpace)
+      vStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: space),
+      vStack.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: space),
+      vStack.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -space),
+      vStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -space)
     ])
   }
+}
+
+
+extension UILabel {
+    func setBulletText(_ text: String, bulletColor: UIColor = .goldColor, textColor: UIColor = .goldColor, fontSize: CGFloat = 20) {
+        let bullet = "•"  // Dumaloq nuqta
+        let fullText = "\(bullet) \(text)"
+
+        let attributedString = NSMutableAttributedString(string: fullText)
+
+        // Nuqtaning rangi
+        attributedString.addAttribute(.foregroundColor, value: bulletColor, range: NSRange(location: 0, length: 1))
+
+        // Barcha matn uchun shrift va rang
+        attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: fontSize), range: NSRange(location: 0, length: fullText.count))
+        attributedString.addAttribute(.foregroundColor, value: textColor, range: NSRange(location: 2, length: text.count))
+
+        self.attributedText = attributedString
+    }
 }
