@@ -94,15 +94,13 @@ extension TimesViewModel {
     gregorianFormatter.dateFormat = "d MMMM, yyyy"
     gregorianFormatter.locale = Locale(identifier: "en_US")  // Ingliz tilida
     let gregorianDate = gregorianFormatter.string(from: now)
-    print("Gregorian Date: \(gregorianDate)")
 
     // Hijri yilini olish
     let hijriFormatter = DateFormatter()
     hijriFormatter.dateFormat = "d MMMM, yyyy"
     hijriFormatter.locale = Locale(identifier: "en_US")  // Arab tilida Hijri sanasini olish
-    hijriFormatter.calendar = Calendar(identifier: .islamic) // Hijri kalendarini sozlash
+    hijriFormatter.calendar = Calendar(identifier: .islamicUmmAlQura) // Hijri kalendarini sozlash
     let hijriDate = hijriFormatter.string(from: now)
-    print("Hijri Date: \(hijriDate)")
 
     completion(gregorianDate, hijriDate)
   }
@@ -121,9 +119,10 @@ extension TimesViewModel {
 
   func scheduleNotification(namozNomi: String, vaqt: Date) {
       let content = UNMutableNotificationContent()
-      content.title = "\(namozNomi) vaqti keldi!"
-      content.body = "Allohga ibodat qilish vaqti keldi 🕌"
-      content.sound = .default
+    guard let countryName else { return }
+      content.title = countryName // Add location name for notification
+      content.body = namozNomi // Add prayer name for notification
+    content.sound = .defaultRingtone
 
       let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: vaqt)
       let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)

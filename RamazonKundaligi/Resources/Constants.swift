@@ -11,6 +11,7 @@ struct Constants {
   static let languageChanged = "LanguageChanged"
   static let districtID = "districtID"
   static let languageKey = "selectedLanguage"
+  static let didShowAlert = "didShowAlert"
 }
 
 

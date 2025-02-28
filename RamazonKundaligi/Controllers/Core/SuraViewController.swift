@@ -6,7 +6,24 @@ import UIKit
 class SuraViewController: UIViewController {
 
   private let suraHeaderView = SuraHeaderView()
-  private let surasView = SurasView()
+  let titleView = SuraHeaderTitleView()
+
+  private let fonView: UIView = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.backgroundColor = .midnightGreenColor
+    return $0
+  }(UIView())
+
+  private let tableView: UITableView = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.register(SurasRowTableViewCell.self,
+                forCellReuseIdentifier: SurasRowTableViewCell.reuseId)
+    $0.separatorStyle = .none
+    $0.backgroundColor = .clear
+    return $0
+  }(UITableView(frame: .zero, style: .plain))
+
+  var data = Dua.mockData()
 
   // MARK: - Override Methods
   override func viewDidLoad() {
@@ -20,8 +37,7 @@ class SuraViewController: UIViewController {
 
   override func updateUI() {
     super.updateUI()
-    suraHeaderView.titleView.titleLabel.text = Bundle.localizedString(forKey: "sura_and_dua")
-    surasView.updateUI()
+    titleView.titleLabel.text = "Duolar"
   }
 }
 
@@ -40,11 +56,15 @@ private extension SuraViewController {
     navigationItem.backButtonTitle = ""
     navigationItem.backBarButtonItem?.tintColor = .white
     view.addSubview(suraHeaderView)
+    view.addSubview(titleView)
+    view.addSubview(fonView)
+    view.addSubview(tableView)
+
+    titleView.translatesAutoresizingMaskIntoConstraints = false
     suraHeaderView.translatesAutoresizingMaskIntoConstraints = false
-    view.addSubview(surasView)
-    surasView.translatesAutoresizingMaskIntoConstraints = false
-    surasView.suraAndDua = SuraCollectionTitles.mockData()
-    surasView.delegate = self
+
+    tableView.delegate = self
+    tableView.dataSource = self
   }
 }
 
@@ -54,18 +74,27 @@ private extension SuraViewController {
 
     let headerViewHeight: CGFloat = windowHeight/2.8
     let space: CGFloat
-    
+    let topSpace: CGFloat
+    let headerViewSize: CGFloat
+
     let screenType = UIView.ScreenSizeType.current()
     switch screenType {
-
     case .small:
-      space = 24
+      space = 15
+      headerViewSize = 40
+      topSpace = windowHeight/11
     case .mini:
-      space = 28
+      space = 20
+      headerViewSize = 45
+      topSpace = windowHeight/11
     case .pro:
-      space = 30
+      space = 20
+      headerViewSize = 45
+      topSpace = windowHeight/11
     case .proMax:
-      space = 30
+      space = 20
+      headerViewSize = 45
+      topSpace = windowHeight/11
     }
 
     NSLayoutConstraint.activate([
@@ -74,19 +103,35 @@ private extension SuraViewController {
       suraHeaderView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -space),
       suraHeaderView.heightAnchor.constraint(equalToConstant: headerViewHeight),
 
-      surasView.topAnchor.constraint(equalTo: suraHeaderView.bottomAnchor, constant: -20),
-      surasView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: space),
-      surasView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -space),
+      titleView.topAnchor.constraint(equalTo: view.topAnchor, constant: topSpace),
+      titleView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      titleView.widthAnchor.constraint(equalToConstant: windowWidth/2.5),
+      titleView.heightAnchor.constraint(equalToConstant: headerViewSize),
+      
+      fonView.topAnchor.constraint(equalTo: suraHeaderView.bottomAnchor, constant: -20),
+      fonView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: space),
+      fonView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -space),
+      fonView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+      tableView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 30),
+      tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+      tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+      tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
     ])
   }
 }
 
-extension SuraViewController: SurasViewDelegate {
-  func didSelectItemAt(_ indexPath: IndexPath, title: String) {
-    let vc = SuraRowViewController()
-    vc.hidesBottomBarWhenPushed = true
-    vc.titleLabel.text = Bundle.localizedString(forKey: title)
-    vc.configure(with: indexPath)
-    navigationController?.pushViewController(vc, animated: true)
+// MARK: - UITableViewDelegate, UITableViewDataSource
+extension SuraViewController: UITableViewDelegate, UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return data.count
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: SurasRowTableViewCell.reuseId, for: indexPath) as? SurasRowTableViewCell else {
+      return UITableViewCell()
+    }
+    cell.configure(with: data[indexPath.row])
+    return cell
   }
 }

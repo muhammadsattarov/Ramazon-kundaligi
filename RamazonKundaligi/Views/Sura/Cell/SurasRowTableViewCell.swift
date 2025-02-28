@@ -46,9 +46,9 @@ static let reuseId = "SurasRowTableViewCell"
 
   private let containerView: UIView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.backgroundColor = .cellBackgrountColor
-    $0.layer.cornerRadius = 20
-    $0.clipsToBounds = true
+//    $0.backgroundColor = .cellBackgrountColor
+//    $0.layer.cornerRadius = 20
+//    $0.clipsToBounds = true
     return $0
   }(UIView())
 

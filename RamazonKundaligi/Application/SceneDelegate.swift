@@ -22,7 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.makeKeyAndVisible()
   }
 
-  func sceneDidDisconnect(_ scene: UIScene) {}
+  func sceneDidDisconnect(_ scene: UIScene) {
+    UserDefaults.standard.set(false, forKey: Constants.didShowAlert)
+  }
 
   func sceneDidBecomeActive(_ scene: UIScene) {}
 

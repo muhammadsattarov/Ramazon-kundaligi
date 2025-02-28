@@ -30,8 +30,7 @@ class CalendarViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     observeLanguageChanges()
     fetchDataFromBackend()
-   // updateCurrentData()
-    showAlert()
+    isShowAlert()
   }
 
   // MARK: - Localizatsion
@@ -61,6 +60,7 @@ private extension CalendarViewController {
     view.backgroundColor = .fonGreenColor
     addSubviews()
     setConstraints()
+//    fetchDataFromBackend()
   }
 }
 
@@ -79,9 +79,8 @@ private extension CalendarViewController {
   }
 
   func updateCurrentData() {
+    print(#function)
     guard let currentDay = getCurrentPrayerTimes() else { return }
-    print("currentday1:", currentDay.saharlik)
-    print("currentday2:", currentDay.iftorlik)
     guard let region = ramadanSchedule else { return }
     print("\(region.region), \(region.district)")
     calendarHeaderView.locationNameLabel.text = "\(region.region), \(region.district)"
@@ -94,7 +93,7 @@ private extension CalendarViewController {
     formatter.dateFormat = "d-MMMM"
     formatter.locale = Locale(identifier: "uz_UZ")
 
-    //let currentDate = formatter.string(from: Date())
+   // let currentDate = formatter.string(from: Date())
     let currentDate = "1-Mart"
     print(currentDate)
     if let prayerTime = ramadanSchedule?.times.first(where: { $0.date_time.lowercased() == currentDate.lowercased() }) {
@@ -103,13 +102,22 @@ private extension CalendarViewController {
     return nil
   }
 
+  func isShowAlert() {
+    let didShowAlert = UserDefaults.standard.bool(forKey: Constants.didShowAlert)
+
+    if !didShowAlert {
+      showAlert()
+      UserDefaults.standard.set(true, forKey: Constants.didShowAlert) // Alert shows once
+    }
+  }
+
   func showAlert() {
     DispatchQueue.main.async { [weak self] in
       guard let self = self else { return }
       self.showCustomAlert(
         title: "Taqvimda biroz farq bo'lishi mumkin. Shu sababdan taqvimdagi saharlik(og'iz yopish) vaqtidan 5-10 daqiqa oldin og'iz yopish tavsiya qilinadi. Iftorlik(og'iz ochish) vaqtida esa shom kirganiga ishonch hosil qilib og'iz ochish tavsiya etiladi.",
         showCancelButton: false,
-        buttonTitle: "Okay") {
+        buttonTitle: "Tushinarli") {
           print("Tushinarli")
         }
     }
