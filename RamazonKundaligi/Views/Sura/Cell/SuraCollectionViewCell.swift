@@ -29,7 +29,7 @@ class SuraCollectionViewCell: UICollectionViewCell {
   }
 
   func configure(with model: SuraCollectionTitles) {
-    titleLabel.text = model.title
+    titleLabel.text = Bundle.localizedString(forKey: model.title)
     imageOfView.image = UIImage(named: model.image)
   }
 
@@ -61,16 +61,20 @@ private extension SuraCollectionViewCell {
     let screenType = UIView.ScreenSizeType.current()
     switch screenType {
     case .small:
+      space = 14
+      titleFont = .systemFont(ofSize: 18, weight: .medium)
+      imageSize = 23
+    case .mini:
       space = 15
       titleFont = .systemFont(ofSize: 20, weight: .medium)
-      imageSize = 23
-    case .medium:
-      space = 18
-      titleFont = .systemFont(ofSize: 21, weight: .medium)
       imageSize = 25
-    case .large:
-      space = 20
-      titleFont = .systemFont(ofSize: 22, weight: .medium)
+    case .pro:
+      space = 15
+      titleFont = .systemFont(ofSize: 20, weight: .medium)
+      imageSize = 25
+    case .proMax:
+      space = 15
+      titleFont = .systemFont(ofSize: 20, weight: .medium)
       imageSize = 25
     }
 

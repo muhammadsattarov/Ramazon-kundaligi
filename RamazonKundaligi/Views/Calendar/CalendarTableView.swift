@@ -16,13 +16,21 @@ class CalendarTableView: UIView {
     return $0
   }(UITableView())
 
-  private var calendarData = CalendarModel.mockData()
+  private var calendarData: RamazonTaqvim?
 
   // MARK: - Init
   override init(frame: CGRect) {
     super.init(frame: frame)
     setup()
     setConstraints()
+  }
+
+  func configure(with model: RamazonTaqvim) {
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else { return }
+      self.calendarData = model
+      self.tableView.reloadData()
+    }
   }
 
   required init?(coder: NSCoder) {
@@ -54,7 +62,10 @@ private extension CalendarTableView {
 
 extension CalendarTableView: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return calendarData.count
+    if let calendarData {
+        return calendarData.times.count
+  }
+    return 0
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,8 +73,10 @@ extension CalendarTableView: UITableViewDataSource, UITableViewDelegate {
       return UITableViewCell()
     }
     cell.selectionStyle = .none
-
-    cell.configure(with: calendarData[indexPath.row])
+    let ramadanCount = RamazonTaqvim.ramadanCount[indexPath.row]
+    guard let data = calendarData?.times[indexPath.row] else { return UITableViewCell() }
+    cell.configure(with: ramadanCount,
+                   model: data)
     return cell
   }
 

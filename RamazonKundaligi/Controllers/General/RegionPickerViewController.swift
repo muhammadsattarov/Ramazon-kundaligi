@@ -2,7 +2,15 @@
 import UIKit
 
 class RegionPickerViewController: UIViewController {
-
+  // MARK: - UI Components
+  private let titleLabel: UILabel = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.font = .systemFont(ofSize: 18, weight: .medium)
+    $0.textColor = .white
+    $0.textAlignment = .center
+    return $0
+  }(UILabel())
+  
   private let backButton: UIButton = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.setImage(UIImage(systemName: "xmark"), for: .normal)
@@ -23,13 +31,18 @@ class RegionPickerViewController: UIViewController {
     return $0
   }(UITableView(frame: .zero, style: .insetGrouped))
 
+  // MARK: - Properties
   var onSelect: ((String, String) -> Void)?
-  var isShowingRegions = true // True -> Viloyatlar, False -> Tumanlar
+  var isShowingRegions = true // True -> Regions, False -> Districts
 
   var regions: [Region] = []
-  var districts: [String] = []
-  var districtsFromBackend: [String] = [ "District1", "District2", "District3", "District4", "District5"]
+  var districts: [District] = []
   var selectedRegion: Region?
+
+  var selectedRegionID: Int? {
+    get { UserDefaults.standard.value(forKey: "selectedRegionID") as? Int }
+    set { UserDefaults.standard.setValue(newValue, forKey: "selectedRegionID") }
+  }
 
   // MARK: - Override Methods
   override func viewDidLoad() {
@@ -39,18 +52,20 @@ class RegionPickerViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     animateBackButton()
-    setupData()
+    fetchRegion()
+    setupTitleLabel()
   }
 }
 
 // MARK: - SetupViews
 private extension RegionPickerViewController {
   func setupViews() {
-    view.backgroundColor = .fonGreenColor
     addSubviews()
+    setupTableView()
     setConstraints()
     addActions()
 
+    view.backgroundColor = .fonGreenColor2
     view.layer.cornerRadius = 30
     view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
   }
@@ -59,33 +74,71 @@ private extension RegionPickerViewController {
 // MARK: - Add Subviews
 private extension RegionPickerViewController {
   func addSubviews() {
+    view.addSubview(backButton)
+    view.addSubview(titleLabel)
+    view.addSubview(tableView)
+  }
+
+  func setupTableView() {
     tableView.delegate = self
     tableView.dataSource = self
-    view.addSubview(tableView)
-    view.addSubview(backButton)
+    tableView.sectionHeaderHeight = 0
+    tableView.sectionFooterHeight = 0
+    tableView.estimatedSectionHeaderHeight = 0
+    tableView.estimatedSectionFooterHeight = 0
+  }
+
+  func setupTitleLabel() {
+    if isShowingRegions {
+      titleLabel.text = "Viloyatlar"
+    } else {
+      titleLabel.text = "Tuman va shaharlar"
+    }
   }
 }
 
 // MARK: - Setup data
 private extension RegionPickerViewController {
-  // 📌 1️⃣ Viloyat va tumanlarni yuklash
-  func setupData() {
+  func fetchRegion() {
     print(#function)
-    CalendarService.shared.fetchRegions { result in
-      switch result {
-      case .success(let regions):
+    RamadanService.shared.fetchRegions { regions in
+      if let regions {
+        print(regions)
         DispatchQueue.main.async { [weak self] in
-          print("Regions", regions)
           self?.regions = regions
+          self?.restoreSelectedRegion()
           self?.tableView.reloadData()
         }
-      case .failure(let error):
-        print(error.localizedDescription)
+      }
+    }
+  }
+
+  func fetchDistrict(id: Int) {
+    RamadanService.shared.fetchDistricts(id) { districts in
+      if let districts {
+        print(districts)
+        DispatchQueue.main.async {  [weak self] in
+          self?.districts = districts
+          self?.tableView.reloadData()
+        }
       }
     }
   }
 }
-// MARK: - Set Constraints
+
+private extension RegionPickerViewController {
+  /// 📌 Saqlangan viloyatni tiklash
+  func restoreSelectedRegion() {
+    guard let regionID = selectedRegionID,
+          let index = regions.firstIndex(where: { $0.id == regionID }) else { return }
+
+    selectedRegion = regions[index]
+    tableView.reloadData() // ✅ Yangi yuklangan ma’lumotlar bilan UI yangilash
+    fetchDistrict(id: regionID) // ✅ Tanlangan viloyat bo‘yicha tumanlarni yuklash
+  }
+}
+
+// MARK: - Add Actions
 private extension RegionPickerViewController {
   func addActions() {
     backButton.addTarget(
@@ -96,6 +149,7 @@ private extension RegionPickerViewController {
   @objc func didTapBackButton() {
     if !isShowingRegions {
       // 📌 Agar tumanlar ko‘rsatilayotgan bo‘lsa, viloyatlarga qaytish
+      titleLabel.text = "Viloyatlar"
       isShowingRegions = true
       tableView.reloadData()
     } else {
@@ -125,6 +179,9 @@ private extension RegionPickerViewController {
       backButton.widthAnchor.constraint(equalToConstant: 25),
       backButton.heightAnchor.constraint(equalToConstant: 25),
 
+      titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: space),
+      titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
       tableView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 15),
       tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
       tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
@@ -145,7 +202,17 @@ extension RegionPickerViewController: UITableViewDelegate, UITableViewDataSource
     cell.backgroundColor = .cellBackgrountColor
     cell.selectionStyle = .none
     cell.textLabel?.textColor = .white
-    cell.textLabel?.text = isShowingRegions ? regions[indexPath.row].name : districts[indexPath.row]
+
+    if isShowingRegions {
+       let region = regions[indexPath.row]
+       cell.textLabel?.text = region.name
+       cell.accessoryType = (selectedRegionID == region.id) ? .checkmark : .none  // ✅ ID orqali tekshirish
+     } else {
+       let district = districts[indexPath.row]
+       cell.textLabel?.text = district.name
+       cell.accessoryType = .none
+     }
+
     return cell
   }
 
@@ -154,26 +221,21 @@ extension RegionPickerViewController: UITableViewDelegate, UITableViewDataSource
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-    let cell = tableView.cellForRow(at: indexPath)
-    cell?.accessoryType = .checkmark
-
     if isShowingRegions {
-      // 📌 Viloyat tanlandi, tumanlar ro‘yxatini yuklash
-      UIView.animate(withDuration: 0.3) { [weak self] in
-        self?.animateBackButton(isBack: false)
-        self?.selectedRegion = self?.regions[indexPath.row]
-        self?.districts = self?.districtsFromBackend ?? []
-        self?.isShowingRegions = false
-        self?.tableView.reloadData()
-      }
+      selectedRegionID = regions[indexPath.row].id
+      selectedRegion = regions[indexPath.row]
+      fetchDistrict(id: selectedRegion!.id)
+      isShowingRegions = false
+      animateBackButton(isBack: false)
     } else {
-      // 📌 Tuman tanlandi, natijani qaytarish va ekranni yopish
-      animateBackButton(isBack: true)
       guard let selectedRegion = selectedRegion else { return }
       let selectedDistrict = districts[indexPath.row]
-      onSelect?(selectedRegion.name, selectedDistrict)
+      UserDefaults.standard.set(selectedDistrict.id, forKey: Constants.districtID)
+      onSelect?(selectedRegion.name, selectedDistrict.name)
       dismiss(animated: true)
     }
+
+    setupTitleLabel()
+    tableView.reloadData()
   }
 }

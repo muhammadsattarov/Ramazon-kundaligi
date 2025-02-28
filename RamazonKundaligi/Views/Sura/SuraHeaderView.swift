@@ -6,7 +6,7 @@ import UIKit
 class SuraHeaderView: UIView {
 static let reuseId = "SuraHeaderView"
   
-  private let titleView = SuraHeaderTitleView()
+  let titleView = SuraHeaderTitleView()
 
   private lazy var imageOfView: UIImageView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -48,10 +48,13 @@ private extension SuraHeaderView {
     case .small:
       headerViewSize = 55
       topSpace = windowHeight/9.5
-    case .medium:
+    case .mini:
       headerViewSize = 58
       topSpace = windowHeight/8.8
-    case .large:
+    case .pro:
+      headerViewSize = 60
+      topSpace = windowHeight/8.6
+    case .proMax:
       headerViewSize = 60
       topSpace = windowHeight/8.6
     }

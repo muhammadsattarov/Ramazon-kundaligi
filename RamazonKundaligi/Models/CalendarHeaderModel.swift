@@ -8,10 +8,18 @@ struct CalendarHeaderModel {
 
   static func mockData() -> [CalendarHeaderModel] {
     return [
-      .init(title: "Ramazon", image: "moon"),
-      .init(title: "Sana", image: "calendar"),
-      .init(title: "Saharlik", image: "moon.haze"),
-      .init(title: "Iftorlik", image: "sunset")
+      .init(title: "ramazon", image: "moon"),
+      .init(title: "sana", image: "calendar"),
+      .init(title: "saharlik", image: getCompatibleIcon()),
+      .init(title: "iftorlik", image: "sunset")
     ]
+  }
+
+  static func getCompatibleIcon() -> String {
+      if #available(iOS 16, *) {
+          return "moon.haze"
+      } else {
+          return "moon.stars"
+      }
   }
 }

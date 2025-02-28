@@ -4,25 +4,25 @@ import UIKit
 
 class TodayDateHeaderView: UIView {
 
-  private lazy var titleLabel: UILabel = {
+  lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "Bugun"
+ //   $0.text = "Bugun"
     $0.textAlignment = .center
     $0.textColor = .white
     return $0
   }(UILabel())
 
-  private lazy var timeLabel: UILabel = {
+  private lazy var hijriDateLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "01, Ramazon 1444"
+    $0.text = "hijri: -/-"
     $0.textAlignment = .center
     $0.textColor = .white
     return $0
   }(UILabel())
 
-  private lazy var prayerTimeNameLabel: UILabel = {
+  private lazy var gregorianDateLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "24 Mart, 2025"
+    $0.text = "gregoryan: -/-"
     $0.textAlignment = .center
     $0.textColor = .white
     return $0
@@ -33,7 +33,7 @@ class TodayDateHeaderView: UIView {
     $0.axis = .vertical
     $0.spacing = 3
     return $0
-  }(UIStackView(arrangedSubviews: [titleLabel, timeLabel, prayerTimeNameLabel]))
+  }(UIStackView(arrangedSubviews: [titleLabel, hijriDateLabel, gregorianDateLabel]))
 
 // MARK: - Init
   override init(frame: CGRect) {
@@ -41,6 +41,13 @@ class TodayDateHeaderView: UIView {
     setup()
     setupLabelFonts()
     setConstraints()
+  }
+
+  func configure(_ gregorian: String, hijri: String) {
+    DispatchQueue.main.async { [weak self] in
+      self?.gregorianDateLabel.text = gregorian
+      self?.hijriDateLabel.text = hijri
+    }
   }
 
   required init?(coder: NSCoder) {
@@ -65,14 +72,16 @@ private extension TodayDateHeaderView {
     switch screenType {
     case .small:
       titleLabelFont = .systemFont(ofSize: 14, weight: .medium)
-    case .medium:
+    case .mini:
       titleLabelFont = .systemFont(ofSize: 15, weight: .medium)
-    case .large:
+    case .pro:
+      titleLabelFont = .systemFont(ofSize: 15, weight: .medium)
+    case .proMax:
       titleLabelFont = .systemFont(ofSize: 15, weight: .medium)
     }
     titleLabel.font = titleLabelFont
-    timeLabel.font = titleLabelFont
-    prayerTimeNameLabel.font = titleLabelFont
+    hijriDateLabel.font = titleLabelFont
+    gregorianDateLabel.font = titleLabelFont
   }
 
   func setConstraints() {

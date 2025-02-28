@@ -1,5 +1,673 @@
 {
   "sourceLanguage" : "en",
-  "strings" : {},
+  "strings" : {
+    "about_app" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dastur haqida"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дастур ҳақида"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dastur haqida"
+          }
+        }
+      }
+    },
+    "app_language" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ilova tili"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Илова тили"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ilova tili"
+          }
+        }
+      }
+    },
+    "asr" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asr"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аср"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asr"
+          }
+        }
+      }
+    },
+    "assessment_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baholash"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Баҳолаш"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baholash"
+          }
+        }
+      }
+    },
+    "choose_region" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taqvim uchun joylashuvni tanlang..."
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тақвим учун жойлашувни танланг..."
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taqvim uchun joylashuvni tanlang..."
+          }
+        }
+      }
+    },
+    "dua_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duolar"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дуолар"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duolar"
+          }
+        }
+      }
+    },
+    "evening_zikr_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kechgi\n zikrlar"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кечги \nзикрлар"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kechgi \nzikrlar"
+          }
+        }
+      }
+    },
+    "hufton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hufton"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Хуфтон"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hufton"
+          }
+        }
+      }
+    },
+    "iftar_dua_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iftorlik \nduosi"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ифторлик \nдуоси"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iftorlik \nduosi"
+          }
+        }
+      }
+    },
+    "iftorlik" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iftorlik"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ифторлик"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iftorlik"
+          }
+        }
+      }
+    },
+    "interpretation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Talqin "
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Талқин"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Talqin"
+          }
+        }
+      }
+    },
+    "morning_dua_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saharlik \nduosi"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Саҳарлик \nдуоси"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saharlik\n duosi"
+          }
+        }
+      }
+    },
+    "morning_zikr_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tonggi\n zikrlar"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тонгги\n зикрлар"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tonggi \nzikrlar"
+          }
+        }
+      }
+    },
+    "namoz_vaqtlari" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Namoz vaqtlari"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Намоз вақтлари"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Namoz vaqtlari"
+          }
+        }
+      }
+    },
+    "next_prayer_time" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keyingi namoz "
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кейинги намоз"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keyingi namoz"
+          }
+        }
+      }
+    },
+    "notification_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildirishnoma"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Билдиришнома"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildirishnoma"
+          }
+        }
+      }
+    },
+    "peshin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pershin"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пешин"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pershin"
+          }
+        }
+      }
+    },
+    "quyosh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quyosh"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Қуёш"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quyosh"
+          }
+        }
+      }
+    },
+    "ramadan_schedule" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ramazon taqvimi"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рамазон тақвими"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ramazon taqvimi"
+          }
+        }
+      }
+    },
+    "ramazon" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ramazon"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рамазон"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ramazon"
+          }
+        }
+      }
+    },
+    "saharlik" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saharlik"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Саҳарлик"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saharlik"
+          }
+        }
+      }
+    },
+    "sana" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sana"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сана"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sana"
+          }
+        }
+      }
+    },
+    "settings_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sozlamalar"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Созламалар"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sozlamalar"
+          }
+        }
+      }
+    },
+    "share_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ulashish"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Улашиш"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ulashish"
+          }
+        }
+      }
+    },
+    "shom" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shom"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шом"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shom"
+          }
+        }
+      }
+    },
+    "sura_and_dua" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suralar va duolar"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Суралар ва дуолар"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suralar va Duolar"
+          }
+        }
+      }
+    },
+    "sura_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suralar"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Суралар"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suralar"
+          }
+        }
+      }
+    },
+    "today_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bugun:"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бугун:"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bugun:"
+          }
+        }
+      }
+    },
+    "tong" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tong"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тонг"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tong"
+          }
+        }
+      }
+    }
+  },
   "version" : "1.0"
 }

@@ -20,7 +20,7 @@ class HomeTableViewCell: UITableViewCell {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.image = UIImage(systemName: "sun.max")
     $0.contentMode = .scaleAspectFit
-    $0.tintColor = .white
+    $0.tintColor = .goldColor
     return $0
   }(UIImageView())
 
@@ -34,9 +34,9 @@ class HomeTableViewCell: UITableViewCell {
   }
 
   func configure(with model: PrayerTimesModel) {
-    titleLabel.text = model.title
+    titleLabel.text = Bundle.localizedString(forKey: model.prayer.localized)
     timeLabel.text = model.time
-    imageOfView.image = UIImage(systemName: model.image)
+    imageOfView.image = UIImage(systemName: model.prayer.icons)
   }
 
   required init?(coder: NSCoder) {
@@ -44,6 +44,7 @@ class HomeTableViewCell: UITableViewCell {
   }
 }
 
+// MARK: - Setup and Constraints
 private extension HomeTableViewCell {
   func setup() {
     contentView.addSubview(titleLabel)
@@ -54,8 +55,8 @@ private extension HomeTableViewCell {
   func setConstraints() {
     let space: CGFloat = 20
     NSLayoutConstraint.activate([
-      imageOfView.widthAnchor.constraint(equalToConstant: 25),
-      imageOfView.heightAnchor.constraint(equalToConstant: 22),
+      imageOfView.widthAnchor.constraint(equalToConstant: 30),
+      imageOfView.heightAnchor.constraint(equalToConstant: 26),
       imageOfView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -space),
       imageOfView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
 

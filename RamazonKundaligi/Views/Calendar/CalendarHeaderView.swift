@@ -12,10 +12,11 @@ class CalendarHeaderView: UIView {
     return $0
   }(UIImageView())
 
-  private lazy var titleLabel: UILabel = {
+  lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "Namoz Vaqtlari"
+    $0.text = "Ramazon taqvimi"
     $0.textColor = .goldColor
+    $0.numberOfLines = 2
     $0.textAlignment = .center
   return $0
   }(UILabel())
@@ -23,17 +24,18 @@ class CalendarHeaderView: UIView {
   private lazy var locatonImage: UIImageView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.image = UIImage(systemName: "location.fill")
-    $0.contentMode = .scaleToFill
+    $0.contentMode = .scaleAspectFit
     $0.tintColor = .goldColor
     return $0
   }(UIImageView())
 
-  private lazy var locationNameLabel = UILabel(
-    text: "Sayxunobod, Sirdaryo, Uzbekistan",
-    font: .systemFont(ofSize: 15, weight: .medium),
-    textColor: .white,
-    textAlignment: .center
-  )
+  lazy var locationNameLabel: UILabel = {
+    $0.font = .systemFont(ofSize: 15, weight: .medium)
+    $0.textColor = .white
+    $0.textAlignment = .left
+    $0.numberOfLines = 2
+    return $0
+  }(UILabel())
 
   private lazy var locationStack: UIStackView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -42,20 +44,19 @@ class CalendarHeaderView: UIView {
     return $0
   }(UIStackView(arrangedSubviews: [locatonImage, locationNameLabel]))
 
+  lazy var todayLabel: UILabel = {
+    $0.font = .systemFont(ofSize: 15, weight: .medium)
+    $0.textColor = .goldColor
+    $0.textAlignment = .center
+    return $0
+  }(UILabel())
 
-  private lazy var todayLabel = UILabel(
-    text: "Bugun:",
-    font: .systemFont(ofSize: 15, weight: .medium),
-    textColor: .goldColor,
-    textAlignment: .center
-  )
-
-  private lazy var todayDateLabel = UILabel(
-    text: "01, Ramazon, 1444-24, Mart, 2025",
-    font: .systemFont(ofSize: 15, weight: .medium),
-    textColor: .white,
-    textAlignment: .center
-  )
+  lazy var todayDateLabel: UILabel = {
+    $0.font = .systemFont(ofSize: 15, weight: .medium)
+    $0.textColor = .white
+    $0.textAlignment = .center
+    return $0
+  }(UILabel())
 
   private lazy var todayDateStack: UIStackView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -64,8 +65,8 @@ class CalendarHeaderView: UIView {
     return $0
   }(UIStackView(arrangedSubviews: [todayLabel, todayDateLabel]))
 
-  private let saharlikView = TimeView(title: "Saharlik", date: "04:23")
-  private let iftorlikView = TimeView(title: "Iftorlik", date: "18:27")
+  let saharlikView = TimeView()
+  let iftorlikView = TimeView()
 
   private lazy var iftorlikSaharlikStack: UIStackView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -82,6 +83,11 @@ class CalendarHeaderView: UIView {
     setup()
     setConstraints()
   }
+
+  func configure(_ hijri: String, gregorian: String) {
+    todayDateLabel.text = "\(hijri) / \(gregorian)"
+  }
+
 
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
@@ -112,11 +118,15 @@ private extension CalendarHeaderView {
       labelFont = .systemFont(ofSize: 25, weight: .semibold)
       topImageSize = 170
       iftorlikSaharlikStackFont = 65
-    case .medium:
+    case .mini:
       labelFont = .systemFont(ofSize: 28, weight: .semibold)
       topImageSize = 200
       iftorlikSaharlikStackFont = 70
-    case .large:
+    case .pro:
+      labelFont = .systemFont(ofSize: 28, weight: .semibold)
+      topImageSize = 200
+      iftorlikSaharlikStackFont = 70
+    case .proMax:
       labelFont = .systemFont(ofSize: 28, weight: .semibold)
       topImageSize = 200
       iftorlikSaharlikStackFont = 70
@@ -134,6 +144,7 @@ private extension CalendarHeaderView {
 
       locationStack.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
       locationStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
+      locationStack.rightAnchor.constraint(equalTo: topImage.leftAnchor, constant: 30),
 
       todayDateStack.topAnchor.constraint(equalTo: topImage.bottomAnchor, constant: space),
       todayDateStack.centerXAnchor.constraint(equalTo: self.centerXAnchor),

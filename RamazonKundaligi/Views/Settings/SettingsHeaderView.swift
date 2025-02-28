@@ -11,15 +11,14 @@ class SettingsHeaderView: UIView {
     return $0
   }(UIImageView())
 
-  private lazy var titleLabel: UILabel = {
+  lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "Sozlamalar"
     $0.textColor = .goldColor
     $0.textAlignment = .center
   return $0
   }(UILabel())
 
-  private let versionView = SettingsHeaderVersionView()
+  let versionView = SettingsHeaderVersionView()
 
   // MARK: - Init
   override init(frame: CGRect) {
@@ -51,11 +50,13 @@ private extension SettingsHeaderView {
     let screenType = UIView.ScreenSizeType.current()
     switch screenType {
     case .small:
+      titleFont = .systemFont(ofSize: 28, weight: .semibold)
+    case .mini:
+      titleFont = .systemFont(ofSize: 30, weight: .semibold)
+    case .pro:
       titleFont = .systemFont(ofSize: 32, weight: .semibold)
-    case .medium:
-      titleFont = .systemFont(ofSize: 34, weight: .semibold)
-    case .large:
-      titleFont = .systemFont(ofSize: 35, weight: .semibold)
+    case .proMax:
+      titleFont = .systemFont(ofSize: 32, weight: .semibold)
     }
     titleLabel.font = titleFont
 

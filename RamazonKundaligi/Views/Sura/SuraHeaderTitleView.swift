@@ -4,9 +4,8 @@ import UIKit
 
 class SuraHeaderTitleView: UIView {
 
-  private lazy var titleLabel: UILabel = {
+  lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "Suralar va Duolar"
     $0.textColor = .goldColor
     $0.textAlignment = .center
     return $0
@@ -46,9 +45,11 @@ private extension SuraHeaderTitleView {
     switch screenType {
     case .small:
       titleFont = .systemFont(ofSize: 27, weight: .semibold)
-    case .medium:
+    case .mini:
       titleFont = .systemFont(ofSize: 29, weight: .semibold)
-    case .large:
+    case .pro:
+      titleFont = .systemFont(ofSize: 30, weight: .semibold)
+    case .proMax:
       titleFont = .systemFont(ofSize: 30, weight: .semibold)
     }
   titleLabel.font = titleFont

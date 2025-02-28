@@ -30,16 +30,19 @@ class TimeView: UIView {
 
 
   // MARK: - Init
-  init(title: String, date: String) {
+  override init(frame: CGRect) {
     super.init(frame: .zero)
-    titleLabel.text = title
-    timeLabel.text = date
     self.backgroundColor = .cellBackgrountColor
     self.layer.cornerRadius = 15
     self.layer.masksToBounds = true
     setup()
     setupLabelFonts()
     setConstraints()
+  }
+
+  func configure(with title: String, time: String) {
+    titleLabel.text = title
+    timeLabel.text = time
   }
 
   required init?(coder: NSCoder) {
@@ -64,10 +67,13 @@ private extension TimeView {
     case .small:
       titleLabelFont = .systemFont(ofSize: 19, weight: .semibold)
       timeLabelFont = .systemFont(ofSize: 20, weight: .semibold)
-    case .medium:
+    case .mini:
       titleLabelFont = .systemFont(ofSize: 21, weight: .semibold)
       timeLabelFont = .systemFont(ofSize: 22, weight: .semibold)
-    case .large:
+    case .pro:
+      titleLabelFont = .systemFont(ofSize: 22, weight: .semibold)
+      timeLabelFont = .systemFont(ofSize: 23, weight: .semibold)
+    case .proMax:
       titleLabelFont = .systemFont(ofSize: 22, weight: .semibold)
       timeLabelFont = .systemFont(ofSize: 23, weight: .semibold)
     }

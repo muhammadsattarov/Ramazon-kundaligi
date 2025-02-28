@@ -15,12 +15,12 @@ struct SuraCollectionTitles {
 
   static func mockData() -> [SuraCollectionTitles] {
     let sura: [SuraCollectionTitles] = [
-      .init(title: "Suralar", image: "book"),
-      .init(title: "Duolar", image: "hand"),
-      .init(title: "Saharlik \nduosi", image: "moon"),
-      .init(title: "Iftorlik \nduosi", image: "sunset"),
-      .init(title: "Tonggi \nzikrlar", image: "sunrise"),
-      .init(title: "Kechgi \nzikrlar", image: "moon-stars"),
+      .init(title: "sura_title", image: "book"),
+      .init(title: "dua_title", image: "hand"),
+      .init(title: "morning_dua_title", image: "moon"),
+      .init(title: "iftar_dua_title", image: "sunset"),
+      .init(title: "morning_zikr_title", image: "sunrise"),
+      .init(title: "evening_zikr_title", image: "moon-stars"),
     ]
     return sura
   }

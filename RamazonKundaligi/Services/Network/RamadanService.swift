@@ -2,33 +2,33 @@ import Foundation
 
 
 protocol RamadanServiceProtocol {
-  func fetchRegions(completion: @escaping (Result<[Region], Error>) -> Void)
-  func fetchDistricts(_ id: Int, completion: @escaping (Result<[District], Error>) -> Void)
-  func fetchRamadanSchedule(_ id: Int, completion: @escaping (Result<RamazonTaqvim, Error>) -> Void)
+  func fetchRegions(completion: @escaping ([Region]?) -> Void)
+  func fetchDistricts(_ id: Int, completion: @escaping ([District]?) -> Void)
+  func fetchRamadanSchedule(_ id: Int, completion: @escaping (RamazonTaqvim?) -> Void)
 }
 
 class RamadanService: RamadanServiceProtocol {
   static let shared = RamadanService()
 
-  private let network: NetworkServiceProtocol
-  private init(network: NetworkServiceProtocol = NetworkService.shared) {
-    self.network = network
+  private let datafetcher: DataFetcherProtocol
+  private init(datafetcher: DataFetcherProtocol = NetworkDataFetcher.shared) {
+    self.datafetcher = datafetcher
   }
 
-  func fetchRegions(completion: @escaping (Result<[Region], Error>) -> Void) {
+  func fetchRegions(completion: @escaping ([Region]?) -> Void) {
     let entPoint = Constants.regionsUrl
-    network.fetchData(from: entPoint, completion: completion)
+    datafetcher.fetchDataArray(from: entPoint, completion: completion)
   }
 
   func fetchDistricts(_ id: Int,
-                      completion: @escaping (Result<[District], Error>) -> Void) {
+                      completion: @escaping ([District]?) -> Void) {
     let entPoint = "\(Constants.districtUrl)\(id)"
-    network.fetchData(from: entPoint, completion: completion)
+    datafetcher.fetchDataArray(from: entPoint, completion: completion)
   }
 
-  func fetchRamadanSchedule(_ id: Int, completion: @escaping (Result<RamazonTaqvim, Error>) -> Void) {
+  func fetchRamadanSchedule(_ id: Int, completion: @escaping (RamazonTaqvim?) -> Void) {
     let entPoint = "\(Constants.ramadanScheduleUrl)\(id)"
-    network.fetchData(from: entPoint, completion: completion)
+    datafetcher.fetchData(from: entPoint, completion: completion)
   }
 }
 

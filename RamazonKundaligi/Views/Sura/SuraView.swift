@@ -2,6 +2,10 @@
 
 import UIKit
 
+protocol SurasViewDelegate: AnyObject {
+  func didSelectItemAt(_ indexPath: IndexPath, title: String)
+}
+
 class SurasView: UIView {
 
   private lazy var collectionView: UICollectionView = {
@@ -22,6 +26,15 @@ class SurasView: UIView {
   }()
 
   var suraAndDua: [SuraCollectionTitles] = []
+
+  weak var delegate: SurasViewDelegate?
+
+  func updateUI() {
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else { return }
+      self.collectionView.reloadData()
+    }
+  }
 
   // MARK: - Init
   override init(frame: CGRect) {
@@ -60,6 +73,7 @@ private extension SurasView {
   }
 }
 
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension SurasView: UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return suraAndDua.count
@@ -70,8 +84,13 @@ extension SurasView: UICollectionViewDelegate, UICollectionViewDataSource {
     cell.configure(with: suraAndDua[indexPath.row])
     return cell
   }
+
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    delegate?.didSelectItemAt(indexPath, title: suraAndDua[indexPath.row].title)
+  }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension SurasView: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return CGSize(width: (collectionView.frame.width-30)/2,

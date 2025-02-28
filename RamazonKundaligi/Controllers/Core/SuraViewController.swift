@@ -13,6 +13,16 @@ class SuraViewController: UIViewController {
     super.viewDidLoad()
     setupViews()
   }
+
+  override func viewWillAppear(_ animated: Bool) {
+    observeLanguageChanges()
+  }
+
+  override func updateUI() {
+    super.updateUI()
+    suraHeaderView.titleView.titleLabel.text = Bundle.localizedString(forKey: "sura_and_dua")
+    surasView.updateUI()
+  }
 }
 
 // MARK: - Setup Views
@@ -27,11 +37,14 @@ private extension SuraViewController {
 // MARK: - Add Subviews
 private extension SuraViewController {
   func addSubviews() {
+    navigationItem.backButtonTitle = ""
+    navigationItem.backBarButtonItem?.tintColor = .white
     view.addSubview(suraHeaderView)
     suraHeaderView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(surasView)
     surasView.translatesAutoresizingMaskIntoConstraints = false
     surasView.suraAndDua = SuraCollectionTitles.mockData()
+    surasView.delegate = self
   }
 }
 
@@ -47,9 +60,11 @@ private extension SuraViewController {
 
     case .small:
       space = 24
-    case .medium:
+    case .mini:
       space = 28
-    case .large:
+    case .pro:
+      space = 30
+    case .proMax:
       space = 30
     }
 
@@ -66,3 +81,12 @@ private extension SuraViewController {
   }
 }
 
+extension SuraViewController: SurasViewDelegate {
+  func didSelectItemAt(_ indexPath: IndexPath, title: String) {
+    let vc = SuraRowViewController()
+    vc.hidesBottomBarWhenPushed = true
+    vc.titleLabel.text = Bundle.localizedString(forKey: title)
+    vc.configure(with: indexPath)
+    navigationController?.pushViewController(vc, animated: true)
+  }
+}

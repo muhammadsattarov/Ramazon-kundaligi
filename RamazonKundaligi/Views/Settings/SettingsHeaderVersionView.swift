@@ -7,7 +7,7 @@ class SettingsHeaderVersionView: UIView {
 
   private lazy var iconImage: UIImageView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.image = UIImage(named: "settings_icon")
+    $0.image = UIImage(named: "logo")
     $0.contentMode = .scaleToFill
     $0.backgroundColor = .fonWhiteColor
     $0.layer.cornerRadius = 10
@@ -15,25 +15,26 @@ class SettingsHeaderVersionView: UIView {
     return $0
   }(UIImageView())
 
-  private lazy var titleLabel = UILabel(
+  lazy var titleLabel = UILabel(
     text: "Ramazon taqvimi",
     font: .systemFont(ofSize: 18, weight: .medium),
     textColor: .white,
     textAlignment: .center
   )
 
-  private lazy var versionLabel = UILabel(
-    text: "Talqin 1.0.0",
-    font: .systemFont(ofSize: 15, weight: .medium),
-    textColor: .fonWhiteColor,
-    textAlignment: .center
-  )
+  lazy var versionLabel: UILabel = {
+    $0.text = "Talqin 1.0.0"
+    $0.font = .systemFont(ofSize: 15, weight: .medium)
+    $0.textColor = .fonWhiteColor
+    $0.textAlignment = .center
+    return $0
+  }(UILabel())
 
   private lazy var vStack: UIStackView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.axis = .vertical
     $0.spacing = 5
-    $0.distribution = .fillProportionally
+    $0.distribution = .fillEqually
     return $0
   }(UIStackView(arrangedSubviews: [titleLabel, versionLabel]))
 
@@ -66,9 +67,11 @@ private extension SettingsHeaderVersionView {
     switch screenType {
     case .small:
       imageSize = 52
-    case .medium:
+    case .mini:
       imageSize = 55
-    case .large:
+    case .pro:
+      imageSize = 55
+    case .proMax:
       imageSize = 55
     }
 

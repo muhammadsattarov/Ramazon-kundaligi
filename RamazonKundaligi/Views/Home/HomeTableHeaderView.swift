@@ -20,9 +20,8 @@ class HomeTableHeaderView: UIView {
     return $0
   }(UIImageView())
 
-  private lazy var titleLabel: UILabel = {
+  lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "Namoz Vaqtlari"
     $0.textColor = .goldColor
     $0.textAlignment = .center
     return $0
@@ -58,6 +57,12 @@ class HomeTableHeaderView: UIView {
     setConstraints()
   }
   
+  func configure(with locationName: String) {
+    DispatchQueue.main.async { [weak self] in
+      self?.locationNameLabel.text = locationName
+    }
+  }
+
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -77,9 +82,11 @@ private extension HomeTableHeaderView {
     switch screenType {
     case .small:
       titleLabelFont = .systemFont(ofSize: 26, weight: .semibold)
-    case .medium:
+    case .mini:
       titleLabelFont = .systemFont(ofSize: 30, weight: .semibold)
-    case .large:
+    case .pro:
+      titleLabelFont = .systemFont(ofSize: 30, weight: .semibold)
+    case .proMax:
       titleLabelFont = .systemFont(ofSize: 30, weight: .semibold)
     }
 
@@ -88,7 +95,7 @@ private extension HomeTableHeaderView {
     let space: CGFloat = 20
     let topSpace: CGFloat = windowHeight/7.8
     NSLayoutConstraint.activate([
-      headerImage.topAnchor.constraint(equalTo: self.topAnchor),
+      headerImage.topAnchor.constraint(equalTo: self.topAnchor, constant: -15),
       headerImage.leftAnchor.constraint(equalTo: self.leftAnchor),
       headerImage.widthAnchor.constraint(equalToConstant: windowWidth),
       headerImage.heightAnchor.constraint(equalToConstant: windowHeight/3.4),

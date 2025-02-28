@@ -86,11 +86,15 @@ private extension OnboardingViewController {
       imageSize = windowWidth
       space = 35
       labelFont = .systemFont(ofSize: 35, weight: .bold)
-    case .medium:
+    case .mini:
       imageSize = windowWidth
       space = 45
       labelFont = .systemFont(ofSize: 38, weight: .bold)
-    case .large:
+    case .pro:
+      imageSize = windowWidth
+      space = 50
+      labelFont = .systemFont(ofSize: 40, weight: .bold)
+    case .proMax:
       imageSize = windowWidth
       space = 50
       labelFont = .systemFont(ofSize: 40, weight: .bold)

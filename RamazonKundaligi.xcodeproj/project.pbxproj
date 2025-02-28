@@ -7,11 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE688E5E2D6B0DD5002E3E8C /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E5D2D6B0DD5002E3E8C /* NetworkDataFetcher.swift */; };
+		CE688E602D6B0DFA002E3E8C /* District.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E5F2D6B0DFA002E3E8C /* District.swift */; };
+		CE688E622D6B0E09002E3E8C /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E612D6B0E09002E3E8C /* Region.swift */; };
+		CE688E652D6C5A8D002E3E8C /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E642D6C5A8D002E3E8C /* LanguageManager.swift */; };
+		CE688E672D6C5E0A002E3E8C /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E662D6C5E0A002E3E8C /* Bundle+Extension.swift */; };
+		CE688E692D6C614C002E3E8C /* UIViewContorller+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E682D6C614C002E3E8C /* UIViewContorller+Extension.swift */; };
+		CE688E6C2D6C6FC1002E3E8C /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E6B2D6C6FC1002E3E8C /* SettingsTableViewDelegate.swift */; };
+		CE688E6E2D6DC0F1002E3E8C /* PrayerTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E6D2D6DC0F1002E3E8C /* PrayerTimes.swift */; };
+		CE688E712D6DC428002E3E8C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E702D6DC428002E3E8C /* NotificationManager.swift */; };
+		CE688E732D6E3F20002E3E8C /* Dua.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E722D6E3F20002E3E8C /* Dua.swift */; };
+		CE688E752D6E43C7002E3E8C /* SurasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E742D6E43C7002E3E8C /* SurasViewModel.swift */; };
+		CE688E772D6EDF4E002E3E8C /* RamazonTaqvim.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E762D6EDF4E002E3E8C /* RamazonTaqvim.swift */; };
+		CE688E792D6EE504002E3E8C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688E782D6EE504002E3E8C /* NetworkService.swift */; };
+		CE688EF52D704175002E3E8C /* SurasRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688EF42D704175002E3E8C /* SurasRowTableViewCell.swift */; };
+		CE688EF72D706BA8002E3E8C /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688EF62D706BA8002E3E8C /* AboutAppViewController.swift */; };
+		CE688EF92D706CCA002E3E8C /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688EF82D706CCA002E3E8C /* CustomAlert.swift */; };
 		CE72DEDC2D4378720080AFA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDB2D4378720080AFA2 /* AppDelegate.swift */; };
 		CE72DEDE2D4378720080AFA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDD2D4378720080AFA2 /* SceneDelegate.swift */; };
 		CE72DEE02D4378720080AFA2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDF2D4378720080AFA2 /* MainTabBarController.swift */; };
 		CE72DEE52D4378740080AFA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72DEE42D4378740080AFA2 /* Assets.xcassets */; };
-		CE72DEE82D4378740080AFA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72DEE62D4378740080AFA2 /* LaunchScreen.storyboard */; };
 		CE72DEF92D43798B0080AFA2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEF82D43798B0080AFA2 /* UIColor+Extension.swift */; };
 		CE72DEFC2D437BB60080AFA2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEFB2D437BB60080AFA2 /* HomeViewController.swift */; };
 		CE72DEFE2D437BF90080AFA2 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEFD2D437BF90080AFA2 /* CalendarViewController.swift */; };
@@ -36,6 +51,12 @@
 		CE7A63ED2D5D1CE400209CB1 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A63EC2D5D1CE400209CB1 /* SettingsTableView.swift */; };
 		CE7A63EF2D5D2CB500209CB1 /* SettingsItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A63EE2D5D2CB500209CB1 /* SettingsItems.swift */; };
 		CE7A63F42D5DD4A300209CB1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A63F32D5DD4A300209CB1 /* UIView+Extension.swift */; };
+		CE8B74E22D631C9F00AB783A /* Adhan in Frameworks */ = {isa = PBXBuildFile; productRef = CE8B74E12D631C9F00AB783A /* Adhan */; };
+		CE8B74E52D631E9000AB783A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B74E42D631E9000AB783A /* LocationService.swift */; };
+		CE8B74E72D631F4B00AB783A /* HomeViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B74E62D631F4B00AB783A /* HomeViewControllerViewModel.swift */; };
+		CE8B74E92D632F0200AB783A /* PrayerTimesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B74E82D632F0200AB783A /* PrayerTimesModel.swift */; };
+		CE8B74EB2D632F3B00AB783A /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B74EA2D632F3B00AB783A /* Prayer.swift */; };
+		CE8B74ED2D63340000AB783A /* PrayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B74EC2D63340000AB783A /* PrayerService.swift */; };
 		CEC5B7702D4A235D00E4402F /* SuraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B76F2D4A235D00E4402F /* SuraView.swift */; };
 		CEC5B7732D4A23C300E4402F /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B7722D4A23C300E4402F /* CalendarHeaderView.swift */; };
 		CEC5B7762D4A23E400E4402F /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B7752D4A23E400E4402F /* SettingsHeaderView.swift */; };
@@ -43,15 +64,36 @@
 		CEC5B77C2D4A27E800E4402F /* SuraHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B77B2D4A27E800E4402F /* SuraHeaderView.swift */; };
 		CEC5B77E2D4A285700E4402F /* SuraHeaderTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B77D2D4A285700E4402F /* SuraHeaderTitleView.swift */; };
 		CEC5B7802D4A363200E4402F /* SuraCollectionTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5B77F2D4A363100E4402F /* SuraCollectionTitles.swift */; };
+		CEF7C99A2D65B6E900A7662E /* SurasRowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C9992D65B6E900A7662E /* SurasRowViewController.swift */; };
+		CEF7C9A32D65D31800A7662E /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C9A22D65D31800A7662E /* LaunchScreenViewController.swift */; };
+		CEF7C9A52D65D5AD00A7662E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C9A42D65D5AD00A7662E /* Localizable.xcstrings */; };
+		CEF7C9A72D67063500A7662E /* RamadanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C9A62D67063500A7662E /* RamadanService.swift */; };
+		CEF7C9A92D670C2200A7662E /* RegionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C9A82D670C2100A7662E /* RegionPickerViewController.swift */; };
+		CEF7C9AC2D67137200A7662E /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C9AB2D67137200A7662E /* SettingsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE688E5D2D6B0DD5002E3E8C /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		CE688E5F2D6B0DFA002E3E8C /* District.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = District.swift; sourceTree = "<group>"; };
+		CE688E612D6B0E09002E3E8C /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		CE688E642D6C5A8D002E3E8C /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		CE688E662D6C5E0A002E3E8C /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		CE688E682D6C614C002E3E8C /* UIViewContorller+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewContorller+Extension.swift"; sourceTree = "<group>"; };
+		CE688E6B2D6C6FC1002E3E8C /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
+		CE688E6D2D6DC0F1002E3E8C /* PrayerTimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimes.swift; sourceTree = "<group>"; };
+		CE688E702D6DC428002E3E8C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		CE688E722D6E3F20002E3E8C /* Dua.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dua.swift; sourceTree = "<group>"; };
+		CE688E742D6E43C7002E3E8C /* SurasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurasViewModel.swift; sourceTree = "<group>"; };
+		CE688E762D6EDF4E002E3E8C /* RamazonTaqvim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamazonTaqvim.swift; sourceTree = "<group>"; };
+		CE688E782D6EE504002E3E8C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		CE688EF42D704175002E3E8C /* SurasRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurasRowTableViewCell.swift; sourceTree = "<group>"; };
+		CE688EF62D706BA8002E3E8C /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
+		CE688EF82D706CCA002E3E8C /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		CE72DED82D4378720080AFA2 /* RamazonKundaligi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RamazonKundaligi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72DEDB2D4378720080AFA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72DEDD2D4378720080AFA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE72DEDF2D4378720080AFA2 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CE72DEE42D4378740080AFA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CE72DEE72D4378740080AFA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE72DEE92D4378740080AFA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE72DEF82D43798B0080AFA2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		CE72DEFB2D437BB60080AFA2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +119,11 @@
 		CE7A63EC2D5D1CE400209CB1 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
 		CE7A63EE2D5D2CB500209CB1 /* SettingsItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItems.swift; sourceTree = "<group>"; };
 		CE7A63F32D5DD4A300209CB1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CE8B74E42D631E9000AB783A /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		CE8B74E62D631F4B00AB783A /* HomeViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerViewModel.swift; sourceTree = "<group>"; };
+		CE8B74E82D632F0200AB783A /* PrayerTimesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesModel.swift; sourceTree = "<group>"; };
+		CE8B74EA2D632F3B00AB783A /* Prayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
+		CE8B74EC2D63340000AB783A /* PrayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerService.swift; sourceTree = "<group>"; };
 		CEC5B76F2D4A235D00E4402F /* SuraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraView.swift; sourceTree = "<group>"; };
 		CEC5B7722D4A23C300E4402F /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		CEC5B7752D4A23E400E4402F /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
@@ -84,6 +131,12 @@
 		CEC5B77B2D4A27E800E4402F /* SuraHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraHeaderView.swift; sourceTree = "<group>"; };
 		CEC5B77D2D4A285700E4402F /* SuraHeaderTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraHeaderTitleView.swift; sourceTree = "<group>"; };
 		CEC5B77F2D4A363100E4402F /* SuraCollectionTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraCollectionTitles.swift; sourceTree = "<group>"; };
+		CEF7C9992D65B6E900A7662E /* SurasRowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurasRowViewController.swift; sourceTree = "<group>"; };
+		CEF7C9A22D65D31800A7662E /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		CEF7C9A42D65D5AD00A7662E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		CEF7C9A62D67063500A7662E /* RamadanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamadanService.swift; sourceTree = "<group>"; };
+		CEF7C9A82D670C2100A7662E /* RegionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPickerViewController.swift; sourceTree = "<group>"; };
+		CEF7C9AB2D67137200A7662E /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,12 +144,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8B74E22D631C9F00AB783A /* Adhan in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE688E632D6C5A77002E3E8C /* Localizatsion */ = {
+			isa = PBXGroup;
+			children = (
+				CE688E642D6C5A8D002E3E8C /* LanguageManager.swift */,
+			);
+			path = Localizatsion;
+			sourceTree = "<group>";
+		};
+		CE688E6A2D6C6FBB002E3E8C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CE688E6B2D6C6FC1002E3E8C /* SettingsTableViewDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CE688E6F2D6DC41C002E3E8C /* NotificationManager */ = {
+			isa = PBXGroup;
+			children = (
+				CE688E702D6DC428002E3E8C /* NotificationManager.swift */,
+			);
+			path = NotificationManager;
+			sourceTree = "<group>";
+		};
+		CE688E7A2D6EE526002E3E8C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7C9A62D67063500A7662E /* RamadanService.swift */,
+				CE688E5D2D6B0DD5002E3E8C /* NetworkDataFetcher.swift */,
+				CE688E782D6EE504002E3E8C /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		CE72DECF2D4378720080AFA2 = {
 			isa = PBXGroup;
 			children = (
@@ -116,12 +204,13 @@
 		CE72DEDA2D4378720080AFA2 /* RamazonKundaligi */ = {
 			isa = PBXGroup;
 			children = (
+				CE72DEEF2D4378FF0080AFA2 /* Application */,
+				CE8B74E32D631E8400AB783A /* Services */,
 				CE72DEF42D43794C0080AFA2 /* Resources */,
 				CE72DEF32D4379450080AFA2 /* Models */,
 				CE72DEF22D43793E0080AFA2 /* ViewModels */,
 				CE72DEF12D4379180080AFA2 /* Views */,
 				CE72DEF02D43790C0080AFA2 /* Controllers */,
-				CE72DEEF2D4378FF0080AFA2 /* Application */,
 				CE72DEE92D4378740080AFA2 /* Info.plist */,
 			);
 			path = RamazonKundaligi;
@@ -139,6 +228,7 @@
 		CE72DEF02D43790C0080AFA2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE72DEFA2D437B9D0080AFA2 /* LaunchScreen */,
 				CE72DF0F2D4398CB0080AFA2 /* Onboarding */,
 				CE72DEF72D4379780080AFA2 /* General */,
 				CE72DEF62D4379730080AFA2 /* Core */,
@@ -153,7 +243,6 @@
 				CEC5B7712D4A23B600E4402F /* Calendar */,
 				CEC5B76E2D4A234A00E4402F /* Sura */,
 				CEC5B7742D4A23D700E4402F /* Settings */,
-				CE72DEFA2D437B9D0080AFA2 /* LaunchScreen */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +250,8 @@
 		CE72DEF22D43793E0080AFA2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CE8B74E62D631F4B00AB783A /* HomeViewControllerViewModel.swift */,
+				CE688E742D6E43C7002E3E8C /* SurasViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -172,6 +263,12 @@
 				CE7A63E12D5A232200209CB1 /* CalendarModel.swift */,
 				CE7A63E32D5A233D00209CB1 /* CalendarHeaderModel.swift */,
 				CE7A63EE2D5D2CB500209CB1 /* SettingsItems.swift */,
+				CE8B74E82D632F0200AB783A /* PrayerTimesModel.swift */,
+				CE8B74EA2D632F3B00AB783A /* Prayer.swift */,
+				CE688E5F2D6B0DFA002E3E8C /* District.swift */,
+				CE688E612D6B0E09002E3E8C /* Region.swift */,
+				CE688E722D6E3F20002E3E8C /* Dua.swift */,
+				CE688E762D6EDF4E002E3E8C /* RamazonTaqvim.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,9 +276,12 @@
 		CE72DEF42D43794C0080AFA2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE688E6A2D6C6FBB002E3E8C /* Protocol */,
 				CE72DEE42D4378740080AFA2 /* Assets.xcassets */,
 				CE72DEF52D43795F0080AFA2 /* Extensions */,
 				CE72DF0D2D438EC00080AFA2 /* Constants.swift */,
+				CE688EF82D706CCA002E3E8C /* CustomAlert.swift */,
+				CEF7C9A42D65D5AD00A7662E /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -192,6 +292,9 @@
 				CE72DEF82D43798B0080AFA2 /* UIColor+Extension.swift */,
 				CE72DF092D4388DB0080AFA2 /* UIlabel+Extension.swift */,
 				CE7A63F32D5DD4A300209CB1 /* UIView+Extension.swift */,
+				CE688E662D6C5E0A002E3E8C /* Bundle+Extension.swift */,
+				CE688E682D6C614C002E3E8C /* UIViewContorller+Extension.swift */,
+				CE688E6D2D6DC0F1002E3E8C /* PrayerTimes.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,6 +314,9 @@
 		CE72DEF72D4379780080AFA2 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				CEF7C9992D65B6E900A7662E /* SurasRowViewController.swift */,
+				CEF7C9A82D670C2100A7662E /* RegionPickerViewController.swift */,
+				CE688EF62D706BA8002E3E8C /* AboutAppViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -218,7 +324,7 @@
 		CE72DEFA2D437B9D0080AFA2 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				CE72DEE62D4378740080AFA2 /* LaunchScreen.storyboard */,
+				CEF7C9A22D65D31800A7662E /* LaunchScreenViewController.swift */,
 			);
 			path = LaunchScreen;
 			sourceTree = "<group>";
@@ -260,6 +366,18 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CE8B74E32D631E8400AB783A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CE688E6F2D6DC41C002E3E8C /* NotificationManager */,
+				CE688E632D6C5A77002E3E8C /* Localizatsion */,
+				CE8B74E42D631E9000AB783A /* LocationService.swift */,
+				CE8B74EC2D63340000AB783A /* PrayerService.swift */,
+				CE688E7A2D6EE526002E3E8C /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		CEC5B76E2D4A234A00E4402F /* Sura */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +404,7 @@
 		CEC5B7742D4A23D700E4402F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				CEF7C9AA2D67136D00A7662E /* Cell */,
 				CEC5B7752D4A23E400E4402F /* SettingsHeaderView.swift */,
 				CE7A63EA2D5D1CC800209CB1 /* SettingsHeaderVersionView.swift */,
 				CE7A63EC2D5D1CE400209CB1 /* SettingsTableView.swift */,
@@ -297,6 +416,15 @@
 			isa = PBXGroup;
 			children = (
 				CEC5B7782D4A247600E4402F /* SuraCollectionViewCell.swift */,
+				CE688EF42D704175002E3E8C /* SurasRowTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CEF7C9AA2D67136D00A7662E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7C9AB2D67137200A7662E /* SettingsTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -317,6 +445,9 @@
 			dependencies = (
 			);
 			name = RamazonKundaligi;
+			packageProductDependencies = (
+				CE8B74E12D631C9F00AB783A /* Adhan */,
+			);
 			productName = RamazonKundaligi;
 			productReference = CE72DED82D4378720080AFA2 /* RamazonKundaligi.app */;
 			productType = "com.apple.product-type.application";
@@ -342,9 +473,13 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				"uz-UZ",
+				"uz-Cyrl-UZ",
 			);
 			mainGroup = CE72DECF2D4378720080AFA2;
+			packageReferences = (
+				CE8B74E02D631C9F00AB783A /* XCRemoteSwiftPackageReference "adhan-swift" */,
+			);
 			productRefGroup = CE72DED92D4378720080AFA2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -359,7 +494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE72DEE82D4378740080AFA2 /* LaunchScreen.storyboard in Resources */,
+				CEF7C9A52D65D5AD00A7662E /* Localizable.xcstrings in Resources */,
 				CE72DEE52D4378740080AFA2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,55 +506,70 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE688E772D6EDF4E002E3E8C /* RamazonTaqvim.swift in Sources */,
 				CE7A63E42D5A233D00209CB1 /* CalendarHeaderModel.swift in Sources */,
+				CE688EF72D706BA8002E3E8C /* AboutAppViewController.swift in Sources */,
+				CE688E672D6C5E0A002E3E8C /* Bundle+Extension.swift in Sources */,
 				CE72DF052D437D190080AFA2 /* HomeView.swift in Sources */,
 				CE72DEFE2D437BF90080AFA2 /* CalendarViewController.swift in Sources */,
 				CE7A63D92D59EB1900209CB1 /* TimeView.swift in Sources */,
 				CE72DEFC2D437BB60080AFA2 /* HomeViewController.swift in Sources */,
 				CE72DEE02D4378720080AFA2 /* MainTabBarController.swift in Sources */,
 				CE7A63ED2D5D1CE400209CB1 /* SettingsTableView.swift in Sources */,
+				CE688E5E2D6B0DD5002E3E8C /* NetworkDataFetcher.swift in Sources */,
 				CE7A63DC2D59F27D00209CB1 /* CalendarCollectionFooterViewCell.swift in Sources */,
 				CE7A63EB2D5D1CC800209CB1 /* SettingsHeaderVersionView.swift in Sources */,
 				CE7A63EF2D5D2CB500209CB1 /* SettingsItems.swift in Sources */,
 				CEC5B7702D4A235D00E4402F /* SuraView.swift in Sources */,
 				CE72DEDC2D4378720080AFA2 /* AppDelegate.swift in Sources */,
 				CE72DF0C2D438E8D0080AFA2 /* HomeTableHeaderView.swift in Sources */,
+				CEF7C9AC2D67137200A7662E /* SettingsTableViewCell.swift in Sources */,
 				CE72DEDE2D4378720080AFA2 /* SceneDelegate.swift in Sources */,
 				CE72DF152D440D250080AFA2 /* TodayDateHeaderView.swift in Sources */,
 				CEC5B7792D4A247700E4402F /* SuraCollectionViewCell.swift in Sources */,
 				CE72DF0E2D438EC00080AFA2 /* Constants.swift in Sources */,
+				CEF7C9A72D67063500A7662E /* RamadanService.swift in Sources */,
+				CE688E792D6EE504002E3E8C /* NetworkService.swift in Sources */,
+				CE688EF52D704175002E3E8C /* SurasRowTableViewCell.swift in Sources */,
 				CEC5B77E2D4A285700E4402F /* SuraHeaderTitleView.swift in Sources */,
+				CE688E6E2D6DC0F1002E3E8C /* PrayerTimes.swift in Sources */,
 				CE7A63E02D59FB5E00209CB1 /* CalendarCollectionHeaderViewCell.swift in Sources */,
+				CE688E752D6E43C7002E3E8C /* SurasViewModel.swift in Sources */,
 				CE72DF0A2D4388DB0080AFA2 /* UIlabel+Extension.swift in Sources */,
+				CEF7C9A92D670C2200A7662E /* RegionPickerViewController.swift in Sources */,
+				CE688E6C2D6C6FC1002E3E8C /* SettingsTableViewDelegate.swift in Sources */,
 				CEC5B77C2D4A27E800E4402F /* SuraHeaderView.swift in Sources */,
 				CE72DF082D437DE30080AFA2 /* HomeTableViewCell.swift in Sources */,
+				CE8B74ED2D63340000AB783A /* PrayerService.swift in Sources */,
+				CE688E712D6DC428002E3E8C /* NotificationManager.swift in Sources */,
+				CE688E622D6B0E09002E3E8C /* Region.swift in Sources */,
+				CE688E732D6E3F20002E3E8C /* Dua.swift in Sources */,
 				CEC5B7802D4A363200E4402F /* SuraCollectionTitles.swift in Sources */,
+				CE688EF92D706CCA002E3E8C /* CustomAlert.swift in Sources */,
+				CE688E652D6C5A8D002E3E8C /* LanguageManager.swift in Sources */,
+				CEF7C9A32D65D31800A7662E /* LaunchScreenViewController.swift in Sources */,
+				CE688E692D6C614C002E3E8C /* UIViewContorller+Extension.swift in Sources */,
 				CE7A63E22D5A232200209CB1 /* CalendarModel.swift in Sources */,
 				CE7A63F42D5DD4A300209CB1 /* UIView+Extension.swift in Sources */,
 				CE72DF002D437C1C0080AFA2 /* SuraViewController.swift in Sources */,
 				CE72DF112D4398D80080AFA2 /* OnboardingViewController.swift in Sources */,
+				CE8B74E52D631E9000AB783A /* LocationService.swift in Sources */,
+				CE8B74E72D631F4B00AB783A /* HomeViewControllerViewModel.swift in Sources */,
+				CE8B74E92D632F0200AB783A /* PrayerTimesModel.swift in Sources */,
 				CEC5B7732D4A23C300E4402F /* CalendarHeaderView.swift in Sources */,
+				CE688E602D6B0DFA002E3E8C /* District.swift in Sources */,
 				CE72DEF92D43798B0080AFA2 /* UIColor+Extension.swift in Sources */,
 				CE7A63DE2D59FA8E00209CB1 /* CalendarCollectionView.swift in Sources */,
 				CE72DF132D440AC10080AFA2 /* NextPrayerTimeView.swift in Sources */,
 				CE72DF022D437C260080AFA2 /* SettingsViewController.swift in Sources */,
+				CEF7C99A2D65B6E900A7662E /* SurasRowViewController.swift in Sources */,
 				CEC5B7762D4A23E400E4402F /* SettingsHeaderView.swift in Sources */,
+				CE8B74EB2D632F3B00AB783A /* Prayer.swift in Sources */,
 				CE7A63D72D59EA9400209CB1 /* CalendarTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		CE72DEE62D4378740080AFA2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE72DEE72D4378740080AFA2 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CE72DEEA2D4378740080AFA2 /* Debug */ = {
@@ -427,6 +577,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -490,6 +641,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -551,6 +703,8 @@
 				DEVELOPMENT_TEAM = 2YLM52WVWU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RamazonKundaligi/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Ilova joylashuvni kuzatishi va namoz vaqtlarini aniqlashi uchun ruxsat bering";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Siz joylashgan manzil uchun aniq namoz vaqtini ko'rsatish uchun joylashuvingizni aniqlashga ruhsat bering";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -579,6 +733,8 @@
 				DEVELOPMENT_TEAM = 2YLM52WVWU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RamazonKundaligi/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Ilova joylashuvni kuzatishi va namoz vaqtlarini aniqlashi uchun ruxsat bering";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Siz joylashgan manzil uchun aniq namoz vaqtini ko'rsatish uchun joylashuvingizni aniqlashga ruhsat bering";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -619,6 +775,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE8B74E02D631C9F00AB783A /* XCRemoteSwiftPackageReference "adhan-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/batoulapps/adhan-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE8B74E12D631C9F00AB783A /* Adhan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE8B74E02D631C9F00AB783A /* XCRemoteSwiftPackageReference "adhan-swift" */;
+			productName = Adhan;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE72DED02D4378720080AFA2 /* Project object */;
 }

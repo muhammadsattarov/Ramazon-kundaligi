@@ -9,12 +9,11 @@ struct SettingsItems {
 
   static func mockData() -> [SettingsItems] {
     return [
-      .init(icon: "globe", title: "Ilova tili"),
-      .init(icon: "square.and.arrow.up", title: "Ulashish"),
-      .init(icon: "hand.thumbsup", title: "Baholash"),
-      .init(icon: "moon", title: "Tungi rejim"),
-      .init(icon: "bell", title: "Bildirishnoma"),
-      .init(icon: "info.circle", title: "Dastur haqida")
+      .init(icon: "globe", title: "app_language"),
+      .init(icon: "square.and.arrow.up", title: "share_title"),
+      .init(icon: "hand.thumbsup", title: "assessment_title"),
+      .init(icon: "bell", title: "notification_title"),
+      .init(icon: "info.circle", title: "about_app")
     ]
   }
 }

@@ -19,6 +19,13 @@ class CalendarHeaderCollectionView: UIView {
 
   let headerData = CalendarHeaderModel.mockData()
 
+  func updateUI() {
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else { return }
+      self.collectionView.reloadData()
+    }
+  }
+
   // MARK: - Init
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -74,9 +81,11 @@ extension CalendarHeaderCollectionView: UICollectionViewDelegateFlowLayout {
     switch screenType {
     case .small:
       itemHeight = 74
-    case .medium:
+    case .mini:
       itemHeight = 80
-    case .large:
+    case .pro:
+      itemHeight = 80
+    case .proMax:
       itemHeight = 80
     }
       return CGSize(width: headerItemWidth,

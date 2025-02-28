@@ -28,7 +28,7 @@ class CalendarCollectionHeaderViewCell: UICollectionViewCell {
   }
 
   func configure(with model: CalendarHeaderModel) {
-    titleLabel.text = model.title
+    titleLabel.text = Bundle.localizedString(forKey: model.title)
     iconImage.image = UIImage(systemName: model.image)
   }
 

@@ -63,11 +63,11 @@
      setConstraints()
    }
 
-   func configure(with model: CalendarModel) {
-     numberLabel.text = model.daynumber
-     dateNameLabel.text = model.dayName
-     saharlikTimeimeLabel.text = model.saharTime
-     iftorlikTimeimeLabel.text = model.iftarTime
+   func configure(with count: Int, model: PrayerTime) {
+     numberLabel.text = "\(count)"
+     dateNameLabel.text = model.date_time
+     saharlikTimeimeLabel.text = model.saharlik
+     iftorlikTimeimeLabel.text = model.iftorlik
    }
 
    required init?(coder: NSCoder) {
@@ -92,9 +92,11 @@
      switch screenType {
      case .small:
        labelFont = .systemFont(ofSize: 15, weight: .medium)
-     case .medium:
+     case .mini:
        labelFont = .systemFont(ofSize: 16, weight: .medium)
-     case .large:
+     case .pro:
+       labelFont = .systemFont(ofSize: 16, weight: .medium)
+     case .proMax:
        labelFont = .systemFont(ofSize: 16, weight: .medium)
      }
      numberLabel.font = labelFont

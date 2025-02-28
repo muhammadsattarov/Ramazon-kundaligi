@@ -4,7 +4,7 @@ import UIKit
 
 class NextPrayerTimeView: UIView {
 
-  private lazy var titleLabel: UILabel = {
+  lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.text = "Keyingi namoz"
     $0.textAlignment = .center
@@ -22,7 +22,7 @@ class NextPrayerTimeView: UIView {
 
   private lazy var prayerTimeNameLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "Bomdod"
+ //   $0.text = "Bomdod"
     $0.textAlignment = .center
     $0.textColor = .white
     return $0
@@ -41,6 +41,13 @@ class NextPrayerTimeView: UIView {
     setup()
     setupLabelFonts() 
     setConstraints()
+  }
+
+  func configure(with prayerName: String, prayerTime: String) {
+    DispatchQueue.main.async { [weak self] in
+      self?.prayerTimeNameLabel.text = Bundle.localizedString(forKey: prayerName)
+      self?.timeLabel.text = prayerTime
+    }
   }
 
   required init?(coder: NSCoder) {
@@ -67,10 +74,13 @@ private extension NextPrayerTimeView {
     case .small:
       titleLabelFont = .systemFont(ofSize: 14, weight: .medium)
       timeLabelFont = .systemFont(ofSize: 20, weight: .medium)
-    case .medium:
+    case .mini:
       titleLabelFont = .systemFont(ofSize: 15, weight: .medium)
       timeLabelFont = .systemFont(ofSize: 22, weight: .medium)
-    case .large:
+    case .pro:
+      titleLabelFont = .systemFont(ofSize: 15, weight: .medium)
+      timeLabelFont = .systemFont(ofSize: 22, weight: .medium)
+    case .proMax:
       titleLabelFont = .systemFont(ofSize: 15, weight: .medium)
       timeLabelFont = .systemFont(ofSize: 22, weight: .medium)
     }

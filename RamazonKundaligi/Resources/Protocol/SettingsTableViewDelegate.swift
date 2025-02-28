@@ -1,8 +1,11 @@
-//
-//  SettingsTableViewDelegate.swift
-//  RamazonKundaligi
-//
-//  Created by user on 24/02/25.
-//
 
-import Foundation
+import UIKit
+
+protocol SettingsTableViewDelegate: AnyObject {
+  func didTapSelectLocationName()
+  func didTapLanguageChanged(_ sender: UISegmentedControl)
+  func didTapShareApp()
+  func didTapAppEvalution()
+  func didTapNotification(_ sender: UISwitch)
+  func didTapAboutApp()
+}

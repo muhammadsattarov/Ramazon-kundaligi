@@ -17,7 +17,18 @@ class HomeView: UIView {
     return $0
   }(UITableView(frame: .zero, style: .insetGrouped))
 
-  var prayerTimes: [PrayerTimesModel] = []
+  var prayerTimes: [PrayerTimesModel] = [] {
+    didSet {
+      tableView.reloadData()
+    }
+  }
+
+  func updateUI() {
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else { return }
+      self.tableView.reloadData()
+    }
+  }
 
   // MARK: - Init
   override init(frame: CGRect) {
@@ -26,7 +37,13 @@ class HomeView: UIView {
     setupTableView()
     setConstraints()
   }
-  
+
+  func configure(with model: [PrayerTimesModel]) {
+    DispatchQueue.main.async { [weak self] in
+      self?.prayerTimes = model
+    }
+  }
+
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -74,9 +91,11 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
     switch screenType {
     case .small:
       return 44
-    case .medium:
+    case .mini:
       return 48
-    case .large:
+    case .pro:
+      return 50
+    case .proMax:
       return 50
     }
   }

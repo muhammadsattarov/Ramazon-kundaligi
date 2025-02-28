@@ -1,8 +1,9 @@
-//
-//  PrayerTimesModle.swift
-//  RamazonKundaligi
-//
-//  Created by user on 17/02/25.
-//
+
 
 import Foundation
+import Adhan
+
+struct PrayerTimesModel {
+  let prayer: Prayer
+  let time: String
+}

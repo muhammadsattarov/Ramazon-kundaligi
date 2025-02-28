@@ -2,6 +2,7 @@
 
 
 import UIKit
+import StoreKit
 
 class SettingsViewController: UIViewController {
 
@@ -13,6 +14,21 @@ private let settingsTableView = SettingsTableView()
     super.viewDidLoad()
     setupViews()
   }
+
+  override func viewWillAppear(_ animated: Bool) {
+    UIView.animate(withDuration: 0.3) { [weak self] in
+      guard let self = self else { return }
+      self.observeLanguageChanges()
+    }
+  }
+
+  override func updateUI() {
+    super.updateUI()
+    settingsHeaderView.titleLabel.text = Bundle.localizedString(forKey: "settings_title")
+    settingsHeaderView.versionView.titleLabel.text = Bundle.localizedString(forKey: "ramadan_schedule")
+    settingsHeaderView.versionView.versionLabel.text = "\(Bundle.localizedString(forKey: "interpretation_title")) 1.0.0"
+    settingsTableView.updateUI()
+  }
 }
 
 // MARK: - Setup Views
@@ -21,6 +37,7 @@ private extension SettingsViewController {
     view.backgroundColor = .fonGreenColor
     addSubviews()
     setConstraints()
+    settingsTableView.updateSwichControl(isOn: NotificationManager.shared.isNotificationsEnabled)
   }
 }
 
@@ -31,6 +48,7 @@ private extension SettingsViewController {
     view.addSubview(settingsTableView)
     settingsHeaderView.translatesAutoresizingMaskIntoConstraints = false
     settingsTableView.translatesAutoresizingMaskIntoConstraints = false
+    settingsTableView.delegate = self
   }
 }
 
@@ -38,14 +56,21 @@ private extension SettingsViewController {
 private extension SettingsViewController {
   func setConstraints() {
     let tableViewSize: CGFloat
+    let topSpace: CGFloat
     let screenType = UIView.ScreenSizeType.current()
     switch screenType {
     case .small:
-      tableViewSize =  269
-    case .medium:
-      tableViewSize = 287
-    case .large:
-      tableViewSize = 299
+      tableViewSize =  330
+      topSpace = -30
+    case .mini:
+      tableViewSize = 350
+      topSpace = -10
+    case .pro:
+      topSpace = -10
+      tableViewSize = 370
+    case .proMax:
+      topSpace = -10
+      tableViewSize = 370
     }
 
     NSLayoutConstraint.activate([
@@ -54,10 +79,78 @@ private extension SettingsViewController {
       settingsHeaderView.rightAnchor.constraint(equalTo: view.rightAnchor),
       settingsHeaderView.heightAnchor.constraint(equalToConstant: windowHeight/2.2),
 
-      settingsTableView.topAnchor.constraint(equalTo: settingsHeaderView.bottomAnchor, constant: 15),
-      settingsTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-      settingsTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+      settingsTableView.topAnchor.constraint(equalTo: settingsHeaderView.bottomAnchor, constant: topSpace),
+      settingsTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+      settingsTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
       settingsTableView.heightAnchor.constraint(equalToConstant: tableViewSize)
     ])
   }
 }
+
+extension SettingsViewController: SettingsTableViewDelegate {
+  func didTapSelectLocationName() {
+    let pickerVC = RegionPickerViewController()
+    pickerVC.modalPresentationStyle = .custom
+    pickerVC.transitioningDelegate = self
+    pickerVC.onSelect = { [weak self] selectedRegion, selectedDistrict in
+      self?.settingsTableView.selectedRegionName = "\(selectedRegion), \(selectedDistrict)"
+    }
+    present(pickerVC, animated: true)
+  }
+  
+  func didTapLanguageChanged(_ sender: UISegmentedControl) { // Change app language with SegmentedControl
+    changeLanguage(to: sender.selectedSegmentIndex == 0 ? "uz-UZ" : "uz-Cyrl-UZ")
+
+
+  }
+
+  func didTapShareApp() {
+    print(#function)
+  }
+  
+  func didTapAppEvalution() {
+    requestAppReview()
+  }
+  
+  func didTapNotification(_ sender: UISwitch) {
+    NotificationManager.shared.isNotificationsEnabled = sender.isOn
+  }
+  
+  func didTapAboutApp() {
+    let vc = AboutAppViewController()
+    navigationController?.pushViewController(vc, animated: true)
+  }
+}
+
+extension SettingsViewController {
+  func changeLanguage(to language: String) {
+      LanguageManager.shared.currentLanguage = language
+  }
+}
+
+extension SettingsViewController: UIViewControllerTransitioningDelegate {
+      func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+          return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
+      }
+
+  // 📌 6️⃣ UIPickerView ni ekranning yarmigacha ochish uchun custom modal
+  class HalfSizePresentationController: UIPresentationController {
+      override var frameOfPresentedViewInContainerView: CGRect {
+          guard let containerView = containerView else { return .zero }
+          let height = containerView.bounds.height / 2 // 📌 Ekranning yarmi
+          return CGRect(x: 0,
+                        y: containerView.bounds.height - height,
+                        width: containerView.bounds.width,
+                        height: height)
+      }
+  }
+}
+
+extension SettingsViewController {
+  func requestAppReview() {
+      if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+          SKStoreReviewController.requestReview(in: scene)
+      }
+  }
+}
+
