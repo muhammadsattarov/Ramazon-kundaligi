@@ -83,7 +83,7 @@ private extension SettingsHeaderVersionView {
       vStack.topAnchor.constraint(equalTo: iconImage.bottomAnchor, constant: 10),
       vStack.leftAnchor.constraint(equalTo: self.leftAnchor),
       vStack.rightAnchor.constraint(equalTo: self.rightAnchor),
-      vStack.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+      vStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
     ])
   }
 }

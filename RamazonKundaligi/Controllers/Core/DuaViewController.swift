@@ -26,12 +26,11 @@ class DuaViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     observeLanguageChanges()
-    observeLanguageChanges()
   }
 
   override func updateUI() {
     super.updateUI()
-    titleView.titleLabel.text = "Duolar"
+    titleView.titleLabel.text = Bundle.localizedString(forKey: "dua_title")
     self.tableView.reloadData()
   }
 }

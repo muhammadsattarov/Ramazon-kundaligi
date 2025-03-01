@@ -49,16 +49,31 @@
      return $0
    }(UIStackView(arrangedSubviews: [numberLabel, dateNameLabel, saharlikTimeimeLabel, iftorlikTimeimeLabel]))
 
+   private lazy var backgroundImage: UIImageView = {
+     $0.translatesAutoresizingMaskIntoConstraints = false
+     $0.image = UIImage(named: "home_bottom")
+     $0.contentMode = .scaleAspectFit
+     $0.clipsToBounds = true
+     return $0
+   }(UIImageView())
+
    private let containerView: UIView = {
      $0.translatesAutoresizingMaskIntoConstraints = false
      $0.backgroundColor = .cellBackgrountColor
+     $0.clipsToBounds = true
      return $0
    }(UIView())
+
+   var isToday = false {
+     didSet {
+       updateUI()
+     }
+   }
 
    // MARK: - Init
    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
      super.init(style: style, reuseIdentifier: reuseIdentifier)
-     setup()
+     setupUI()
      setupLabelFonts()
      setConstraints()
    }
@@ -77,11 +92,21 @@
 
  // MARK: - Setup UI and Constraints
  private extension CalendarTableViewCell {
-   func setup() {
+   func setupUI() {
      self.backgroundColor = .clear
      contentView.backgroundColor = .clear
      contentView.addSubview(containerView)
      containerView.addSubview(baseStack)
+   }
+
+   func updateUI() {
+     if isToday {
+       self.containerView.backgroundColor = .fonGreenColor2
+    //   self.containerView.layer.cornerRadius = 10
+     } else {
+       self.containerView.backgroundColor = .cellBackgrountColor
+    //   self.containerView.layer.cornerRadius = 0
+     }
    }
 
    func setupLabelFonts() {

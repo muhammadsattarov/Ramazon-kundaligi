@@ -16,6 +16,9 @@ class HomeViewController: UIViewController {
     return $0
   }(UIStackView(arrangedSubviews: [nextPrayerTimeView, todayDateHeaderView]))
 
+  private var blurView: UIVisualEffectView?
+  private var spinner: UIActivityIndicatorView?
+
   private let viewModel = TimesViewModel()
 
   // MARK: - Override Methods
@@ -45,6 +48,7 @@ private extension HomeViewController {
     addSubviews()
     setConstraints()
     updateCurrentDate()
+    addActions()
   }
 }
 
@@ -62,7 +66,7 @@ private extension HomeViewController {
 // MARK: - Add Subviews
 private extension HomeViewController {
   func fetchDataFromBatabase() {
-    print(#function)
+    print("Home", #function)
     viewModel.showPrayerTimes { [weak self] nextPrayerName, nextPrayerTime, locationName in
       guard let self = self else { return }
       self.nextPrayerTimeView.configure(with: nextPrayerName, prayerTime: nextPrayerTime)
@@ -74,6 +78,26 @@ private extension HomeViewController {
   func updateCurrentDate() {
     viewModel.getGregorianAndHijriDate { [weak self] gregorian, hijri in
       self?.todayDateHeaderView.configure(gregorian, hijri: hijri)
+    }
+  }
+}
+
+// MARK: - Actions
+private extension HomeViewController {
+  func addActions() {
+    headerView.didTapRefreshButton = { [weak self] in
+      guard let self = self else { return }
+      self.handleRefresh()
+    }
+  }
+
+  func handleRefresh() {
+    showSpinnerAndBlur()
+
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+      guard let self = self else { return }
+      self.hideSpinnerAndBlur()
+      self.fetchDataFromBatabase() // Typo tuzatildi
     }
   }
 }
@@ -127,5 +151,45 @@ private extension HomeViewController {
       homeView.rightAnchor.constraint(equalTo: view.rightAnchor),
       homeView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
     ])
+  }
+}
+
+// MARK: - Blur effect
+private extension HomeViewController {
+  func showSpinnerAndBlur() {
+    // Blur efekt yaratish
+    let blurEffect = UIBlurEffect(style: .light)
+    let blurView = UIVisualEffectView(effect: blurEffect)
+    blurView.alpha = 0.0 // Boshlanishda ko‘rinmas bo‘lsin
+    blurView.frame = view.bounds
+    blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    view.addSubview(blurView)
+    self.blurView = blurView
+
+    // Spinner yaratish
+    let spinner = UIActivityIndicatorView(style: .medium)
+    spinner.center = view.center
+    spinner.alpha = 0.0 // Boshlanishda ko‘rinmas bo‘lsin
+    view.addSubview(spinner)
+    self.spinner = spinner
+
+    // Animatsiya bilan paydo bo‘lish
+    UIView.animate(withDuration: 0.3, animations: {
+      blurView.alpha = 0.5
+      spinner.alpha = 1.0
+    }) { _ in
+      spinner.startAnimating()
+    }
+  }
+
+  func hideSpinnerAndBlur() {
+    UIView.animate(withDuration: 0.3, animations: {
+      self.blurView?.alpha = 0.0
+      self.spinner?.alpha = 0.0
+    }) { _ in
+      self.blurView?.removeFromSuperview()
+      self.spinner?.stopAnimating()
+      self.spinner?.removeFromSuperview()
+    }
   }
 }

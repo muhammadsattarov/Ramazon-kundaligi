@@ -6,13 +6,13 @@ class SupportView: UIView {
 
   private lazy var iconImage: UIImageView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.image = UIImage(systemName: "location")
+ //   $0.image = UIImage(systemName: "location")
     $0.contentMode = .scaleAspectFit
     $0.tintColor = .goldColor
     return $0
   }(UIImageView())
 
-  private let textLabel: UILabel = {
+  let textLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.font = .systemFont(ofSize: 15, weight: .medium)
     $0.textColor = .white
@@ -29,8 +29,11 @@ class SupportView: UIView {
   }(UIView())
 
   // MARK: - Init
-  override init(frame: CGRect) {
-    super.init(frame: frame)
+  init(title: String, icon: String) {
+    super.init(frame: .zero)
+    self.translatesAutoresizingMaskIntoConstraints = false
+    iconImage.image = UIImage(systemName: icon)
+    textLabel.text = title
     setupUI()
     setConstraints()
   }

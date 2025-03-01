@@ -17,7 +17,7 @@ struct PrayerTime: Codable {
 }
 
 extension RamazonTaqvim {
-  static var ramadanCount: [Int] {
+  static var ramadanCount: [Int]? {
     return Array(1...30)
   }
 }

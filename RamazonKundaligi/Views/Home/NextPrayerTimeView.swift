@@ -14,7 +14,7 @@ class NextPrayerTimeView: UIView {
 
   private lazy var timeLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "06:11"
+    $0.text = "-:-"
     $0.textAlignment = .center
     $0.textColor = .white
     return $0
@@ -22,7 +22,6 @@ class NextPrayerTimeView: UIView {
 
   private lazy var prayerTimeNameLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
- //   $0.text = "Bomdod"
     $0.textAlignment = .center
     $0.textColor = .white
     return $0

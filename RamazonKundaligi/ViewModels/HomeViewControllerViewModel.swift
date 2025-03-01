@@ -108,33 +108,33 @@ extension TimesViewModel {
 
 extension TimesViewModel {
   func schedulePrayerNotifications(prayerTimes: PrayerTimes) {
-      let prayers = prayerTimes.getPrayerTimesAsDates()
+    let prayers = prayerTimes.getPrayerTimesAsDates()
 
-      for (name, time) in prayers {
-          if time > Date() { // 🔹 Faqat kelajakdagi namoz vaqtlariga notification qo‘yiladi
-              scheduleNotification(namozNomi: name, vaqt: time)
-          }
+    for (name, time) in prayers {
+      if time > Date() { // 🔹 Faqat kelajakdagi namoz vaqtlariga notification qo‘yiladi
+        scheduleNotification(namozNomi: name, vaqt: time)
       }
+    }
   }
 
   func scheduleNotification(namozNomi: String, vaqt: Date) {
-      let content = UNMutableNotificationContent()
+    let content = UNMutableNotificationContent()
     guard let countryName else { return }
-      content.title = countryName // Add location name for notification
-      content.body = namozNomi // Add prayer name for notification
+    content.title = "\(countryName) namoz vaqti bo'ldi." // Add location name for notification
+  //  content.body = namozNomi // Add prayer name for notification
     content.sound = .defaultRingtone
 
-      let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: vaqt)
-      let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+    let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: vaqt)
+    let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
 
-      let request = UNNotificationRequest(identifier: namozNomi, content: content, trigger: trigger)
+    let request = UNNotificationRequest(identifier: namozNomi, content: content, trigger: trigger)
 
-      UNUserNotificationCenter.current().add(request) { error in
-          if let error = error {
-              print("❌ Notification qo‘shishda xatolik: \(error.localizedDescription)")
-          } else {
-              print("✅ \(namozNomi) uchun notification muvaffaqiyatli rejalashtirildi")
-          }
+    UNUserNotificationCenter.current().add(request) { error in
+      if let error = error {
+        print("❌ Notification qo‘shishda xatolik: \(error.localizedDescription)")
+      } else {
+        print("✅ \(namozNomi) uchun notification muvaffaqiyatli rejalashtirildi")
       }
+    }
   }
 }

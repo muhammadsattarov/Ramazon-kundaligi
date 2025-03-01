@@ -17,8 +17,19 @@ class HomeView: UIView {
     return $0
   }(UITableView(frame: .zero, style: .insetGrouped))
 
+  private let isEmptyLabel: UILabel = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.font = .systemFont(ofSize: 18, weight: .medium)
+    $0.textColor = .white
+    $0.textAlignment = .center
+    $0.numberOfLines = 0
+    $0.text = "Server bilan muammo 🌐 🛠"
+    return $0
+  }(UILabel())
+
   var prayerTimes: [PrayerTimesModel] = [] {
     didSet {
+      isEmptyLabel.isHidden = !prayerTimes.isEmpty ? true : false
       tableView.reloadData()
     }
   }
@@ -53,6 +64,7 @@ private extension HomeView {
   func setup() {
     self.backgroundColor = .clear
     self.addSubview(tableView)
+    self.addSubview(isEmptyLabel)
   }
 
   func setupTableView() {
@@ -68,6 +80,9 @@ private extension HomeView {
       tableView.leftAnchor.constraint(equalTo: self.leftAnchor),
       tableView.rightAnchor.constraint(equalTo: self.rightAnchor),
       tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+
+      isEmptyLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+      isEmptyLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -10),
     ])
   }
 }

@@ -30,5 +30,10 @@ class RamadanService: RamadanServiceProtocol {
     let entPoint = "\(Constants.ramadanScheduleUrl)\(id)"
     datafetcher.fetchData(from: entPoint, completion: completion)
   }
+
+  func fetchCurrentDay( _ id: Int, completion: @escaping (CurrentDay?) -> Void) {
+    let entPoint = "\(Constants.ramadanCurrentDayUrl)\(id)"
+    datafetcher.fetchData(from: entPoint, completion: completion)
+  }
 }
 

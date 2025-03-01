@@ -27,9 +27,11 @@ class RegionPickerViewController: UIViewController {
     $0.separatorInset = .init(top: 0, left: 10, bottom: 0, right: 10)
     $0.backgroundColor = .clear
     $0.bounces = false
+    $0.layer.cornerRadius = 12
+    $0.clipsToBounds = true
     $0.showsVerticalScrollIndicator = false
     return $0
-  }(UITableView(frame: .zero, style: .insetGrouped))
+  }(UITableView(frame: .zero, style: .plain))
 
   // MARK: - Properties
   var onSelect: ((String, String) -> Void)?
@@ -103,7 +105,6 @@ private extension RegionPickerViewController {
     print(#function)
     RamadanService.shared.fetchRegions { regions in
       if let regions {
-        print(regions)
         DispatchQueue.main.async { [weak self] in
           self?.regions = regions
           self?.restoreSelectedRegion()
@@ -116,7 +117,6 @@ private extension RegionPickerViewController {
   func fetchDistrict(id: Int) {
     RamadanService.shared.fetchDistricts(id) { districts in
       if let districts {
-        print(districts)
         DispatchQueue.main.async {  [weak self] in
           self?.districts = districts
           self?.tableView.reloadData()
@@ -173,6 +173,7 @@ private extension RegionPickerViewController {
 private extension RegionPickerViewController {
   func setConstraints() {
     let space: CGFloat = 20
+    let tableSpace: CGFloat = 15
     NSLayoutConstraint.activate([
       backButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: space),
       backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: space),
@@ -182,9 +183,9 @@ private extension RegionPickerViewController {
       titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: space),
       titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
-      tableView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 15),
-      tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-      tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+      tableView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: tableSpace),
+      tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: tableSpace),
+      tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -tableSpace),
       tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
     ])
   }

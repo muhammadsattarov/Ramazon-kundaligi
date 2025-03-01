@@ -49,6 +49,15 @@ class HomeTableHeaderView: UIView {
     return $0
   }(UIStackView(arrangedSubviews: [locatonImage, locationNameLabel]))
 
+  private let refreshButton: UIButton = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.setImage(UIImage(systemName: "arrow.triangle.2.circlepath"), for: .normal)
+    $0.tintColor = .white
+    return $0
+  }(UIButton(type: .system))
+
+  var didTapRefreshButton: (() -> Void)?
+
   // MARK: - Init
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -74,6 +83,13 @@ private extension HomeTableHeaderView {
     self.addSubview(bottomImage)
     self.addSubview(titleLabel)
     self.addSubview(locationStack)
+    self.addSubview(refreshButton)
+
+    refreshButton.addTarget(
+      self,
+      action: #selector(refreshButtonTapped),
+      for: .touchUpInside
+    )
   }
 
   func setConstraints() {
@@ -110,6 +126,19 @@ private extension HomeTableHeaderView {
 
       locationStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
       locationStack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+
+      refreshButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -35),
+      refreshButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
+      refreshButton.widthAnchor.constraint(equalToConstant: 25),
+      refreshButton.heightAnchor.constraint(equalToConstant: 23),
     ])
   }
+
+  @objc func refreshButtonTapped() {
+    didTapRefreshButton?()
+    refreshButton.rotate360Degrees()
+  }
 }
+
+
+

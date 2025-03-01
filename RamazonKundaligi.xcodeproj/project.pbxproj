@@ -26,6 +26,9 @@
 		CE688F022D721537002E3E8C /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688F012D721537002E3E8C /* SupportView.swift */; };
 		CE688F042D72183D002E3E8C /* MessengersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688F032D72183D002E3E8C /* MessengersView.swift */; };
 		CE688F062D724863002E3E8C /* DuaTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688F052D724863002E3E8C /* DuaTitleView.swift */; };
+		CE688F082D72E60F002E3E8C /* CurrentDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688F072D72E60F002E3E8C /* CurrentDay.swift */; };
+		CE688F0A2D737B11002E3E8C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688F092D737B11002E3E8C /* UIButton+Extension.swift */; };
+		CE688F0C2D73877E002E3E8C /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE688F0B2D73877E002E3E8C /* PrivacyPolicyViewController.swift */; };
 		CE72DEDC2D4378720080AFA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDB2D4378720080AFA2 /* AppDelegate.swift */; };
 		CE72DEDE2D4378720080AFA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDD2D4378720080AFA2 /* SceneDelegate.swift */; };
 		CE72DEE02D4378720080AFA2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72DEDF2D4378720080AFA2 /* MainTabBarController.swift */; };
@@ -91,6 +94,9 @@
 		CE688F012D721537002E3E8C /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
 		CE688F032D72183D002E3E8C /* MessengersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengersView.swift; sourceTree = "<group>"; };
 		CE688F052D724863002E3E8C /* DuaTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaTitleView.swift; sourceTree = "<group>"; };
+		CE688F072D72E60F002E3E8C /* CurrentDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDay.swift; sourceTree = "<group>"; };
+		CE688F092D737B11002E3E8C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		CE688F0B2D73877E002E3E8C /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		CE72DED82D4378720080AFA2 /* RamazonKundaligi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RamazonKundaligi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72DEDB2D4378720080AFA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72DEDD2D4378720080AFA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -277,6 +283,7 @@
 				CE688E612D6B0E09002E3E8C /* Region.swift */,
 				CE688E722D6E3F20002E3E8C /* Dua.swift */,
 				CE688E762D6EDF4E002E3E8C /* RamazonTaqvim.swift */,
+				CE688F072D72E60F002E3E8C /* CurrentDay.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,6 +309,7 @@
 				CE7A63F32D5DD4A300209CB1 /* UIView+Extension.swift */,
 				CE688E662D6C5E0A002E3E8C /* Bundle+Extension.swift */,
 				CE688E682D6C614C002E3E8C /* UIViewContorller+Extension.swift */,
+				CE688F092D737B11002E3E8C /* UIButton+Extension.swift */,
 				CE688E6D2D6DC0F1002E3E8C /* PrayerTimes.swift */,
 			);
 			path = Extensions;
@@ -324,6 +332,7 @@
 			children = (
 				CEF7C9A82D670C2100A7662E /* RegionPickerViewController.swift */,
 				CE688EF62D706BA8002E3E8C /* AboutAppViewController.swift */,
+				CE688F0B2D73877E002E3E8C /* PrivacyPolicyViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -531,8 +540,10 @@
 				CE72DEDC2D4378720080AFA2 /* AppDelegate.swift in Sources */,
 				CE72DF0C2D438E8D0080AFA2 /* HomeTableHeaderView.swift in Sources */,
 				CEF7C9AC2D67137200A7662E /* SettingsTableViewCell.swift in Sources */,
+				CE688F082D72E60F002E3E8C /* CurrentDay.swift in Sources */,
 				CE72DEDE2D4378720080AFA2 /* SceneDelegate.swift in Sources */,
 				CE72DF152D440D250080AFA2 /* TodayDateHeaderView.swift in Sources */,
+				CE688F0C2D73877E002E3E8C /* PrivacyPolicyViewController.swift in Sources */,
 				CE72DF0E2D438EC00080AFA2 /* Constants.swift in Sources */,
 				CEF7C9A72D67063500A7662E /* RamadanService.swift in Sources */,
 				CE688E792D6EE504002E3E8C /* NetworkService.swift in Sources */,
@@ -558,6 +569,7 @@
 				CE72DF002D437C1C0080AFA2 /* DuaViewController.swift in Sources */,
 				CE72DF112D4398D80080AFA2 /* OnboardingViewController.swift in Sources */,
 				CE8B74E52D631E9000AB783A /* LocationService.swift in Sources */,
+				CE688F0A2D737B11002E3E8C /* UIButton+Extension.swift in Sources */,
 				CE8B74E72D631F4B00AB783A /* HomeViewControllerViewModel.swift in Sources */,
 				CE8B74E92D632F0200AB783A /* PrayerTimesModel.swift in Sources */,
 				CEC5B7732D4A23C300E4402F /* CalendarHeaderView.swift in Sources */,

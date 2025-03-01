@@ -4,7 +4,7 @@ import UIKit
 
 class AboutAppTextView: UIView {
 
-  private let textLabel: UILabel = {
+  let textLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.numberOfLines = 0
     $0.font = .systemFont(ofSize: 15, weight: .regular)
@@ -39,9 +39,9 @@ private extension AboutAppTextView {
     self.backgroundColor = .clear
     self.addSubview(containerView)
     containerView.addSubview(textLabel)
-    textLabel.text = """
-Ushbu ilova Ramazon oyida hamyurtlarimizga mo'min-musulmonlar uchun kundalik hayotda kerak bo'lib turadigan namoz va ro'za taqvimini o'z ichiga olgan. Ramazon taqvimi O'zbekiston musulmonlar idorasi tomonidan taqdim etilgan taqvimga asoslangan holda yaratilgan. Agar ilovamiz kimgadir foydali bo'lsa biz bundan mamnunmiz.
-"""
+//    textLabel.text = """
+//Ushbu ilova Ramazon oyida hamyurtlarimizga mo'min-musulmonlar uchun kundalik hayotda kerak bo'lib turadigan namoz va ro'za taqvimini o'z ichiga olgan. Ramazon taqvimi O'zbekiston musulmonlar idorasi tomonidan taqdim etilgan taqvimga asoslangan holda yaratilgan. Agar ilovamiz kimgadir foydali bo'lsa biz bundan mamnunmiz.
+//"""
   }
 
   func setConstraints() {

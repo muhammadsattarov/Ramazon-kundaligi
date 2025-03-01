@@ -60,7 +60,6 @@ private extension CalendarViewController {
     view.backgroundColor = .fonGreenColor
     addSubviews()
     setConstraints()
-//    fetchDataFromBackend()
   }
 }
 
@@ -76,18 +75,26 @@ private extension CalendarViewController {
         }
       }
     }
+
+    RamadanService.shared.fetchCurrentDay(districtID) { [weak self] currentDay in
+      guard let self = self else { return }
+      if let currentDay {
+        self.calendarTableView.configure(with: currentDay)
+      }
+    }
+
   }
 
   func updateCurrentData() {
-    print(#function)
     guard let currentDay = getCurrentPrayerTimes() else { return }
     guard let region = ramadanSchedule else { return }
-    print("\(region.region), \(region.district)")
     calendarHeaderView.locationNameLabel.text = "\(region.region), \(region.district)"
     DispatchQueue.main.async { [weak self] in
       guard let self = self else { return }
-      self.calendarHeaderView.saharlikView.configure(with: "saharlik", time: currentDay.saharlik)
-      self.calendarHeaderView.iftorlikView.configure(with: "iftorlik", time: currentDay.iftorlik)
+      self.calendarHeaderView.saharlikView.configure(with: Bundle.localizedString(forKey: "saharlik"),
+                                                     time: currentDay.saharlik)
+      self.calendarHeaderView.iftorlikView.configure(with: Bundle.localizedString(forKey: "iftorlik"),
+                                                     time: currentDay.iftorlik)
     }
   }
 
@@ -97,7 +104,6 @@ private extension CalendarViewController {
     formatter.locale = Locale(identifier: "uz_UZ")
 
     let currentDate = formatter.string(from: Date())
-    print(currentDate)
     if let prayerTime = ramadanSchedule?.times.first(where: { $0.date_time.lowercased() == currentDate.lowercased() }) {
       return (prayerTime.saharlik, prayerTime.iftorlik)
     }
@@ -118,8 +124,8 @@ private extension CalendarViewController {
       guard let self = self else { return }
       self.showCustomAlert(
         title: "Taqvimda biroz farq bo'lishi mumkin. Shu sababdan taqvimdagi saharlik(og'iz yopish) vaqtidan 5-10 daqiqa oldin og'iz yopish tavsiya qilinadi. Iftorlik(og'iz ochish) vaqtida esa shom kirganiga ishonch hosil qilib og'iz ochish tavsiya etiladi.",
-        showCancelButton: false,
-        buttonTitle: "Tushinarli") {
+        buttonTitle: "Tushinarli",
+        isLarge: true) {
           print("Tushinarli")
         }
     }

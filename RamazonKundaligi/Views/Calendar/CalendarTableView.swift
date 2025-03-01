@@ -17,6 +17,9 @@ class CalendarTableView: UIView {
   }(UITableView())
 
   private var calendarData: RamazonTaqvim?
+  private var currentDay: CurrentDay?
+
+  var isToday: Bool?
 
   // MARK: - Init
   override init(frame: CGRect) {
@@ -25,12 +28,17 @@ class CalendarTableView: UIView {
     setConstraints()
   }
 
-  func configure(with model: RamazonTaqvim) {
-    DispatchQueue.main.async { [weak self] in
-      guard let self = self else { return }
-      self.calendarData = model
-      self.tableView.reloadData()
-    }
+  func configure<T>(with model: T) {
+      DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
+
+          if let calendarModel = model as? RamazonTaqvim {
+              self.calendarData = calendarModel
+          } else if let prayerModel = model as? CurrentDay {
+              self.currentDay = prayerModel
+          }
+          self.tableView.reloadData()
+      }
   }
 
   required init?(coder: NSCoder) {
@@ -73,14 +81,23 @@ extension CalendarTableView: UITableViewDataSource, UITableViewDelegate {
       return UITableViewCell()
     }
     cell.selectionStyle = .none
-    let ramadanCount = RamazonTaqvim.ramadanCount[indexPath.row]
     guard let data = calendarData?.times[indexPath.row] else { return UITableViewCell() }
+    guard let ramadanCount = RamazonTaqvim.ramadanCount?[indexPath.row] else { return UITableViewCell() }
     cell.configure(with: ramadanCount,
                    model: data)
+    if data.saharlik == currentDay?.saharlik {
+      cell.isToday = true
+    } else {
+      cell.isToday = false
+    }
     return cell
   }
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    guard let data = calendarData?.times[indexPath.row] else { return 50 }
+    if data.saharlik == currentDay?.saharlik {
+      return 60
+    }
     return 50
   }
 }

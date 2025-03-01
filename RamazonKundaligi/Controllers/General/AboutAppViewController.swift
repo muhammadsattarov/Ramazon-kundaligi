@@ -13,7 +13,7 @@ class AboutAppViewController: UIViewController {
   private lazy var containerStack: UIStackView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.axis = .vertical
-    $0.spacing = 10
+    $0.spacing = 5
     return $0
   }(UIStackView())
 
@@ -37,7 +37,8 @@ class AboutAppViewController: UIViewController {
 
   private let versionView = SettingsHeaderVersionView(isLarge: true)
   private let aboutAppTextView = AboutAppTextView()
-  private let supportView = SupportView()
+  private let privacyPolicyView = SupportView(title: "Mahfiylik siyosati", icon: "hand.raised")
+  private let supportView = SupportView(title: Bundle.localizedString(forKey: "support"), icon: "location")
   private let messengersView = MessengersView()
 
   // MARK: - Override Methods
@@ -53,7 +54,11 @@ class AboutAppViewController: UIViewController {
   }
 
   override func updateUI() {
-    navigationItem.title = Bundle.localizedString(forKey: "about_app")
+    versionView.titleLabel.text = Bundle.localizedString(forKey: "ramadan_schedule")
+    versionView.versionLabel.text = Bundle.localizedString(forKey: "interpretation_title")
+    aboutAppTextView.textLabel.text = Bundle.localizedString(forKey: "support_description")
+ //   supportView.textLabel.text = Bundle.localizedString(forKey: "support")
+    messengersView.titleLabel.text = Bundle.localizedString(forKey: "name_in_uzb")
   }
 }
 
@@ -76,6 +81,7 @@ private extension AboutAppViewController {
     containerStack.addArrangedSubview(spaceView)
     containerStack.addArrangedSubview(versionView)
     containerStack.addArrangedSubview(aboutAppTextView)
+    containerStack.addArrangedSubview(privacyPolicyView)
     containerStack.addArrangedSubview(supportView)
     containerStack.addArrangedSubview(messengersView)
 
@@ -84,7 +90,6 @@ private extension AboutAppViewController {
     messengersView.delegate = self
     versionView.translatesAutoresizingMaskIntoConstraints = false
     aboutAppTextView.translatesAutoresizingMaskIntoConstraints = false
-    supportView.translatesAutoresizingMaskIntoConstraints = false
     messengersView.translatesAutoresizingMaskIntoConstraints = false
     messengersView.heightAnchor.constraint(equalToConstant: 100).isActive = true
   }
@@ -93,6 +98,19 @@ private extension AboutAppViewController {
 // MARK: - Setup Views
 private extension AboutAppViewController {
   func setConstraints() {
+    let cancelTopSpace: CGFloat
+    let screenType = UIView.ScreenSizeType.current()
+    switch screenType {
+    case .small:
+      cancelTopSpace = 35
+    case .mini:
+      cancelTopSpace = 75
+    case .pro:
+      cancelTopSpace = 80
+    case .proMax:
+      cancelTopSpace = 80
+    }
+
     NSLayoutConstraint.activate([
       scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
       scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
@@ -106,7 +124,7 @@ private extension AboutAppViewController {
       containerStack.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
 
       backButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
-      backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+      backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: cancelTopSpace),
       backButton.widthAnchor.constraint(equalToConstant: 35),
       backButton.heightAnchor.constraint(equalToConstant: 35),
     ])
@@ -121,13 +139,24 @@ private extension AboutAppViewController {
       action: #selector(didTapBackButton),
       for: .touchUpInside
     )
-
+    let privacyPolicyGesture = UITapGestureRecognizer(target: self, action: #selector(didTapPrivacyPolicy))
+    privacyPolicyView.addGestureRecognizer(privacyPolicyGesture)
     let supportGesture = UITapGestureRecognizer(target: self, action: #selector(didTapSupport))
     supportView.addGestureRecognizer(supportGesture)
   }
 
+  @objc func didTapPrivacyPolicy() {
+    let vc = PrivacyPolicyViewController()
+    guard let url = URL(string: Constants.privacyPolicy) else {
+      print("Invalid url")
+      return
+    }
+    vc.configure(url)
+    present(vc, animated: true)
+  }
+
   @objc func didTapSupport() {
-    print(#function)
+    showActionSheet()
   }
 
   @objc func didTapBackButton() {
@@ -137,12 +166,39 @@ private extension AboutAppViewController {
 
 extension AboutAppViewController: MessengersViewProtocol {
   func telegramIconTapped() {
-    print(#function)
+    customAlert(text: Bundle.localizedString(forKey: "support_alert_title"))
   }
   
   func instaIconTapped() {
-    print(#function)
+    openSocialMedia(urlString: Constants.instaUrl)
   }
   
-
 }
+
+// MARK: - Custom alert and ActionSheet
+extension AboutAppViewController {
+  func showActionSheet() {
+    let alert = UIAlertController(
+      title: Bundle.localizedString(forKey: "support"),
+      message: nil,
+      preferredStyle: .actionSheet
+    )
+    alert.addAction(UIAlertAction(title: Bundle.localizedString(forKey: "insta_direct"),
+                                  style: .default, handler: { _ in
+      self.openSocialMedia(urlString: Constants.instaUrl)
+    }))
+    alert.addAction(UIAlertAction(title: Bundle.localizedString(forKey: "Yopish"),
+                                  style: .cancel))
+    present(alert, animated: true)
+  }
+
+  func openSocialMedia(urlString: String) {
+      if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+          UIApplication.shared.open(url, options: [:], completionHandler: nil)
+      }
+  }
+}
+
+
+
+

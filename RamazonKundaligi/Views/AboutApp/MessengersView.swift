@@ -29,9 +29,8 @@ class MessengersView: UIView {
     return $0
   }(UIImageView())
 
-  private lazy var titleLabel: UILabel = {
+  lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "O'zbekistonda ishlab chiqarilgan"
     $0.textColor = .lightGray
     $0.textAlignment = .center
     $0.font = .systemFont(ofSize: 13, weight: .regular)

@@ -1,8 +1,12 @@
-//
-//  CurrentDay.swift
-//  RamazonKundaligi
-//
-//  Created by user on 01/03/25.
-//
+
+
+
 
 import Foundation
+
+struct CurrentDay: Codable {
+  let region: String
+  let district: String
+  let saharlik: String
+  let iftorlik: String
+}

@@ -106,9 +106,10 @@ extension SettingsViewController: SettingsTableViewDelegate {
   }
 
   func didTapShareApp() {
-    let appStoreURL = URL(string: "https://apps.apple.com/app/idYOUR_APP_ID")!
-    let activityViewController = UIActivityViewController(activityItems: [appStoreURL], applicationActivities: nil)
-    present(activityViewController, animated: true)
+    customAlert(text: Bundle.localizedString(forKey: "share_alert_title"))
+//    let appStoreURL = URL(string: "https://apps.apple.com/app/idYOUR_APP_ID")!
+//    let activityViewController = UIActivityViewController(activityItems: [appStoreURL], applicationActivities: nil)
+//    present(activityViewController, animated: true)
   }
   
   func didTapAppEvalution() {

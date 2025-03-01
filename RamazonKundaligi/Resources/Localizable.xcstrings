@@ -300,6 +300,29 @@
         }
       }
     },
+    "insta_direct" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instagram direct"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Инстаграм Директ"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instagram direct"
+          }
+        }
+      }
+    },
     "interpretation_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -365,6 +388,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tonggi \nzikrlar"
+          }
+        }
+      }
+    },
+    "name_in_uzb" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O'zbekistonda ishlab chiqarilgan"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Ўзбекистонда ишлаб чиқарилган"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O'zbekistonda ishlab chiqarillgan"
           }
         }
       }
@@ -668,6 +714,29 @@
         }
       }
     },
+    "share_alert_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ulashish imkoniyati keyingi versiyada qo'shiladi."
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Улашиш имконияти кейинги версияда қўшилади."
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ulashish imkoniyati keyingi versiyada qo'shiladi."
+          }
+        }
+      }
+    },
     "share_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -710,6 +779,75 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Shom"
+          }
+        }
+      }
+    },
+    "support" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Qo'llab-quvvatlash xizmati"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Қўллаб-қувватлаш хизмати"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Qo'llab quvvatlash xizmati"
+          }
+        }
+      }
+    },
+    "support_alert_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ushbu messenger keyingi versiyada ishga tushadi."
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ушбу мессенжер кейинги версияда ишга тушади."
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ushbu messenger keyingi versiyada ishga tushadi."
+          }
+        }
+      }
+    },
+    "support_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ushbu ilova Ramazon oyida hamyurtlarimizga, mo'min-musulmonlar uchun kundalik hayotda kerak bo'lib turadigan namoz va ro'za taqvimini o'z ichiga olgan. Ramazon taqvimi O'zbekiston musulmonlar idorasi tomonidan taqdim etilgan taqvimga asoslangan holda yaratilgan. Agar ilovamiz kimgadir foydali bo'lsa biz bundan mamnunmiz."
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ушбу илова Рамазон ойида ҳамюртларимизга, мўмин-мусулмонлар учун кундалик ҳаётда керак бўлиб турадиган намоз ва рўза тақвимини ўз ичига олган. Рамазон тақвими Ўзбекистон мусулмонлар идораси томонидан тақдим этилган тақвимга асосланган ҳолда яратилган. Агар иловамиз кимгадир фойдали бўлса биз бундан мамнунмиз."
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ushbu ilova Ramazon oyida hamyurtlarimizga, mo'min-musulmonlar uchun kundalik hayotda kerak bo'lib turadigan namoz va ro'za taqvimini o'z ichiga olgan. Ramazon taqvimi O'zbekiston musulmonlar idorasi tomonidan taqdim etilgan taqvimga asoslangan holda yaratilgan. Agar ilovamiz kimgadir foydali bo'lsa biz bundan mamnunmiz."
           }
         }
       }
@@ -802,6 +940,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tong"
+          }
+        }
+      }
+    },
+    "Yopish" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yopish"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Йопиш"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yopish"
           }
         }
       }
