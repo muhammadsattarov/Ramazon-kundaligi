@@ -2,6 +2,7 @@
 
 
 import CoreLocation
+import UIKit
 
 // MARK: - LocationService
 protocol LocationServiceProtocol {

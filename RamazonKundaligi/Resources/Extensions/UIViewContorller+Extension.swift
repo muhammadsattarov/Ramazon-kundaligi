@@ -18,7 +18,6 @@ extension UIViewController {
 extension UIViewController {
   func showCustomAlert(title: String,
                        buttonTitle: String?,
-                       isLarge: Bool,
                        okAction: @escaping () -> Void) {
     // Add blur effect
     let blurEffectView = addBlurEffect()
@@ -27,47 +26,10 @@ extension UIViewController {
     alert.alpha = 0
     view.addSubview(alert)
 
-    let alertWidth: CGFloat
-    let alertHeight: CGFloat
-
-    let screenType = UIView.ScreenSizeType.current()
-    if isLarge {
-      switch screenType {
-      case .small:
-        alertWidth = windowWidth-55
-        alertHeight = windowHeight/3
-      case .mini:
-        alertWidth = windowWidth-60
-        alertHeight = windowHeight/4
-      case .pro:
-        alertWidth = windowWidth-50
-        alertHeight = windowHeight/4.5
-      case .proMax:
-        alertWidth = windowWidth-60
-        alertHeight = windowHeight/4.8
-      }
-    } else {
-      switch screenType {
-      case .small:
-        alertWidth = windowWidth-60
-        alertHeight = windowHeight/5.5
-      case .mini:
-        alertWidth = windowWidth-60
-        alertHeight = windowHeight/7
-      case .pro:
-        alertWidth = windowWidth-60
-        alertHeight = windowHeight/7
-      case .proMax:
-        alertWidth = windowWidth-60
-        alertHeight = windowHeight/7
-      }
-    }
-
     NSLayoutConstraint.activate([
-      alert.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       alert.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-      alert.widthAnchor.constraint(equalToConstant: alertWidth),
-      alert.heightAnchor.constraint(equalToConstant: alertHeight)
+      alert.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
+      alert.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30)
     ])
 
     alert.configureActions(cancelAction: {
@@ -125,10 +87,35 @@ extension UIViewController {
     DispatchQueue.main.async { [weak self] in
       guard let self = self else { return }
       self.showCustomAlert(title: text,
-                           buttonTitle: Bundle.localizedString(forKey: "Yopish"),
-                           isLarge: false) {
+                           buttonTitle: Bundle.localizedString(forKey: "Yopish")) {
         print("Alert")
       }
     }
   }
+
+  func checkUserAccessLocationAlert() {
+    let alert = UIAlertController(
+      title: "Ilovani ishlashi uchun joylashuvni kuzatishga ruhsat bering.",
+      message: "Iltimos serverdan malumotlarni olish uchun joylashuv sozlamalariga ruhsat bering.", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Sozlamalarga o'tish",
+                                  style: .default, handler: { _ in
+      if let settingsURL = URL(string: UIApplication.openSettingsURLString),
+         UIApplication.shared.canOpenURL(settingsURL) {
+        UIApplication.shared.open(settingsURL)
+      }
+    }))
+    present(alert, animated: true)
+  }
+}
+
+extension UIViewController {
+  static func getTopViewController() -> UIViewController? {
+        if let topVC = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .flatMap({ $0.windows })
+            .first(where: { $0.isKeyWindow })?.rootViewController {
+            return topVC
+        }
+        return nil
+    }
 }

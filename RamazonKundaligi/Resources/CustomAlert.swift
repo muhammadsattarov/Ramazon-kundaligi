@@ -7,7 +7,7 @@ class CustomAlert: UIView {
   private lazy var titleLabel: UILabel = {
     $0.textAlignment = .center
     $0.numberOfLines = 0
-    $0.font = .systemFont(ofSize: 15, weight: .regular)
+    $0.font = .systemFont(ofSize: 16, weight: .regular)
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.textColor = .black
     return $0
@@ -59,20 +59,6 @@ private extension CustomAlert {
   }
 
   func setConstraints() {
-    let labelFont: UIFont
-    let screenType = UIView.ScreenSizeType.current()
-    switch screenType {
-    case .small:
-      labelFont = .systemFont(ofSize: 15, weight: .regular)
-    case .mini:
-      labelFont = .systemFont(ofSize: 15, weight: .regular)
-    case .pro:
-      labelFont = .systemFont(ofSize: 15, weight: .regular)
-    case .proMax:
-      labelFont = .systemFont(ofSize: 16, weight: .regular)
-    }
-    titleLabel.font = labelFont
-
     let titleSpace: CGFloat = 15
     NSLayoutConstraint.activate([
       titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: titleSpace),

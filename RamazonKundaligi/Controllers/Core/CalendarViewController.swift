@@ -124,8 +124,7 @@ private extension CalendarViewController {
       guard let self = self else { return }
       self.showCustomAlert(
         title: "Taqvimda biroz farq bo'lishi mumkin. Shu sababdan taqvimdagi saharlik(og'iz yopish) vaqtidan 5-10 daqiqa oldin og'iz yopish tavsiya qilinadi. Iftorlik(og'iz ochish) vaqtida esa shom kirganiga ishonch hosil qilib og'iz ochish tavsiya etiladi.",
-        buttonTitle: "Tushinarli",
-        isLarge: true) {
+        buttonTitle: Bundle.localizedString(forKey: "Yopish")) {
           print("Tushinarli")
         }
     }

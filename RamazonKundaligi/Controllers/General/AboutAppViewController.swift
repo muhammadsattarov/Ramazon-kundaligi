@@ -20,7 +20,14 @@ class AboutAppViewController: UIViewController {
   private let spaceView: UIView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.backgroundColor = .clear
-    $0.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    $0.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    return $0
+  }(UIView())
+
+  private let secondSpaceView: UIView = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.backgroundColor = .clear
+    $0.heightAnchor.constraint(equalToConstant: 50).isActive = true
     return $0
   }(UIView())
 
@@ -37,7 +44,7 @@ class AboutAppViewController: UIViewController {
 
   private let versionView = SettingsHeaderVersionView(isLarge: true)
   private let aboutAppTextView = AboutAppTextView()
-  private let privacyPolicyView = SupportView(title: "Mahfiylik siyosati", icon: "hand.raised")
+  private let privacyPolicyView = SupportView(title: Bundle.localizedString(forKey: "Mahfiylik siyosati"), icon: "hand.raised")
   private let supportView = SupportView(title: Bundle.localizedString(forKey: "support"), icon: "location")
   private let messengersView = MessengersView()
 
@@ -57,7 +64,6 @@ class AboutAppViewController: UIViewController {
     versionView.titleLabel.text = Bundle.localizedString(forKey: "ramadan_schedule")
     versionView.versionLabel.text = Bundle.localizedString(forKey: "interpretation_title")
     aboutAppTextView.textLabel.text = Bundle.localizedString(forKey: "support_description")
- //   supportView.textLabel.text = Bundle.localizedString(forKey: "support")
     messengersView.titleLabel.text = Bundle.localizedString(forKey: "name_in_uzb")
   }
 }
@@ -84,6 +90,7 @@ private extension AboutAppViewController {
     containerStack.addArrangedSubview(privacyPolicyView)
     containerStack.addArrangedSubview(supportView)
     containerStack.addArrangedSubview(messengersView)
+    containerStack.addArrangedSubview(secondSpaceView)
 
     view.addSubview(backButton)
 

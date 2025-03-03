@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   var window: UIWindow?
-
+  private let location = CLLocationManager()
 
   func scene(_ scene: UIScene,
              willConnectTo session: UISceneSession,
@@ -26,7 +27,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     UserDefaults.standard.set(false, forKey: Constants.didShowAlert)
   }
 
-  func sceneDidBecomeActive(_ scene: UIScene) {}
+  func sceneDidBecomeActive(_ scene: UIScene) {
+    let status = location.authorizationStatus
+
+    if status == .denied || status == .restricted {
+      if let topVC = UIViewController.getTopViewController() {
+        topVC.checkUserAccessLocationAlert()
+      }
+    }
+  }
 
   func sceneWillResignActive(_ scene: UIScene) {}
 

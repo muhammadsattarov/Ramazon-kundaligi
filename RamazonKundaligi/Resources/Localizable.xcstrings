@@ -346,6 +346,29 @@
         }
       }
     },
+    "Mahfiylik siyosati" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mahfiylik siyosati"
+          }
+        },
+        "uz-Cyrl-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Махфийлик сиёсати"
+          }
+        },
+        "uz-UZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mahfiylik siyosati"
+          }
+        }
+      }
+    },
     "morning_dua_title" : {
       "extractionState" : "manual",
       "localizations" : {

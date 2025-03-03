@@ -18,7 +18,13 @@ class PrivacyPolicyViewController: UIViewController {
     return $0
   }(UIButton(type: .system))
 
-  let webView = WKWebView()
+  let webView: WKWebView = {
+    let webConfiguration = WKWebViewConfiguration()
+    webConfiguration.processPool = WKProcessPool()
+    let webView = WKWebView(frame: .zero, configuration: webConfiguration)
+    webView.translatesAutoresizingMaskIntoConstraints = false
+    return webView
+  }()
 
   private(set) var urlString: URL? {
     didSet {
@@ -33,19 +39,17 @@ class PrivacyPolicyViewController: UIViewController {
   }
 
   func configure(_ url: URL) {
-    print("URl:", url)
     self.urlString = url
- //   updateWebView()
   }
 }
 
+// MARK: - Setup Views
 private extension PrivacyPolicyViewController {
   func setupViews() {
     view.backgroundColor = .white
     view.addSubview(headerView)
     headerView.addSubview(backButton)
     view.addSubview(webView)
-    webView.translatesAutoresizingMaskIntoConstraints = false
     setConstraints()
     addActions()
   }
@@ -53,13 +57,13 @@ private extension PrivacyPolicyViewController {
   func updateWebView() {
     DispatchQueue.main.async { [weak self] in
       if let url = self?.urlString {
-        print(url)
         self?.webView.load(URLRequest(url: url))
       }
     }
   }
 }
 
+// MARK: - Cosntraints
 private extension PrivacyPolicyViewController {
   func setConstraints() {
     NSLayoutConstraint.activate([
